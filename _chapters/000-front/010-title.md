@@ -1,10 +1,10 @@
 ---
 slug: book
-title: Demo Book
+title: Prelude
 abstract: An example book for showcasing the Jekyll Chapterbook theme.
 ---
 
-By Jason Grimes
+By Dhananjay
 
 Copyright &copy; {{"now" | date: "%Y"}} by {{site.author}}.
 
