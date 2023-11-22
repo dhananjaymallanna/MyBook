@@ -165,7 +165,7 @@ defaults:
 markdown:         kramdown
 kramdown:
   auto_ids:               true
-  input:                  GFM
+  input:                  kramdown
   math_engine:            mathjax
   smart_quotes:           lsquo,rsquo,ldquo,rdquo
   toc_levels:             1..6
