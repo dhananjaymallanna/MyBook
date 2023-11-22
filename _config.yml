@@ -139,10 +139,7 @@ destination: ./_site
 incremental: false
 regenerate: true
 
-plugins:
-#  - jekyll-feed
-  - jekyll-readme-index
-#  - jemoji
+
 
 collections:
   chapters:
@@ -163,17 +160,6 @@ defaults:
 
 # Markdown render engine.
 markdown:         kramdown
-kramdown:
-  auto_ids:               true
-  input:                  kramdown
-  math_engine:            mathjax
-  smart_quotes:           lsquo,rsquo,ldquo,rdquo
-  toc_levels:             1..6
-  syntax_highlighter:     rouge
-  syntax_highlighter_opts:
-    guess_lang:           true
-syntax_highlighter_style: colorful
-markdown_ext:     markdown,mkdown,mkdn,mkd,md
 
 jekyll-spaceship:
   # default enabled processors
@@ -239,6 +225,6 @@ jekyll-spaceship:
 plugins:
   - jekyll-feed
   - jekyll-spaceship
-
+  - jekyll-readme-index
 
 
