@@ -23,7 +23,7 @@ abstract: Approach for System Design
   * selection of ideal way for storage
 * With latency in hand, TPS requirements, CPU core availability caliculate the number of Nodes needed.
     * lets us say 
-  ```
+
     TPS = 10,000.  -------- 1
     say the API has latency of 10 milliseconds
     Hence, 1 thread can process 100 rps  -------- 2
@@ -33,26 +33,11 @@ abstract: Approach for System Design
     from 1 and 4:
     number of such cpus neeed = 10000/400 = 25.
 
-    $$
-    \begin{aligned}
         Number of active threads = cpuCore * (latency/(latency-ioTime))
-    \end{aligned}
-    $$
 
-    ```mermaid
-        graph TD;
-        A-->B;
-        A-->C;
-        B-->D;
-        C-->D;
-    ```
+    When $a \ne 0$, there are two solutions to $(ax^2 + bx + c = 0)$ and they are 
+$$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$
 
-
-
-
-
-  * ```number of nodes = TPS*1000/(CPU cores * 2 * latency in milliseconds)```
-  * ```10000/1000*2*2*10``` 
 
 [Learn more about getting started with this theme.]({{ site.baseurl }}/index.html#getting-started)
 
