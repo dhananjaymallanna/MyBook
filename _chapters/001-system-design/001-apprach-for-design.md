@@ -168,6 +168,8 @@ performance requirements, scalability needs, and security concerns.
     - RAM
       - At 1M concurrent users, assuming each user connection needs 10K of
         memory on the server, about 10GB of memory to hold all the connections
+    - Concurrency
+      - Number of concurrent threads = cpuCore * (latency/(latency-ioTime))
     - ...
 - Data Flows (Data models and data flows between them)
   - Database (Choose database system is also part of this)
@@ -728,6 +730,7 @@ benefits for developers, which also are used to Object-Oriented class design.
   - The introduction of concurrency will greatly increase the complexity of the
     code and increase the difficulty of maintaining data consistency. It's often
     only used as the ultimate optimization method.
+  - Number of concurrent threads = cpuCore * (latency/(latency-ioTime))
 
 ### Testing (Validate the design)
 
@@ -787,30 +790,8 @@ Additionally, it’s important to communicate the design effectively to all
 stakeholders, including developers, users, and stakeholders, to ensure that the
 system meets their needs and expectations.
 
-## References
-
-- [System Design Primer](https://github.com/donnemartin/system-design-primer)
-- [System Design Tutorial](https://www.geeksforgeeks.org/system-design-tutorial/)
-- [System Design Cheatsheet](https://gist.github.com/vasanthk/485d1c25737e8e72759f)
-- [The complete guide to System Design in 2023](https://www.educative.io/blog/complete-guide-to-system-design)
-- [What are NoSQL Databases](https://aws.amazon.com/nosql/)
-- [Work through my solution to a system design interview question](https://levelup.gitconnected.com/work-through-my-solution-to-a-system-design-interview-question-a8ea4b60513b)
-- [System Design of Uber App – Uber System Architecture](https://www.geeksforgeeks.org/system-design-of-uber-app-uber-system-architecture/)
-
-    TPS = 10,000.  -------- 1
-    say the API has latency of 10 milliseconds
-    Hence, 1 thread can process 100 rps  -------- 2
-    say CPU has 2 cores, so max 4 threads are running in parallel (hypothetically) -------- 3
-    i.e. the machine can serve 400 rps. -------- 4
-
-    from 1 and 4:
-    number of such cpus neeed = 10000/400 = 25.
-
-        Number of active threads = cpuCore * (latency/(latency-ioTime))
-
-    When $a \ne 0$, there are two solutions to $(ax^2 + bx + c = 0)$ and they are 
-$$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$
-
+    
+       
 
 [Learn more about getting started with this theme.]({{ site.baseurl }}/index.html#getting-started)
 

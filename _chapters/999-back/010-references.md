@@ -53,6 +53,15 @@ Berg, C. (1997). *Mastering Guitar Technique: Process and Essence (Classic Guita
 
 ## References
 
+- [System Design Primer](https://github.com/donnemartin/system-design-primer)
+- [System Design Tutorial](https://www.geeksforgeeks.org/system-design-tutorial/)
+- [System Design Cheatsheet](https://gist.github.com/vasanthk/485d1c25737e8e72759f)
+- [The complete guide to System Design in 2023](https://www.educative.io/blog/complete-guide-to-system-design)
+- [What are NoSQL Databases](https://aws.amazon.com/nosql/)
+- [Work through my solution to a system design interview question](https://levelup.gitconnected.com/work-through-my-solution-to-a-system-design-interview-question-a8ea4b60513b)
+- [System Design of Uber App – Uber System Architecture](https://www.geeksforgeeks.org/system-design-of-uber-app-uber-system-architecture/)
+
+
 
 Berg, C. (1997). *Mastering Guitar Technique: Process and Essence (Classic Guitar).* Mel Bay Publications, Inc.
 [ISBN 978-1-610-65058-8](https://en.wikipedia.org/wiki/Special:BookSources?isbn=978-1-610-65058-8){:#berg-1997}.
