@@ -5,6 +5,9 @@ disable_toc: true
 #class: references
 ---
 
+Must read 
+https://www.cs.uni.edu/~wallingf/patterns/elementary/papers/coding-at-the-lowest-level.pdf
+
 This is an example chapter for citing references. 
 
 See the [Scribbr citation generator](https://www.scribbr.com/citation/generator/) to generate citations in the desired style.
