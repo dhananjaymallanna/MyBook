@@ -37,6 +37,9 @@ jobs:
       - name: install all needed
         run: |
             bundle install
+      - name: Clean with Jekyll
+        run: |
+            bundle exec jekyll clean
       - name: Build with Jekyll
         run: |
             bundle exec jekyll build
