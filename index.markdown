@@ -4,3 +4,5 @@
 
 layout: home
 ---
+
+![image-title-here](assets/gitbook/images/coverpage.png){:class="img-responsive"}
