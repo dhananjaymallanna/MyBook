@@ -226,5 +226,6 @@ plugins:
   - jekyll-feed
   - jekyll-spaceship
   - jekyll-readme-index
+  - jekyll-pdf-embed
 
 
