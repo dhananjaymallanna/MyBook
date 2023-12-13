@@ -107,7 +107,7 @@ in_chapter_toc:
 # Whether to show chapter heading sub-navigation beneath the active chapter in the sidebar.
 # Override in page front matter with disable_toc: true
 sidebar_toc:
-  enabled: false
+  enabled: true
   h_min: 2
   h_max: 3
 

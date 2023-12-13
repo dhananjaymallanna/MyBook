@@ -11,7 +11,7 @@ Array problems
 
 Moving elements within array and searching are core problems. This is the foundation.
 
-1. Move Negative elements to front
+- [ ] Move Negative elements to front
     
     [Move Negative elements to front](https://iq.opengenus.org/move-negative-elements-to-front/) is a simple problem that tests your knowledge of how to move elements across an array. These involve partition algorithms like [Lomuto](https://iq.opengenus.org/lomuto-partition-scheme/) and [Hoare](https://iq.opengenus.org/hoare-partition/) Partition Scheme and has direct application in algorithms like QuickSort.
     
@@ -19,15 +19,15 @@ Moving elements within array and searching are core problems. This is the founda
     
     [2 Sum problem](https://iq.opengenus.org/two-sum/) is a standard problem where you need to find two elements that add up to a given number. The advanced form is to find 2 numbers whose [sum to closest to the target](https://iq.opengenus.org/2-sum-closest/).
     
-1. 3 Sum Problem
+2. 3 Sum Problem
     
     In Interviews, you need to build on problems. [3 Sum problem](https://iq.opengenus.org/triplet-with-given-sum/) tests your knowledge from the previous problem.
     
-1. 3 Sum Closest Problem
+3. 3 Sum Closest Problem
     
     You have attempted the 2 Sum Closest problem variant but can you use similar ideas to solve [3 Sum Closest](https://iq.opengenus.org/closest-3-sum-problem/) problem as well.
     
-1. 4 Sum Problem
+4. 4 Sum Problem
     
     [4 Sum problem](https://iq.opengenus.org/4-sum-problem/) brings in new ideas and puts your knowledge from previous problems to test. If you are able to solve it, try the 4 Sum Closest problem on your own.
     
