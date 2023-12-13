@@ -1,8 +1,11 @@
 ---
 slug: book
 title: Prelude
-abstract: An example book for showcasing the Jekyll Chapterbook theme.
+abstract: 
 ---
+
+![image-title-here](assets/gitbook/images/maxresdefault.jpg){:class="img-responsive"}
+
 
 By Dhananjay
 
