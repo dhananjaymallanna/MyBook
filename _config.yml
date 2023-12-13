@@ -36,9 +36,6 @@ baseurl: /MyBook      # place folder name if the site is served in a subfolder
 theme: minima
 remote_theme: jasongrimes/jekyll-chapterbook
 
-plugins:
-  - jekyll-feed
-
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
