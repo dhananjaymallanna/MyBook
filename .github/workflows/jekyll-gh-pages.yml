@@ -38,10 +38,8 @@ jobs:
         run: |
             bundle install
       - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./
-          destination: ./_site
+        run: |
+            bundle exec jekyll build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
 
