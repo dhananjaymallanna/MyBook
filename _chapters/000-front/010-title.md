@@ -7,8 +7,6 @@ abstract:
 ![image-title-here](assets/gitbook/images/maxresdefault.jpg){:class="img-responsive"}
 
 
-By Dhananjay
-
 Copyright &copy; {{"now" | date: "%Y"}} by {{site.author}}.
 
 Last updated: {{ "now" | date: "%B %e, %Y" }}
