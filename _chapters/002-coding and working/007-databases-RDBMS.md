@@ -391,6 +391,127 @@ Storage engines are MySQL components that handle the SQL operations for differen
 * Example: This engine serves as an example in the MySQL source code that illustrates how to begin writing new storage engines. It is primarily of interest to developers. The storage engine is a “stub” that does nothing. You can create tables with this engine, but no data can be stored in them or retrieved from them.
 
 
+## Data Replication
+
+[![Data Replication Process.](https://res.cloudinary.com/hevo/image/upload/c_scale,w_848,h_420/f_auto,q_auto/v1686078828/hevo-learn-1/archr.jpg?_i=AA)](https://res.cloudinary.com/hevo/image/upload/f_auto,q_auto/v1686078828/hevo-learn-1/archr.jpg?_i=AA)
+
+Data replication refers to the process of generating numerous copies of complex datasets and storing them across various locations to facilitate seamless access. It plays a crucial role in ensuring the high availability of data for individual systems and numerous servers. [Data replication](https://hevodata.com/learn/data-replication/) uses two types of storage locations, namely master and snapshot storage areas. Data replication follows the same concept as copying data from one database to another; however, it allows all the users to access the same data seamlessly and without any inconsistencies.
+
+## Understanding the Need & Benefits of Setting up Replication
+
+Having only one copy of your crucial business data can be risky for any organization worldwide, as it can result in a loss of credibility and potential business opportunities. Such issues can arise when there is an unpredictable or untimely server malfunction, database hacks, loss of data, and many other technical faults, resulting in the data associated with your business process becoming unavailable.
+
+Setting up data replication and maintaining multiple copies of your business data across servers, devices, etc., is a robust way to tackle such risks and ensure high data availability at all times.
+
+**Key Benefits of Setting up Data Replication**
+
+*   Data replication allows users spread across diverse geographies, to access data seamlessly by letting them access the replica closest to them.
+*   It helps reduce costs associated with bandwidth and maintenance.
+*   It boosts data throughput and provides a robust disaster recovery mechanism.
+*   It helps set up effective analytics and business intelligence-based processes.
+
+
+## Data Replication Strategies
+
+Some of the most popular and robust data replication strategies that you can use to start replicating your data are as follows. They are divided into two kinds: incremental data replication, and full table data replication.
+
+## Incremental Data Replication
+
+[![Incremental data replication strategy explained](https://res.cloudinary.com/hevo/image/upload/c_scale,w_848,h_391/f_auto,q_auto/v1685876851/hevo-learn-1/ouaw-incremental-data-replication-architecture.png?_i=AA)](https://res.cloudinary.com/hevo/image/upload/f_auto,q_auto/v1685876851/hevo-learn-1/ouaw-incremental-data-replication-architecture.png?_i=AA)
+
+[](https://docs.oracle.com/en/industries/utilities/analytics/2.8.0.0/oaw-install-config/Content/OAW_Install_Guide/Data-Flow-OUAW.htm#IncrementalDataReplicationApproach)
+
+### 1\. Log-based Incremental Data Replication
+
+Most database-based solutions keep track of every change in the database, right from the very beginning. It further generates a record for the same, known as a log file or changelog. Each log file acts as a collection of log messages, each containing data such as the time/user/change/cascade effects/method of the change. The database then assigns a unique position Id to all of them and stores them in an Id-based chronological order.
+
+You can implement log-based data replication in the following two ways:
+
+*   [Statement-Based Replication](https://hevodata.com/learn/data-replication-strategy/#state)
+*   [Row-Based Replication](https://hevodata.com/learn/data-replication-strategy/#row)
+
+#### Statement-Based Replication
+
+Statement-based replication keeps track and stores all such commands, queries or actions that modify the database and bring about updations. Procedures that have the statement-based mechanism in place generate the replicas by re-running all these statements in the order of their occurrence.
+
+##### **Advantages of Statement-Based Replication**
+
+*   The size of the log file generated in this technique is small. Replicas perform numerous cascading-based changes by making use of integrity constraints.
+*   It allows users to audit with ease.
+
+##### **Disadvantages of Statement-Based Replication**
+
+*   Statement-based replication doesn’t allow replicating every command and its effects.
+*   Sometimes, executing commands or queries that have dependency constraints can result in numerous errors or data-related discrepancies.
+*   In case the replica’s hardware/operating system is not in the same state as the original database, statement execution can lead to undesirable results. 
+
+#### Row-Based Replication
+
+Row-based replication keeps track of all the new rows of the database and stores them in the form of a record in the log file. Procedures that have a row-based replication mechanism in place carry out replication by iterating over each log message in the initial order of execution. Here, the position Id acts as a bookmark, allowing the database to easily continue the replication process.
+
+##### **Advantages of Row-Based Replication**
+
+*   Row-based replication is one of the most accurate and safe strategies for carrying out data replication, as it ensures that the new rows replicate as per the log.
+
+##### **Disadvantages of Row-Based Replication**
+
+*   SQL statements often bring about changes across numerous rows and tables, so the log file will have to store all these files.
+*   The mechanism of row-based replication is time and resource-consuming.
+*   Log files take up a lot of memory or space, in case the columns that you update are of the BLOB or MIME type.
+*   If a log remains locked for writes, then the replication or the “read” process will have to wait for a significant amount of time.
+
+### 2\. Key-based Incremental Data Replication
+
+Modern databases across all organizations receive and generate updates nearly in real-time or very frequently, which can contain a diverse data set such as text, audio, videos, etc. Databases then chain such updates with the ones that happen shortly afterward, often generated by a diverse set of sources or actors. If your database has varied data requirements, focuses more on the new data updates rather than historical values, and further stores data records based on unique Ids/keys, then “key-based incremental replication” is the right choice.
+
+Key-based incremental data replication leverages the replication key column to identify the new and updated data. It then carries out the replication process for records that house the updated replication keys. Hence, only these rows undergo any updates, with their previous key values getting either erased or overwritten. It thus maintains the latest values associated with these keys.
+
+Numerous enterprise-grade databases, such as [PostgreSQL](https://www.postgresql.org/), [Oracle](http://oracle.com/), [Salesforce](https://www.salesforce.com/), etc., use key-based incremental strategy to replicate data with ease.
+
+#### **Advantages of Key-Based Incremental Data Replication**
+
+*   Key-based incremental data replication focuses only on new and modified data and hence, requires less bandwidth & compute resources to carry out replication in a quick manner.
+
+#### **Disadvantages of Key-Based Incremental Data Replication**
+
+*   Key-based incremental data replication automatically deletes the replication key associated with a record in case the data record gets deleted.
+*   Keeping track or tracing back the historical values of the new data records can be challenging as this technique doesn’t maintain a change history.
+
+## Full Table Data Replication Strategy
+
+Full table Data Replication Strategy focuses on replicating the database and its table completely. It will replicate all the data records, regardless of whether they are old or new. This mechanism can come in handy when you’re replicating data across old and new tables with no definition-based difference or when the data rows don’t have primary keys associated with them. Small databases such as website CDNs have this mechanism in place.
+
+Modern databases implement full table replication using either of the following two variations of this technique:
+
+*   [Snapshot Replication](https://hevodata.com/learn/data-replication-strategy/#snap)
+*   [Transactional Replication](https://hevodata.com/learn/data-replication-strategy/#tr)
+
+### 1\. Snapshot Replication
+
+[](https://res.cloudinary.com/hevo/image/upload/e_blur:2000,q_1,f_auto/hevo-learn-1/MS-SQL-snapshot-replication-1_1994746a07.png)[![Snapshot Data Replication strategy](https://res.cloudinary.com/hevo/image/upload/c_scale,w_848,h_230/f_auto,q_auto/v1686078819/hevo-learn-1/MS-SQL-snapshot-replication-1_1994746a07.png?_i=AA)](https://res.cloudinary.com/hevo/image/upload/f_auto,q_auto/v1686078819/hevo-learn-1/MS-SQL-snapshot-replication-1_1994746a07.png?_i=AA)
+
+Snapshot Replication in MS SQL
+
+Snapshot replication generates a replica of your database by taking a “snapshot” of how your tables, data, relationships, etc., look like at a particular point in time and then replicates the same on the other database. It only captures this snapshot when it needs to copy the data; hence, it does not monitor any updates. It is suitable for databases where updates aren’t frequent, for example, insurance agents, sales, etc. Various popular databases implement this technique to carry out data replication.
+
+### 2\. Transactional Replication
+
+[](https://res.cloudinary.com/hevo/image/upload/e_blur:2000,q_1,f_auto/hevo-learn-1/MS-SQL-transactional-replication-1.jpg)[![Transaction Data Replication strategy](https://res.cloudinary.com/hevo/image/upload/c_scale,w_848,h_201/f_auto,q_auto/v1686078799/hevo-learn-1/MS-SQL-transactional-replication-1.jpg?_i=AA)](https://res.cloudinary.com/hevo/image/upload/f_auto,q_auto/v1686078799/hevo-learn-1/MS-SQL-transactional-replication-1.jpg?_i=AA)
+
+Transaction Replication in MS SQL
+
+Transactional replication achieves replication by first monitoring the updates as they occur on the master database and then carrying out sync to make all these changes in the replicas. It ensures transactional consistency by carrying out the updates in the same order as the original database. Transactional replication can be a fruitful technique to meet business intelligence and analytics-related business requirements, focusing more on historical data rather than current data. Microsoft SQL Server is one such enterprise-grade database that implements this technique.
+
+### **Advantages of Full Table Data Replication**
+
+*   It is one of the most robust strategies that ensure that the replicas are an exact mirror image of the original table.
+*   It helps create exact replicas across different geographies, which results in faster queries and good throughput time. 
+
+### **Disadvantages of Full Table Data Replication**
+
+*   It requires a lot of bandwidth related to processing power, resources, etc., as it operates by creating a full copy in each replication attempt. 
+*   Replicating the entire database can be cumbersome, often resulting in numerous errors. 
+
 
 
 
