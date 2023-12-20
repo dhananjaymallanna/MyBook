@@ -225,5 +225,7 @@ plugins:
   - jekyll-spaceship
   - jekyll-readme-index
   - jekyll-pdf-embed
+  - jekyll-seo-tag
+  - jekyll-sitemap
 
 
