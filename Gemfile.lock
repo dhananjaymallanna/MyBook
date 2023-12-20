@@ -278,6 +278,8 @@ DEPENDENCIES
   jekyll-feed (~> 0.12)
   jekyll-pdf-embed
   jekyll-readme-index
+  jekyll-seo-tag
+  jekyll-sitemap
   jekyll-spaceship
   minima (~> 2.5)
   tzinfo (>= 1, < 3)

@@ -110,7 +110,7 @@ performance requirements, scalability needs, and security concerns.
   - Why do we need to build the system?
   - What kind of problems does the system solve?
   - ...
-- Functional Requirements (Use cases, systems exist to solve specific problems)
+## Functional Requirements (Use cases, systems exist to solve specific problems)
   - Include business rules, authentication, administrative functions,
     authorization levels, etc.
   - Examples
@@ -121,8 +121,7 @@ performance requirements, scalability needs, and security concerns.
     - Should users be able to register an account, delete an account and
       recover the password?
     - ...
-- Non-functional Requirements (Constraints, restrict the system design through
-  different qualities)
+## Non-functional Requirements (Constraints, restrict the system design through different qualities)
   - The more senior the role is, the more important it is for us to demonstrate
     our ability to handle non-functional requirements.
   - Include performance, security, reliability, scalability, maintainability,
@@ -150,9 +149,7 @@ performance requirements, scalability needs, and security concerns.
       - 150 million of DAU (Daily Active Users)
     - Security
       - Prevent from DDos attacks (WAF, Web Application Firewall)
-    - ...
-  - Assumptions (Estimation of important parts, do some rough
-    back-of-the-envelope calculation here)
+ ## Assumptions (Estimation of important parts, do some rough back-of-the-envelope calculation here)
     - Storage
       - How many files would be upload daily?
       - Examples
@@ -170,9 +167,8 @@ performance requirements, scalability needs, and security concerns.
         memory on the server, about 10GB of memory to hold all the connections
     - Concurrency
       - Number of concurrent threads = cpuCore * (latency/(latency-ioTime))
-    - ...
-- Data Flows (Data models and data flows between them)
-  - Database (Choose database system is also part of this)
+## Data Flows (Data models and data flows between them)
+  ### Database (Choose database system is also part of this)
     - Database Indexes
       - A database index is used for the purpose of speeding up reads
         conditioned on the value of a specific key.
@@ -197,7 +193,7 @@ performance requirements, scalability needs, and security concerns.
             - Faster reads, know exactly where key is located
           - Cons
             - Slow writes to disk instead of memory
-    - How to choose the right database?
+    #### How to choose the right database?
       - Consideration from aspects
         - Performance
           - CPU
@@ -255,15 +251,15 @@ performance requirements, scalability needs, and security concerns.
               - Key features
                 - Wide-column data store (NoSQL), has a shard key and a sort
                   key
-                  - Allow flexible schemas ease of partitioning
+                - Allow flexible schemas ease of partitioning
                 - MultiLeader/Leaderless replication (configurable)
-                  - Super fast writes, albeit uses last write wins for conflict
+                - Super fast writes, albeit uses last write wins for conflict
                     resolution
-                  - May clobber existing writes if they were not the winner of
+                - May clobber existing writes if they were not the winner of
                     LWW
                 - Index based off of LSM trees and SSTables
-                  - Fast writes
-                  - Uses LSTM rather than B+ Tree used by SQL
+                - Fast writes
+                - Uses LSTM rather than B+ Tree used by SQL
               - Benefits of a wide-column NoSQL database include speed of
                 querying, scalability, and a flexible data model.
               - Great for application with high write volume, consistency is not
@@ -277,18 +273,19 @@ performance requirements, scalability needs, and security concerns.
             - Neo4j
         - In-memory DB
           - Products
+          - Time-series DB
+          - Search DB
             - Redis
               - Key features
                 - Key-value stores implemented in memory (Redis a bit more
                   feature rich)
-                  - Uses hashmap under the hood
+                - Uses hashmap under the hood
                 - Good for caches, certain essential app feature
-              - Useful for data that needs to be written and retrieved
-                extremely, memory is expensive so good for small datasets
+                - Useful for data that needs to be written and retrieved
+                - extremely, memory is expensive so good for small datasets
             - Amazon MemoryDB
             - Memcached
-        - Time-series DB
-        - Search DB
+        
     - Trade-off
       - Measures
         - What type of data are we going to be storing?
