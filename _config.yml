@@ -61,10 +61,13 @@ remote_theme: jasongrimes/jekyll-chapterbook
 # Breadcrumbs for book contents.
 # The book and contents pages need to be made manually.
 # All "url" variables should have a leading slash.
+
+favicon_path: assets/gitbook/images/blob.png
+
 bookcrumbs:
   book_url: /book.html
   contents_url: /contents.html
-  book_icon: assets/gitbook/images/apple-touch-icon-precomposed-152.png
+  book_icon: assets/gitbook/images/blob.png
 
 # Links shown above the TOC in the sidebar
 # All "url" variables should have a leading slash.
