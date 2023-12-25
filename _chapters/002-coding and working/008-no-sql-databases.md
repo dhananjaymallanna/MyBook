@@ -246,3 +246,14 @@ https://www.youtube.com/playlist?list=PLa7VYi0yPIH14oEOfwbcE9_gM5lOZ4ICN
 ## best webrtc
 
 https://www.youtube.com/watch?v=DOe7GkQgwPo&ab_channel=AmirEshaq
+
+## consistancy levels of cassandra
+
+ONE
+Returns data from the nearest replica.
+
+QUORUM
+Returns the most recent data from the majority of replicas.
+
+ALL
+Returns the most recent data from all replicas.
