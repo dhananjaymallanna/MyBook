@@ -24,6 +24,21 @@ How to choose DB for your project based on query pattern?
 
 ![image-title-here](assets/gitbook/images/rdbms_keys2.png){:class="img-responsive"}
 
+
+
+| Database Family        | Optimization Focus                                      | Sample Query                                         | Example Databases                 |
+|------------------------|---------------------------------------------------------|------------------------------------------------------|-----------------------------------|
+| Relational Databases   | Structured data, complex queries                         | SELECT * FROM customers WHERE age > 30;              | MySQL, PostgreSQL, Oracle         |
+| Document Databases     | Storing and retrieving JSON-like documents               | db.customers.find({ age: { $gt: 30 } });             | MongoDB, Couchbase, Amazon DynamoDB|
+| Key-Value Stores       | Simple key-value data storage and retrieval             | GET customer:12345;                                   | Redis, Riak, Amazon DynamoDB      |
+| Column-Family Databases| Storing and querying large amounts of flexible data      | SELECT * FROM customers WHERE city = 'New York';      | Apache Cassandra, ScyllaDB, HBase |
+| Graph Databases        | Managing highly interconnected data and complex relationships | MATCH (p:Person)-[:FRIEND]->(f:Person) WHERE p.name = 'John' RETURN f.name;| Neo4j, Amazon Neptune, ArangoDB   |
+| Time-Series Databases  | Storing and analyzing time-stamped data                  | SELECT * FROM sensor_data WHERE time > '2023-01-01T00:00:00Z'; | InfluxDB, TimescaleDB, Prometheus |
+| NewSQL Databases       | Combining benefits of SQL with scalability of NoSQL      | SELECT * FROM orders WHERE date > '2023-01-01';      | Google Spanner, CockroachDB, NuoDB |
+| Object-Oriented Databases | Managing complex data types and relationships          | SELECT * FROM employees WHERE department = 'Engineering'; | db4o, ObjectDB, Objectivity/DB     |
+| Multi-Model Databases  | Supporting multiple data models within a single system  | FOR doc IN documents FILTER doc.status == 'active' RETURN doc; | ArangoDB, OrientDB, MarkLogic     |
+
+
 # sql joins
 
 ![image-title-here](assets/gitbook/images/SQL-Joins.png){:class="img-responsive"}
