@@ -4,17 +4,7 @@ slug: RDBMS
 abstract: RDBMS
 ---
 
-## topics to cover 
-
-
-* partitions
-* read and write intensive
-* replication strategies
-
-
-
-
-How to choose DB for your project based on query pattern?
+## How to choose DB for your project based on query pattern?
 
 
 ![image-title-here](assets/gitbook/images/decision_based_on_query_pattern.png){:class="img-responsive"}
@@ -22,24 +12,31 @@ How to choose DB for your project based on query pattern?
 
 ![image-title-here](assets/gitbook/images/selection_criterial_png.png){:class="img-responsive"}
 
+## Cheatsheet
+
 ![image-title-here](assets/gitbook/images/rdbms_keys2.png){:class="img-responsive"}
 
-
+## Database classification
 
 | Database Family        | Optimization Focus                                      | Sample Query                                         | Example Databases                 |
 |------------------------|---------------------------------------------------------|------------------------------------------------------|-----------------------------------|
-| Relational Databases   | Structured data, complex queries                         | SELECT * FROM customers WHERE age > 30;              | MySQL, PostgreSQL, Oracle         |
-| Document Databases     | Storing and retrieving JSON-like documents               | db.customers.find({ age: { $gt: 30 } });             | MongoDB, Couchbase, Amazon DynamoDB|
-| Key-Value Stores       | Simple key-value data storage and retrieval             | GET customer:12345;                                   | Redis, Riak, Amazon DynamoDB      |
-| Column-Family Databases| Storing and querying large amounts of flexible data      | SELECT * FROM customers WHERE city = 'New York';      | Apache Cassandra, ScyllaDB, HBase |
-| Graph Databases        | Managing highly interconnected data and complex relationships | MATCH (p:Person)-[:FRIEND]->(f:Person) WHERE p.name = 'John' RETURN f.name;| Neo4j, Amazon Neptune, ArangoDB   |
-| Time-Series Databases  | Storing and analyzing time-stamped data                  | SELECT * FROM sensor_data WHERE time > '2023-01-01T00:00:00Z'; | InfluxDB, TimescaleDB, Prometheus |
-| NewSQL Databases       | Combining benefits of SQL with scalability of NoSQL      | SELECT * FROM orders WHERE date > '2023-01-01';      | Google Spanner, CockroachDB, NuoDB |
-| Object-Oriented Databases | Managing complex data types and relationships          | SELECT * FROM employees WHERE department = 'Engineering'; | db4o, ObjectDB, Objectivity/DB     |
-| Multi-Model Databases  | Supporting multiple data models within a single system  | FOR doc IN documents FILTER doc.status == 'active' RETURN doc; | ArangoDB, OrientDB, MarkLogic     |
+| Relational Databases   | Structured data, complex queries, ACID compliance, data integrity, transaction support | SELECT * FROM customers WHERE age > 30;              | MySQL, PostgreSQL, Oracle         |
+| Document Databases     | Storing and retrieving JSON-like documents, flexible schema, horizontal scalability, denormalized data | db.customers.find({ age: { $gt: 30 } });             | MongoDB, Couchbase, Amazon DynamoDB|
+| Key-Value Stores       | Simple key-value data storage and retrieval, high throughput, eventual consistency, distributed caching | GET customer:12345;                                   | Redis, Riak, Amazon DynamoDB      |
+| Column-Family Databases| Storing and querying large amounts of flexible data, high write performance, distributed design, append-only storage | SELECT * FROM customers WHERE city = 'New York';      | Apache Cassandra, ScyllaDB, HBase |
+| Graph Databases        | Managing highly interconnected data and complex relationships, graph traversal, pattern matching, native graph processing | MATCH (p:Person)-[:FRIEND]->(f:Person) WHERE p.name = 'John' RETURN f.name;| Neo4j, Amazon Neptune, ArangoDB   |
+| Time-Series Databases  | Storing and analyzing time-stamped data, optimized for time-series data, compression techniques, data retention policies | SELECT * FROM sensor_data WHERE time > '2023-01-01T00:00:00Z'; | InfluxDB, TimescaleDB, Prometheus |
+| NewSQL Databases       | Combining benefits of SQL with scalability of NoSQL, high availability, distributed transactions, automatic sharding | SELECT * FROM orders WHERE date > '2023-01-01';      | Google Spanner, CockroachDB, NuoDB |
+| Object-Oriented Databases | Managing complex data types and relationships, object-oriented data modeling, support for complex data structures, rich querying capabilities | SELECT * FROM employees WHERE department = 'Engineering'; | db4o, ObjectDB, Objectivity/DB     |
+| Multi-Model Databases  | Supporting multiple data models within a single system, polyglot persistence, native multi-model query language, unified data access | FOR doc IN documents FILTER doc.status == 'active' RETURN doc; | ArangoDB, OrientDB, MarkLogic     |
+| Search Databases       | Indexing and querying unstructured or semi-structured data, full-text search, relevance ranking, faceted search | GET /search?q=keyword;                                | Elasticsearch, Apache Solr, Splunk |
+| Spatial Databases      | Storing and querying spatial data, spatial indexing, spatial analysis functions | SELECT * FROM points WHERE ST_CONTAINS(area, point);  | PostGIS, MongoDB (with GeoJSON), Oracle Spatial |
+| In-Memory Databases    | High-speed data retrieval and processing, caching, real-time analytics, low-latency applications | GET employee:12345;                                   | Redis, Memcached, Apache Ignite   |
+| Content Databases      | Managing and delivering digital content, metadata storage, content versioning, content distribution | SELECT * FROM articles WHERE category = 'Technology'; | CouchDB, Amazon DocumentDB, eXist-db |
 
 
-# sql joins
+
+## Sql joins
 
 ![image-title-here](assets/gitbook/images/SQL-Joins.png){:class="img-responsive"}
 
@@ -449,7 +446,7 @@ You can implement log-based data replication in the following two ways:
 
 Statement-based replication keeps track and stores all such commands, queries or actions that modify the database and bring about updations. Procedures that have the statement-based mechanism in place generate the replicas by re-running all these statements in the order of their occurrence.
 
-##### **Advantages of Statement-Based Replication**
+##### Advantages of Statement-Based Replication
 
 *   The size of the log file generated in this technique is small. Replicas perform numerous cascading-based changes by making use of integrity constraints.
 *   It allows users to audit with ease.
@@ -517,17 +514,108 @@ Transaction Replication in MS SQL
 
 Transactional replication achieves replication by first monitoring the updates as they occur on the master database and then carrying out sync to make all these changes in the replicas. It ensures transactional consistency by carrying out the updates in the same order as the original database. Transactional replication can be a fruitful technique to meet business intelligence and analytics-related business requirements, focusing more on historical data rather than current data. Microsoft SQL Server is one such enterprise-grade database that implements this technique.
 
-### **Advantages of Full Table Data Replication**
+### Advantages of Full Table Data Replication
 
 *   It is one of the most robust strategies that ensure that the replicas are an exact mirror image of the original table.
 *   It helps create exact replicas across different geographies, which results in faster queries and good throughput time. 
 
-### **Disadvantages of Full Table Data Replication**
+### Disadvantages of Full Table Data Replication
 
 *   It requires a lot of bandwidth related to processing power, resources, etc., as it operates by creating a full copy in each replication attempt. 
 *   Replicating the entire database can be cumbersome, often resulting in numerous errors. 
 
 
+## levels of isolation
 
+Certainly! Below is an expanded explanation of isolation levels in RDBMS with examples, tradeoffs, and Mermaid scripts to illustrate the concepts visually.
 
+Isolation Levels in RDBMS
 
+Isolation levels in RDBMS determine how transactions interact with each other and the level of data consistency and integrity maintained during concurrent transactions. They play a crucial role in maintaining the ACID properties (Atomicity, Consistency, Isolation, Durability) of transactions.
+
+Isolation Level Examples
+
+Let's consider each isolation level with an example:
+
+Read Uncommitted:
+   Example:
+   ```mermaid!
+          sequenceDiagram
+       participant Transaction1
+       participant Transaction2
+       Transaction1->>Database: Read Account A balance (1000)
+       Transaction1->>Database: Start transfer of 500 units to Account B
+       Transaction2->>Database: Read Account A balance (1000)
+       Transaction2->>Database: Read Account B balance (1000)
+```
+Read Committed:
+   Example:
+   ```mermaid!
+          sequenceDiagram
+       participant Transaction1
+       participant Transaction2
+       Transaction1->>Database: Read Account A balance (1000)
+       Transaction1->>Database: Start transfer of 500 units to Account B
+       Transaction2->>Database: Read Account A balance (500)
+       Transaction2->>Database: Read Account B balance (1000)
+```
+Repeatable Read:
+   Example:
+   ```mermaid!
+          sequenceDiagram
+       participant Transaction1
+       participant Transaction2
+       Transaction1->>Database: Read Account A balance (1000)
+       Transaction1->>Database: Start transfer of 500 units to Account B
+       Transaction2->>Database: Read Account A balance (1000)
+       Transaction2->>Database: Read Account B balance (1000)
+       ```
+
+Serializable:
+   Example:
+   ```mermaid!
+          sequenceDiagram
+       participant Transaction1
+       participant Database
+       participant Transaction2
+       Transaction1->>Database: Read Account A balance (1000)
+       Transaction1->>Database: Start transfer of 500 units to Account B
+       Transaction2->>Database: Read Account A balance (blocked)
+       Transaction1->>Database: Commit changes
+       Transaction2->>Database: Read Account A balance (500)
+       ```
+### Tradeoffs
+
+The tradeoffs associated with each isolation level are as follows:
+
+$ Read Uncommitted$: Allows for dirty reads, sacrificing data consistency for high concurrency.
+
+$ Read Committed$: Prevents dirty reads but allows non-repeatable reads and phantom reads, balancing concurrency and consistency.
+
+$ Repeatable Read$: Ensures a consistent snapshot of data, preventing dirty reads, non-repeatable reads, and phantom reads, but may allow for potential write skew anomalies.
+
+$ Serializable$ : Provides the highest level of data consistency but can lead to increased contention and reduced concurrency due to the need for locks.
+
+Sure, here's the information in markdown format:
+
+### Issues with Isolation Levels in RDBMS
+
+Some of the common issues and challenges associated with isolation levels in RDBMS include:
+
+$ Concurrency Control Overhead$ : Higher isolation levels often require more extensive locking or versioning mechanisms to maintain data consistency, which can introduce overhead and reduce concurrency.
+
+$ Phantom Reads$ : In non-serializable isolation levels, phantom reads can occur, where a transaction retrieves a set of records that satisfy a search condition and a second transaction inserts new records that match the condition, causing the first transaction to re-run and retrieve a different set of records.
+
+$ Non-Repeatable Reads$ : At lower isolation levels, non-repeatable reads can occur, where a transaction retrieves a record, another transaction modifies or deletes the record, and the first transaction retrieves the same record again, obtaining different results.
+
+$ Write Skew Anomalies$ : In multi-version concurrency control, write skew occurs when two transactions read an overlapping set of data and update it independently, leading to inconsistent results.
+
+$ Deadlocks$ : Stricter isolation levels can increase the likelihood of deadlocks where two or more transactions are unable to proceed because each is waiting for the other to release a lock.
+
+$ Reduced Concurrency$ : Higher isolation levels may lead to reduced concurrency and increased contention due to the need for more restrictive locking or validation mechanisms.
+
+$ Performance Impact$ : More stringent isolation levels can impact the overall performance of the database due to increased locking, reduced parallelism, and additional checks for data consistency.
+
+$ Complexity and Maintenance$ : Managing and tuning isolation levels, especially in a complex application with numerous concurrent transactions, can be challenging and require ongoing maintenance and optimization.
+
+Understanding these issues is crucial for database administrators and application developers to select the appropriate isolation level that balances data consistency and concurrency while mitigating potential challenges.

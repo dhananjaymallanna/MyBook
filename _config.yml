@@ -101,7 +101,7 @@ bottom_nav:
 # Whether to show chapter headings as a table of contents at the top of each chapter page.
 # Override in page front matter with disable_toc: true
 in_chapter_toc:
-  enabled: false
+  enabled: true
   h_min: 2
   h_max: 3
 
