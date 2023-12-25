@@ -8,7 +8,17 @@ abstract: DS Collection
 
 OAuth2 
 
-```mermaid
+
+```mermaid!
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```  
+
+
+```mermaid!
 graph LR;
 A[Client Application]-->|1. Initiate Authorization Flow| B[OAuth2 Provider];
     B-->|2. User Authorization $ Grant/Deny Permission $|A;
@@ -16,4 +26,5 @@ A[Client Application]-->|1. Initiate Authorization Flow| B[OAuth2 Provider];
      A -->|4. Token Exchange $ Authorization Code $| B;
     B -->|5. Access Token $ Authorized Requests $| A;
 ```
+
 
