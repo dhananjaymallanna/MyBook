@@ -11,7 +11,7 @@ Array problems
 
 Moving elements within array and searching are core problems. This is the foundation.
 
-- [ ] Move Negative elements to front
+1. Move Negative elements to front
     
     [Move Negative elements to front](https://iq.opengenus.org/move-negative-elements-to-front/) is a simple problem that tests your knowledge of how to move elements across an array. These involve partition algorithms like [Lomuto](https://iq.opengenus.org/lomuto-partition-scheme/) and [Hoare](https://iq.opengenus.org/hoare-partition/) Partition Scheme and has direct application in algorithms like QuickSort.
     

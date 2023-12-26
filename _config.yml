@@ -209,6 +209,8 @@ jekyll-spaceship:
     config:
       theme: default
     src: https://mermaid.ink/svg/
+    flowchartConfig: 
+      width: 80%
   media-processor:
     default:
       id: 'media-{id}'
