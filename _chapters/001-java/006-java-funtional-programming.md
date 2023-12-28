@@ -85,10 +85,9 @@ num -> num%2==0;
 
 That is how we got this predicate.
 
-## Java provided functional interfaces.
+## Java provided functional interfaces
 
-
-|Interface	|Description |
+|Interface|Description |
 |----|-----------------|
 |[BiConsumer](https://docs.oracle.com/javase/8/docs/api/java/util/function/BiConsumer.html "interface in java.util.function")<T,U> | Represents an operation that accepts two input arguments and returns no result. |
 |[BiFunction](https://docs.oracle.com/javase/8/docs/api/java/util/function/BiFunction.html "interface in java.util.function")<T,U,R> | Represents a function that accepts two arguments and produces a result. |
