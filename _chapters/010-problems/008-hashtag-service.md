@@ -1,4 +1,10 @@
-Design the HashTag Service
+---
+title: hashtag service 
+slug: hashtag service 
+abstract: hashtag service 
+---
+
+ Design the HashTag Service
 ===
 
 <!--ts-->

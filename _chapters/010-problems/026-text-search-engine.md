@@ -1,4 +1,10 @@
-Design a Text-based Search Engine
+---
+title: text search engine 
+slug: text search engine 
+abstract: text search engine 
+---
+
+ Design a Text-based Search Engine
 ===
 
 <!--ts-->

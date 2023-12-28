@@ -1,4 +1,10 @@
-Design a Realtime Database
+---
+title: realtime db 
+slug: realtime db 
+abstract: realtime db 
+---
+
+ Design a Realtime Database
 ===
 
 <!--ts-->

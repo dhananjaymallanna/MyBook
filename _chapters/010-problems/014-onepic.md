@@ -1,4 +1,10 @@
-Design OnePic
+---
+title: onepic 
+slug: onepic 
+abstract: onepic 
+---
+
+ Design OnePic
 ===
 
 <!--ts-->

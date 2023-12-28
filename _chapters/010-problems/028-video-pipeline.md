@@ -1,4 +1,10 @@
-Design a Video Processing Pipeline for Streaming Service
+---
+title: video pipeline 
+slug: video pipeline 
+abstract: video pipeline 
+---
+
+ Design a Video Processing Pipeline for Streaming Service
 ===
 
 <!--ts-->

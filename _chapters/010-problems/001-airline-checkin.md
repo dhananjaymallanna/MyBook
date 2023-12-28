@@ -1,9 +1,10 @@
 ---
-title: Airline checking system
-slug: Airline checking system
-abstract: Airline checking system
+title: airline checkin 
+slug: airline checkin 
+abstract: airline checkin 
 ---
 
+ 
 <!--ts-->
 * [Design Airline Check-in System](#design-airline-check-in-system)
 * [Problem Statement](#problem-statement)

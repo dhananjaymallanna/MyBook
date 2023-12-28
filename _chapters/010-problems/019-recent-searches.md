@@ -1,4 +1,10 @@
-Design Recent Searches
+---
+title: recent searches 
+slug: recent searches 
+abstract: recent searches 
+---
+
+ Design Recent Searches
 ===
 
 <!--ts-->

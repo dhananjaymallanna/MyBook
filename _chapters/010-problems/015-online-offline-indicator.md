@@ -1,4 +1,10 @@
-Design an Online Offline Indicator
+---
+title: online offline indicator 
+slug: online offline indicator 
+abstract: online offline indicator 
+---
+
+ Design an Online Offline Indicator
 ===
 
 <!--ts-->

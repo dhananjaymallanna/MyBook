@@ -1,4 +1,10 @@
-Design Photo Tagging
+---
+title: tagging photos with people 
+slug: tagging photos with people 
+abstract: tagging photos with people 
+---
+
+ Design Photo Tagging
 ===
 
 <!--ts-->

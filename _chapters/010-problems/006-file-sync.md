@@ -1,4 +1,10 @@
-Design a Remote File Sync Service
+---
+title: file sync 
+slug: file sync 
+abstract: file sync 
+---
+
+ Design a Remote File Sync Service
 ===
 
 <!--ts-->

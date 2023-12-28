@@ -1,4 +1,10 @@
-Design a Distributed Task Scheduler
+---
+title: task scheduler 
+slug: task scheduler 
+abstract: task scheduler 
+---
+
+ Design a Distributed Task Scheduler
 ===
 
 <!--ts-->

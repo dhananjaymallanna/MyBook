@@ -1,4 +1,10 @@
-Design a Blogging Platform
+---
+title: blogging platform 
+slug: blogging platform 
+abstract: blogging platform 
+---
+
+ Design a Blogging Platform
 ===
 
 <!--ts-->

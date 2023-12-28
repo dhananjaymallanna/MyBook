@@ -1,4 +1,10 @@
-Design Text-based Live Commentary
+---
+title: live commentary 
+slug: live commentary 
+abstract: live commentary 
+---
+
+ Design Text-based Live Commentary
 ===
 
 <!--ts-->

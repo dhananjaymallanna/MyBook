@@ -1,4 +1,10 @@
-Design User Affinity
+---
+title: user affinity 
+slug: user affinity 
+abstract: user affinity 
+---
+
+ Design User Affinity
 ===
 
 <!--ts-->

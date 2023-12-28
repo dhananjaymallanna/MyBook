@@ -1,4 +1,10 @@
-Design Newly Unread Message Indicator
+---
+title: newly unread indicator 
+slug: newly unread indicator 
+abstract: newly unread indicator 
+---
+
+ Design Newly Unread Message Indicator
 ===
 
 <!--ts-->

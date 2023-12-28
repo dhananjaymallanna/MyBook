@@ -1,4 +1,10 @@
-Design Synchronized Queue Consumers
+---
+title: queue consumers 
+slug: queue consumers 
+abstract: queue consumers 
+---
+
+ Design Synchronized Queue Consumers
 ===
 
 <!--ts-->

@@ -110,7 +110,7 @@ performance requirements, scalability needs, and security concerns.
 - Background
   - Why do we need to build the system?
   - What kind of problems does the system solve?
-  - ...
+  - what is the problem
 
 ## Functional Requirements (Use cases, systems exist to solve specific problems)
 

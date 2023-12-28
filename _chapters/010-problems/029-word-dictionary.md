@@ -1,4 +1,10 @@
-Design a Word Dictionary
+---
+title: word dictionary 
+slug: word dictionary 
+abstract: word dictionary 
+---
+
+ Design a Word Dictionary
 ===
 
 <!--ts-->

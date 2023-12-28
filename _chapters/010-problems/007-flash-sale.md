@@ -1,4 +1,10 @@
-Design Flash Sale
+---
+title: flash sale 
+slug: flash sale 
+abstract: flash sale 
+---
+
+ Design Flash Sale
 ===
 
 <!--ts-->

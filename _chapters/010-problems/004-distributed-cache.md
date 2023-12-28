@@ -1,4 +1,10 @@
-Design a Distributed Cache
+---
+title: distributed cache 
+slug: distributed cache 
+abstract: distributed cache 
+---
+
+ Design a Distributed Cache
 ===
 
 <!--ts-->
