@@ -43,7 +43,7 @@ which has the defination as `public interface BaseStream<T,S extends BaseStream<
 
 An object that may hold resources (such as file or socket handles) until it is closed. The close() method of an AutoCloseable object is called automatically when exiting a try -with-resources block for which the object has been declared in the resource specification header.
 
-# Java stream
+## Java stream
 
 * [X] ~~*basics*~~ [2023-12-19]
 * [ ] Stream API
@@ -56,4 +56,4 @@ An object that may hold resources (such as file or socket handles) until it is c
 * Vavr
 * Microbenchmarking
 
-# to be continued reading from <https://4comprehension.com/page/6/?s=java+stream>
+## to be continued reading from <https://4comprehension.com/page/6/?s=java+stream>
