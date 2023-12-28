@@ -12,7 +12,10 @@ Certainly! Below, I will provide a more detailed explanation of each creational 
 Singleton Pattern
 
 The Singleton pattern ensures a class has only one instance and provides a global point of access to that instance. Here's a Mermaid script for a class diagram illustrating the Singleton pattern:
-
+```mermaid!
+%%{init: {'theme':'forest',"messageAlign": "center","flowchart": { 'useMaxWidth':false,
+"htmlLabels": true
+}}}%%
 classDiagram
     class Singleton {
         static instance: Singleton
@@ -28,7 +31,7 @@ The method getInstance() is static and provides access to the single instance of
 Factory Method Pattern
 
 The Factory Method pattern defines an interface for creating an object, but leaves the choice of its type to the subclasses, creating a factory for creating objects. Here's the corresponding Mermaid script for the class diagram:
-```mermaid
+```mermaid!
 %%{init: {'theme':'forest',"messageAlign": "center","flowchart": { 'useMaxWidth':false,
 "htmlLabels": true
 }}}%%
@@ -51,7 +54,7 @@ Abstract Factory Pattern
 
 The Abstract Factory pattern provides an interface for creating families of related or dependent objects without specifying their concrete classes. Here's the Mermaid script for the class diagram illustrating the Abstract Factory pattern:
 
-```mermaid
+```mermaid!
 %%{init: {'theme':'forest',"messageAlign": "center","flowchart": { 'useMaxWidth':false,
 "htmlLabels": true
 }}}%%
@@ -78,7 +81,7 @@ Builder Pattern
 
 The Builder pattern separates the construction of a complex object from its representation, allowing the same construction process to create different representations. Here's the Mermaid script for the class diagram illustrating the Builder pattern:
 
-```mermaid
+```mermaid!
 %%{init: {'theme':'forest',"messageAlign": "center","flowchart": { 'useMaxWidth':false,
 "htmlLabels": true
 }}}%%
@@ -107,6 +110,10 @@ Prototype Pattern
 
 The Prototype pattern creates new objects by copying an existing object, known as the prototype. Here's the Mermaid script for the class diagram illustrating the Prototype pattern:
 
+```mermaid!
+%%{init: {'theme':'forest',"messageAlign": "center","flowchart": { 'useMaxWidth':false,
+"htmlLabels": true
+}}}%%
 classDiagram
     class Prototype {
         clone(): Prototype
