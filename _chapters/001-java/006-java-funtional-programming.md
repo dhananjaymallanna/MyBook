@@ -4,10 +4,10 @@ slug: Java functional programming
 abstract: Java functional programming
 ---
 
-what do you mean by functional?
+**what do you mean by functional?**
 it is an interface that contains only one abstract method.
 
-what is predicate ?
+**what is predicate ?**
 predicates mean functions with one argument that return a boolean value
 
 consider an example:
@@ -51,7 +51,8 @@ public boolean isEven(int num){
 
 ```
 
-if we look carefully the compiler already knows that the 
+if we look carefully the compiler already knows that:
+
 * method is alway public as this is from an interface
 * compiler knows that it has a boolean return type, as there is only one method to look at.
 * compiler knows the method name, as there is only one method to look at.
