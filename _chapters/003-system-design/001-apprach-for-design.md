@@ -16,12 +16,13 @@ database of your system and many more.
 
 ## Basic
 
-All design decisions are based on below 4 factors:
+All design decisions are based on below 5 factors:
 
 - Scalability
 - Reliability
 - Availability
-- Maintainability
+- Efficiency
+- Manageability.
 
 Do remember: Everything is a trade-off.
 
@@ -110,46 +111,51 @@ performance requirements, scalability needs, and security concerns.
   - Why do we need to build the system?
   - What kind of problems does the system solve?
   - ...
+
 ## Functional Requirements (Use cases, systems exist to solve specific problems)
-  - Include business rules, authentication, administrative functions,
+
+- Include business rules, authentication, administrative functions,
     authorization levels, etc.
-  - Examples
-    - Who is going to use it?
-    - How are they going to use it?
-    - What does the system do?
-    - What's the format of the input data?
-    - Should users be able to register an account, delete an account and
+- Examples
+  - Who is going to use it?
+  - How are they going to use it?
+  - What does the system do?
+  - What's the format of the input data?
+  - Should users be able to register an account, delete an account and
       recover the password?
-    - ...
+  
 ## Non-functional Requirements (Constraints, restrict the system design through different qualities)
-  - The more senior the role is, the more important it is for us to demonstrate
+
+- The more senior the role is, the more important it is for us to demonstrate
     our ability to handle non-functional requirements.
-  - Include performance, security, reliability, scalability, maintainability,
+- Include performance, security, reliability, scalability, maintainability,
     availability, consistency, freshness, accuracy, etc.
-    - Focusing on scale and performance
-  - Mainly identify **traffic and data handling** constraints at scale.
-  - Scale of the system such as requests per second, requests types, data
+  - Focusing on scale and performance
+- Mainly identify **traffic and data handling** constraints at scale.
+- Scale of the system such as requests per second, requests types, data
     written per second, data read per second)
-  - Special system requirements such as multi-threading, read or write oriented.
-  - Examples
-    - High availability
-      - Service has high availability 99.999%
-      - It should be highly available no matter what operation you perform
+- Special system requirements such as multi-threading, read or write oriented.
+- Examples
+  - High availability
+    - Service has high availability 99.999%
+    - It should be highly available no matter what operation you perform
         (expanding storage, backup, when new nodes are added, etc)
-    - Consistency
-      - Strong consistency
-      - Weak consistency
-      - Eventual consistency
-    - Low latency
-      - A latency of around 300ms for timeline generation
-      - Under 150 milliseconds for viewing pages
-      - Under 400 milliseconds for conducting searches
-    - Scale
-      - Serves 10 million users
-      - 150 million of DAU (Daily Active Users)
-    - Security
-      - Prevent from DDos attacks (WAF, Web Application Firewall)
- ## Assumptions (Estimation of important parts, do some rough back-of-the-envelope calculation here)
+  - Consistency
+    - Strong consistency
+    - Weak consistency
+    - Eventual consistency
+  - Low latency
+    - A latency of around 300ms for timeline generation
+    - Under 150 milliseconds for viewing pages
+    - Under 400 milliseconds for conducting searches
+  - Scale
+    - Serves 10 million users
+    - 150 million of DAU (Daily Active Users)
+  - Security
+    - Prevent from DDos attacks (WAF, Web Application Firewall)
+
+## Assumptions (Estimation of important parts, do some rough back-of-the-envelope calculation here)
+
     - Storage
       - How many files would be upload daily?
       - Examples
@@ -167,8 +173,11 @@ performance requirements, scalability needs, and security concerns.
         memory on the server, about 10GB of memory to hold all the connections
     - Concurrency
       - Number of concurrent threads = cpuCore * (latency/(latency-ioTime))
+
 ## Data Flows (Data models and data flows between them)
-  ### Database (Choose database system is also part of this)
+
+### Database (Choose database system is also part of this)
+
     - Database Indexes
       - A database index is used for the purpose of speeding up reads
         conditioned on the value of a specific key.
@@ -313,29 +322,30 @@ performance requirements, scalability needs, and security concerns.
         - The disadvantage of this option is the difficulty in handling complex
           relationship queries, storing redundant data and more expensive than
           relational databases.
-  - Storage
-    - Block storage
-      - A hight-performance block storage for both throughput and transaction-
+
+- Storage
+  - Block storage
+    - A hight-performance block storage for both throughput and transaction-
         intensive workloads at scale
-      - Products
-        - Amazon Elastic Block Store (EBS)
-    - File storage
-      - A file system for you to share file data without managing storage
-      - Products
-        - Amazon Elastic File System (EFS)
-    - Object storage
-      - A storage for you to store and retrieve any amount of data from anywhere
-      - Products
-        - Amazon Simple Storage Service (S3)
-    - Redundant Disk Arrays (RAID)
-  - File systems
-    - Google File System (GFS)
-    - Hadoop Distributed File System (HDFS)
-  - Message queues (Pub/Sub)
-    - RabbitMQ
-    - Kafka (a messaging system for LinkedIn but has since grown to become a
+    - Products
+      - Amazon Elastic Block Store (EBS)
+  - File storage
+    - A file system for you to share file data without managing storage
+    - Products
+      - Amazon Elastic File System (EFS)
+  - Object storage
+    - A storage for you to store and retrieve any amount of data from anywhere
+    - Products
+      - Amazon Simple Storage Service (S3)
+  - Redundant Disk Arrays (RAID)
+- File systems
+  - Google File System (GFS)
+  - Hadoop Distributed File System (HDFS)
+- Message queues (Pub/Sub)
+  - RabbitMQ
+  - Kafka (a messaging system for LinkedIn but has since grown to become a
       popular distributed event streaming platform)
-  - ...
+- ...
 
 Related Tools:
 
@@ -521,11 +531,12 @@ Bookshop owner can add, delete or update a bookshop.
 This part may involve the way to handle pagination, infinite scroll supporting,
 etc.
 
-```md
-GET /v1/bookshops?page=1&per_page=20
+```markdown
+  GET /v1/bookshops?page=1&per_page=20
+
 ```
 
-2. Define the input parameters and output responses carefully.
+1. Define the input parameters and output responses carefully.
 
 Input parameters:
 
@@ -539,22 +550,22 @@ Input parameters:
 Output Response:
 
 ```json
-{
-    "total": 100,
-    "books": [
-       {
-           "name": "ABC",
-           "author": "Foo",
-           "price": 100.0
-       },
-       {
-           "name": "DFG",
-           "author": "Bar",
-           "price": 50.0
-       },
-       ...
-    ]
-}
+  {
+      "total": 100,
+      "books": [
+        {
+            "name": "ABC",
+            "author": "Foo",
+            "price": 100.0
+        },
+        {
+            "name": "DFG",
+            "author": "Bar",
+            "price": 50.0
+        },
+      ]
+  }
+
 ```
 
 #### Database Schema Design
@@ -786,15 +797,3 @@ the design may change as new information is gathered and requirements evolve.
 Additionally, it’s important to communicate the design effectively to all
 stakeholders, including developers, users, and stakeholders, to ensure that the
 system meets their needs and expectations.
-
-    
-       
-
-[Learn more about getting started with this theme.]({{ site.baseurl }}/index.html#getting-started)
-
----
-```
-This file is located at: {{ page.path }}
-```
----
-    
