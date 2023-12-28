@@ -1,16 +1,8 @@
 ---
-title: java functional programming
-slug: java functional programming
-abstract: java functional programming
+title: Java functional programming
+slug: Java functional programming
+abstract: Java functional programming
 ---
-
-# Java stream 
-
-* [X] ~~*basics*~~ [2023-12-19]
-* [X] ~~*lambda expressions,*~~ [2023-12-19] 
-* [X] ~~*Optional,*~~ [2023-12-19] 
-* [ ] method references
-* [ ] Stream API
 
 what do you mean by functional?
 it is an interface that contains only one abstract method.
@@ -141,54 +133,3 @@ That is how we got this predicate.
 |[ToLongBiFunction](https://docs.oracle.com/javase/8/docs/api/java/util/function/ToLongBiFunction.html "interface in java.util.function")<T,U> | Represents a function that accepts two arguments and produces a long-valued result. |
 |[ToLongFunction](https://docs.oracle.com/javase/8/docs/api/java/util/function/ToLongFunction.html "interface in java.util.function")\<T> | Represents a function that produces a long-valued result. |
 |[UnaryOperator](https://docs.oracle.com/javase/8/docs/api/java/util/function/UnaryOperator.html "interface in java.util.function")\<T> | Represents an operation on a single operand that produces a result of the same type as its operand.
-
-
---------------------------------------
-
-## Java Streams
-
-This thing is a big Ramayan, lets us go slowly one by one taking each example carefully understanding them, in pakka desi style.
-
-###### Interfaces
-* [ ] BaseStream
-* [ ] Collector
-* [ ] DoubleStream
-* [ ] DoubleStream.Builder
-* [ ] IntStream
-* [ ] IntStream.Builder
-* [ ] LongStream
-* [ ] LongStream.Builder
-* [ ] Stream
-* [ ] Stream.Builder
-###### Classes
-* [ ] Collectors
-* [ ] StreamSupport
-###### Enums
-* [ ] Collector.Characteristics
-
-
-Lets start with
-
-### what is a java stream?
-
-Java streams represent a pipeline through which data will flow and the functions to operate on the data. A pipeline in this instance consists of a stream source, followed by zero or more intermediate operations, and a terminal operation.
-
-which has the defination as `public interface BaseStream<T,S extends BaseStream<T,S>> extends AutoCloseable` 
-
-
-### what does AutoCloseable signify?
-An object that may hold resources (such as file or socket handles) until it is closed. The close() method of an AutoCloseable object is called automatically when exiting a try -with-resources block for which the object has been declared in the resource specification header.
-
-
---------------------------------------
-
-### Additional topics to come in here to cover
-
-* Infinite Streams
-* Vavr
-* Microbenchmarking
-* 
-
-
-
-# to be continued reading from https://4comprehension.com/page/6/?s=java+stream

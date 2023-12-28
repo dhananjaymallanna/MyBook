@@ -11,8 +11,12 @@
             "id": "f410497bc498ef87",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "_chapters/001-java/007-java-stream.md.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "_chapters/001-java/007-java-stream.md.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "_chapters/001-java/007-java-stream.md.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "_chapters/001-java/007-java-stream.md.md"
+              }
             }
           }
         ]
@@ -139,6 +147,12 @@
   },
   "active": "f410497bc498ef87",
   "lastOpenFiles": [
+    "_chapters/001-java/003-java-debugging.md",
+    "_chapters/001-java/006-java-funtional-programming.md",
+    "_chapters/001-java/007-java-stream.md.md",
+    "_site/chapters/001-java/007-java-stream.md.md",
+    "_site/chapters/001-java/Untitled.md",
+    "_site/chapters/001-java",
     "_chapters/005-interesting-vedios/006-interview-questions/Untitled.md",
     "_site/chapters/005-interesting-vedios/006-interview-questions/Untitled.md",
     "_site/chapters/005-interesting-vedios/006-interview-questions",

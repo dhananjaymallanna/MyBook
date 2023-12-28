@@ -1,8 +1,10 @@
 ---
-title: java collection framework outline
-slug: java collection framework outline
-abstract: java collection framework outline
+title: Java collection framework outline
+slug: Java collection framework outline
+abstract: Java collection framework outline
 ---
+
+![image-title-here](assets/gitbook/images/java20.png){:class="img-responsive"}
 
 The collections framework consists of:
 
@@ -109,4 +111,4 @@ The collections framework consists of:
 
 ![image-title-here](assets/gitbook/images/java_collections.png){:class="img-responsive"}
 
-![image-title-here](assets/gitbook/images/java20.png){:class="img-responsive"}
+
