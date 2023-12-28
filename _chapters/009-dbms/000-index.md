@@ -1,5 +1,5 @@
 ---
 layout: part
-slug: coding
+slug: DBMS
 ---
 

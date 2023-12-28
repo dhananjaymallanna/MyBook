@@ -1,5 +1,5 @@
 ---
 layout: part
-slug: theme
+slug: system design theory
 ---
 

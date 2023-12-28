@@ -5,78 +5,40 @@ disable_toc: true
 #class: references
 ---
 
-Must read 
-https://www.cs.uni.edu/~wallingf/patterns/elementary/papers/coding-at-the-lowest-level.pdf
-
-This is an example chapter for citing references. 
-
+### Example
 See the [Scribbr citation generator](https://www.scribbr.com/citation/generator/) to generate citations in the desired style.
 (These examples use APA style.)
 
-### Citations in text
-
-Here's an example citation to be included in a text, 
-with a link to the references chapter:
-
-```
-[(Berg, 1997)](references.html#berg-1997)
-```
-
-...which renders as [(Berg, 1997)](references.html#berg-1997).
-
-### Reference list
-
-Use a "references" chapter in the book's end matter to list all of the complete citations,
-and receive inbound links from the in-text citations.
-
-To use a "hanging indent" citation style like APA,
-either set `class: references` in the front matter of the references page,
-or wrap them in a div like this directly in the markdown:
-
-{% raw %}
-```html
-<div class="references" markdown="block">
-```
-{% endraw %}
-
-In order to make inbound anchor links from in-text citations work,
-we have to include a link in each reference (like the ISBN link below),
-and assign it an `id` attribute with `{:#my-id}`.
-
-{% raw %}
-```
-Berg, C. (1997). *Mastering Guitar Technique: Process and Essence (Classic Guitar).* Mel Bay Publications, Inc.
-[ISBN 978-1-610-65058-8](https://en.wikipedia.org/wiki/Special:BookSources?isbn=978-1-610-65058-8){:#berg-1997}.
-```
-{% endraw %}
-
-...which renders as below.
-
-<div class="references" markdown="block">
+## My tool for citation generation
+https://www.mybib.com/#/projects/kdXvmK/citations
+password: Bibliography
+username: signmeup@hldrive.com
 
 ## References
 
-- [System Design Primer](https://github.com/donnemartin/system-design-primer)
-- [System Design Tutorial](https://www.geeksforgeeks.org/system-design-tutorial/)
-- [System Design Cheatsheet](https://gist.github.com/vasanthk/485d1c25737e8e72759f)
-- [The complete guide to System Design in 2023](https://www.educative.io/blog/complete-guide-to-system-design)
-- [What are NoSQL Databases](https://aws.amazon.com/nosql/)
-- [Work through my solution to a system design interview question](https://levelup.gitconnected.com/work-through-my-solution-to-a-system-design-interview-question-a8ea4b60513b)
-- [System Design of Uber App – Uber System Architecture](https://www.geeksforgeeks.org/system-design-of-uber-app-uber-system-architecture/)
+262588213843476 (n.d.). _System Design Cheatsheet_. \[online\] Gist. Available at: https://gist.github.com/vasanthk/485d1c25737e8e72759f.
 
+Amazon Web Services (2019). _What is NoSQL? | Nonrelational Databases, Flexible Schema Data Models | AWS_. \[online\] Amazon Web Services, Inc. Available at: https://aws.amazon.com/nosql/.
 
+Bergin, J. (n.d.). _Coding at the Lowest Level Coding Patterns for Java Beginners_. \[online\] Available at: https://www.cs.uni.edu/~wallingf/patterns/elementary/papers/coding-at-the-lowest-level.pdf \[Accessed 28 Dec. 2023\].
 
-Berg, C. (1997). *Mastering Guitar Technique: Process and Essence (Classic Guitar).* Mel Bay Publications, Inc.
-[ISBN 978-1-610-65058-8](https://en.wikipedia.org/wiki/Special:BookSources?isbn=978-1-610-65058-8){:#berg-1997}.
+Bhayani, A. (2023). _System Design Questions_. \[online\] GitHub. Available at: https://github.com/arpitbbhayani/system-design-questions/ \[Accessed 28 Dec. 2023\].
 
-Berg, C. (2019). *Practicing Music by Design: Historic Virtuosi on Peak Performance* (1st ed.). Routledge.
-[ISBN 978-0-429-57631-7](https://en.wikipedia.org/wiki/Special:BookSources?isbn=978-0-429-57631-7){:#berg-2019}.
+Dinh, T.N. (2020). _Work through my solution to a system design interview question._ \[online\] Medium. Available at: https://levelup.gitconnected.com/work-through-my-solution-to-a-system-design-interview-question-a8ea4b60513b \[Accessed 28 Dec. 2023\].
 
-...
-</div>
+Geeksforgeeks (2020). _System Design of Uber App - Uber System Architecture_. \[online\] GeeksforGeeks. Available at: https://www.geeksforgeeks.org/system-design-of-uber-app-uber-system-architecture/.
 
----
+GeeksforGeeks. (2021). _System Design Tutorial_. \[online\] Available at: https://www.geeksforgeeks.org/system-design-tutorial/.
+
+GeeksforGeeks. (2023). _System Design of Uber App | Uber System Architecture_. \[online\] Available at: https://www.geeksforgeeks.org/system-design-of-uber-app-uber-system-architecture \[Accessed 28 Dec. 2023\].
+
+Martin, D. (2023). _The System Design Primer_. \[online\] GitHub. Available at: https://github.com/donnemartin/system-design-primer.
+
+Schaffer, E. (2023). _The complete guide to System Design in 2022_. \[online\] Educative: Interactive Courses for Software Developers. Available at: https://www.educative.io/blog/complete-guide-to-system-design.
+‌
+
 ```
-This file is located at: {{ page.path }}
+    This file is located at: {{ page.path }}
 ```
+
 ---

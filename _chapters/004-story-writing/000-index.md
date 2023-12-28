@@ -1,5 +1,5 @@
 ---
 layout: part
-slug: Interview
+slug: Stories for interview
 ---
 
