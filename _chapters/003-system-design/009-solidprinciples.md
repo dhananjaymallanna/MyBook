@@ -4,6 +4,8 @@ slug: SOLID Principles
 abstract: Principles of Object-Oriented Design
 ---
 
+## SOLID Principles
+
 ```mermaid!
       graph LR
          SRP["Single Responsibility Principle $ SRP $ "] -->|"A class should have only one reason to change."| Class1["Each class should have a single responsibility or purpose."]
