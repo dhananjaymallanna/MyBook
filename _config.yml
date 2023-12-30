@@ -33,7 +33,10 @@ baseurl:       # place folder name if the site is served in a subfolder
 
 # Build settings
 #theme: minima
-remote_theme: jasongrimes/jekyll-chapterbook
+#remote_theme: jasongrimes/jekyll-chapterbook
+#remote_theme: rundocs/jekyll-rtd-theme
+remote_theme: sighingnow/jekyll-gitbook
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.

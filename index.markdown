@@ -5,4 +5,4 @@
 layout: home
 ---
 
-![image-title-here](assets/gitbook/images/cover.png){:class="img-responsive"}
+![image-title-here](assets/gitbook/images/cover.webp){:class="img-responsive"}
