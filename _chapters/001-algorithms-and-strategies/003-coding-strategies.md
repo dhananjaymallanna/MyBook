@@ -1,6 +1,6 @@
 ---
 slug: Coding strategies
-title: Problems to solve
+title: Coding strategies
 abstract: Coding strategies of DSA
 ---
 

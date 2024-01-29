@@ -20,7 +20,7 @@ abstract: airline checkin
 * [Outcome](#outcome)
   * [You'll learn](#youll-learn)
 * [Share and shoutout](#share-and-shoutout)
-<!--te-->
+<!--te-->ß
 
 # Problem Statement
 
