@@ -1,6 +1,6 @@
 ---
-slug: Coding strategies
-title: Coding strategies
-abstract: Coding strategies of DSA
+slug: Algorithms
+title: Algorithms
+abstract: Data structures and algorithms
 ---
 

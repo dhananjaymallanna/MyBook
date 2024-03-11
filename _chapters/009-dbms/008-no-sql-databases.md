@@ -1,7 +1,7 @@
 ---
-title: no-sql
-slug:  no-sql
-abstract: no-sql
+title: No-SQL
+slug:  no-sql databases concepts
+abstract: no-sql databases concepts
 ---
 
 # Acid and Base

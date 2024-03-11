@@ -23,7 +23,7 @@
         "theme": "white"
       },
       "theme-default": {
-        "showLevel": false,
+        "showLevel": true,
         "styles": {
           "ebook": "styles/ebook.css",
           "epub": "styles/epub.css",
