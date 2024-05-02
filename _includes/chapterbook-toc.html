@@ -21,7 +21,7 @@
 
     {% if _is_new_part and _in_nested_part %}
       </ul></li>
-      {% assign _in_nested_part = false %}
+      {% assign _in_nested_part = true %}
     {% endif %}
 
     {% unless i_chapter_is_visible %}
@@ -69,6 +69,6 @@
 
   {% if _in_nested_part %}
     </ul></li>
-    {% assign _in_nested_part = false %}
+    {% assign _in_nested_part = true %}
   {% endif %}
 </ul>
