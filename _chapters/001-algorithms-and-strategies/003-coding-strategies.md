@@ -1,6 +1,37 @@
 ---
-slug: Algorithms
+slug: Data structures & Algorithms
 title: Algorithms
 abstract: Data structures and algorithms
 ---
 
+# Array Based
+
+1. DNF - seggregate data into 2/3 portions
+1. 2 Pointers
+1. sliding window
+
+# String
+
+To check if the substring K is present in String S
+
+1. Robin karp
+1. KMP
+
+# Tree
+
+For traversal
+
+1. pre-order
+1. post-order
+1. in-order
+1. level order
+
+# Graph
+
+For traversal:
+
+1. BFS
+2. DFS
+
+
+## 
