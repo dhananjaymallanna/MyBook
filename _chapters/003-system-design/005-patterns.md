@@ -104,9 +104,9 @@ UI patterns
 
 Sure, here are some brief notes on microservices design patterns along with appropriate Mermaid scripts to illustrate them:
 
-Microservices Design Patterns
+## Microservices Design Patterns
 
-Gateway Aggregation Pattern:
+### Gateway Aggregation Pattern:
    This pattern involves using an API gateway to aggregate various microservices into a single endpoint for clients.
 
 ```mermaid!
@@ -122,7 +122,7 @@ Gateway Aggregation Pattern:
        B -->|Response| A;
 ```
 
-Saga Pattern:
+### Saga Pattern:
    The saga pattern is used to manage distributed transactions across multiple microservices by orchestrating a sequence of local transactions.
 
 ```mermaid!
@@ -138,7 +138,7 @@ Saga Pattern:
        ShippingService-->> PaymentService: Confirm shipment
        PaymentService-->> OrderService: Update order status
 ```
-Event Sourcing Pattern:
+### Event Sourcing Pattern:
    In this pattern, changes to the state of a system are captured as a sequence of events.
 
 ```mermaid!
@@ -150,7 +150,7 @@ Event Sourcing Pattern:
        B -->|Apply Event| C(Read Model)
 ```
 
-CQRS Pattern (Command Query Responsibility Segregation):
+### CQRS Pattern (Command Query Responsibility Segregation):
    CQRS separates the command and query responsibilities, allowing for different models to be optimized for reads and writes.
 
 ```mermaid!
@@ -162,7 +162,7 @@ CQRS Pattern (Command Query Responsibility Segregation):
        C[Query] -->|Retrieve| D(Read Model)
 ```
 
-Service Registry Pattern:
+### Service Registry Pattern:
    This pattern involves using a service registry to keep track of available services in a microservice architecture. It allows services to dynamically discover and communicate with each other.
 ```mermaid!
 %%{init: {'theme':'forest',"messageAlign": "center","flowchart": { 'useMaxWidth':false,
@@ -174,7 +174,7 @@ Service Registry Pattern:
        A[Service Registry] -->|Discover| D(Service3)
 ```
 
-Circuit Breaker Pattern:
+### Circuit Breaker Pattern:
    The circuit breaker pattern is used to handle failures and prevent cascading failures in a microservice architecture. It provides a mechanism to detect and handle failures in remote service calls.
 ```mermaid!
 %%{init: {'theme':'forest',"messageAlign": "center","flowchart": { 'useMaxWidth':false,
@@ -187,9 +187,9 @@ Circuit Breaker Pattern:
        B -->|Response| A
 ```
 
-
-Event-Driven Architecture:
+### Event-Driven Architecture:
    In this pattern, services communicate with each other through events. Events are used to trigger actions and propagate changes across the system. This pattern enables loose coupling and scalability.
+
 ```mermaid!
 %%{init: {'theme':'forest',"messageAlign": "center","flowchart": { 'useMaxWidth':false,
 "htmlLabels": true
@@ -200,23 +200,7 @@ Event-Driven Architecture:
        B -->|Subscribe| D[Service3]
 ```
 
-
-API Gateway Pattern:
-   The API gateway pattern acts as a single entry point for clients to access multiple microservices. It provides a unified interface and handles tasks such as authentication, rate limiting, and request routing.
-```mermaid!
-%%{init: {'theme':'forest',"messageAlign": "center","flowchart": { 'useMaxWidth':false,
-"htmlLabels": true
-}}}%%
-      graph TD
-       A[Client] -->|Request| B(API Gateway)
-       B -->|Forward Request| C(Service1)
-       B -->|Forward Request| D(Service2)
-       C -->|Response| B
-       D -->|Response| B
-       B -->|Response| A
-```
-
-Database per Service Pattern:
+### Database per Service Pattern:
    In this pattern, each microservice has its own dedicated database. This allows services to have independent data models and enables better scalability and autonomy.
 
 ```mermaid!
@@ -229,19 +213,7 @@ Database per Service Pattern:
        E[Service3] -->|Database3| F
 ```
 
-Command Query Responsibility Segregation (CQRS) Pattern:
-   CQRS separates the read and write operations in a microservice architecture. It allows for different models to be optimized for reads and writes, improving performance and scalability.
-
-```mermaid!
-%%{init: {'theme':'forest',"messageAlign": "center","flowchart": { 'useMaxWidth':false,
-"htmlLabels": true
-}}}%%
-      graph LR
-       A[Command] -->|Update| B(Write Model)
-       C[Query] -->|Retrieve| D(Read Model)
-```
-
-Distributed Tracing:
+### Distributed Tracing:
    Distributed tracing is a pattern that allows you to trace requests as they flow through a distributed system. It helps in understanding the performance and behavior of individual microservices. 
 ```mermaid!
 %%{init: {'theme':'forest',"messageAlign": "center","flowchart": { 'useMaxWidth':false,
@@ -256,7 +228,7 @@ Distributed Tracing:
        B -->|Response| A
 ```
 
-Health Check API:
+### Health Check API:
    The health check API pattern involves implementing an API endpoint that provides information about the health of a microservice. It helps in monitoring the availability and status of individual microservices. 
 ```mermaid!
 %%{init: {'theme':'forest',"messageAlign": "center","flowchart": { 'useMaxWidth':false,
@@ -267,7 +239,7 @@ Health Check API:
        B -->|Health Check Response| A
 ```
 
-Log Aggregation:
+### Log Aggregation:
    Log aggregation is a pattern that involves collecting and centralizing logs from multiple microservices. It helps in troubleshooting and analyzing the behavior of the system as a whole. 
 ```mermaid!
 %%{init: {'theme':'forest',"messageAlign": "center","flowchart": { 'useMaxWidth':false,
@@ -279,7 +251,7 @@ Log Aggregation:
        D[Microservice3] -->|Log| B
 ```
 
-Audit Logging:
+### Audit Logging:
    Audit logging is a pattern that involves capturing and storing logs for auditing purposes. It helps in tracking and monitoring the activities and changes within a microservice architecture. 
 ```mermaid!
 %%{init: {'theme':'forest',"messageAlign": "center","flowchart": { 'useMaxWidth':false,
