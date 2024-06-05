@@ -4,8 +4,6 @@ slug: Typical Pattern to keep in mind
 abstract: Typical Pattern to keep in mind
 ---
 
-# Tabularised data
-
 <table>
    <tr>
       <td>
