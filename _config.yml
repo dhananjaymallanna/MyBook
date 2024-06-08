@@ -77,6 +77,8 @@ bookcrumbs:
 sidebar_nav_top:
 - label: System Design & Problem Solving
   url: /index.html
+- label: search
+  url: /search.html
 
 # Links shown below the TOC in the sidebar
 # All "url" variables should have a leading slash.
