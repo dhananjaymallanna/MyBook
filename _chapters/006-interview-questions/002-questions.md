@@ -4,7 +4,40 @@ slug: Important Questions
 abstract: Important Questions
 ---
 # Q & A
+
+
 - How to do handle the transcation across the different Microservices? What are the ways and what is the best practice ?
+
+## Answer
+
+Handling transactions across microservices can be tricky because traditional database transactions (ACID) are difficult to achieve across multiple services. Here are some common approaches and best practices:
+
+1. Two-Phase Commit (2PC):
+
+This is a traditional approach where a coordinator service manages the transaction flow.
+It involves a "prepare" phase where participants (microservices) confirm readiness, and a "commit" or "rollback" phase based on the outcome.
+While it guarantees ACID properties, 2PC can introduce complexity and become a single point of failure.
+2. Event Sourcing and Sagas:
+
+This approach breaks down the transaction into a sequence of independent local transactions within each microservice.
+Events are published after each local transaction to trigger the next step in the saga (series of local transactions) in another service.
+If a failure occurs, compensating transactions can be implemented to undo changes.
+This approach is flexible and scalable but requires careful design and handling of eventual consistency (data eventually becomes consistent across services).
+3. API Choreography:
+
+Services communicate directly with each other using APIs and messages.
+Each service is responsible for its own data consistency.
+Similar to event sourcing, eventual consistency is achieved.
+This approach is lightweight and promotes loose coupling but requires proper error handling and compensation strategies.
+Best Practices:
+
+Identify Transaction Boundaries: Not all interactions require strong ACID transactions. Analyze your use cases to identify where eventual consistency is sufficient.
+Focus on Data Integrity: Design your data model to minimize inconsistencies between services.
+Compensating Transactions: Implement mechanisms to undo partial changes in case of failures.
+Messaging and Queues: Leverage asynchronous messaging to decouple services and improve fault tolerance.
+Monitoring and Observability: Monitor transactions across services to identify and address inconsistencies.
+Choosing the best approach depends on your specific needs and the level of consistency required for your transactions.  Consider factors like complexity, scalability, and fault tolerance when making your decision.  
+
 - compensating transaction vs event driven architecture (What is the drawback when we use only componsentate?)
 - Distributed transcation across the microservice, how to implement?
 - How to maintain the data inside the Spring Data or JPA? after Versioning , it has be integer and annototation.
