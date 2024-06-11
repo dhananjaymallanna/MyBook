@@ -5,7 +5,7 @@ abstract: Important Questions
 ---
 # Q & A
 
-
+## Question
 - How to do handle the transcation across the different Microservices? What are the ways and what is the best practice ?
 
 ## Answer
@@ -14,29 +14,33 @@ Handling transactions across microservices can be tricky because traditional dat
 
 1. Two-Phase Commit (2PC):
 
-This is a traditional approach where a coordinator service manages the transaction flow.
-It involves a "prepare" phase where participants (microservices) confirm readiness, and a "commit" or "rollback" phase based on the outcome.
-While it guarantees ACID properties, 2PC can introduce complexity and become a single point of failure.
+This is a traditional approach where a coordinator service manages the transaction flow.<br>
+It involves a "prepare" phase where participants (microservices) confirm readiness, and a "commit" or "rollback" phase based on the outcome.<br>
+While it guarantees ACID properties, 2PC can introduce complexity and become a single point of failure.<br>
+
 2. Event Sourcing and Sagas:
 
-This approach breaks down the transaction into a sequence of independent local transactions within each microservice.
-Events are published after each local transaction to trigger the next step in the saga (series of local transactions) in another service.
-If a failure occurs, compensating transactions can be implemented to undo changes.
-This approach is flexible and scalable but requires careful design and handling of eventual consistency (data eventually becomes consistent across services).
+This approach breaks down the transaction into a sequence of independent local transactions within each microservice. <br>
+Events are published after each local transaction to trigger the next step in the saga (series of local transactions) in another service. <br>
+If a failure occurs, compensating transactions can be implemented to undo changes. <br>
+This approach is flexible and scalable but requires careful design and handling of eventual consistency (data eventually becomes consistent across services).<br>
+
 3. API Choreography:
 
-Services communicate directly with each other using APIs and messages.
-Each service is responsible for its own data consistency.
-Similar to event sourcing, eventual consistency is achieved.
-This approach is lightweight and promotes loose coupling but requires proper error handling and compensation strategies.
-Best Practices:
+Services communicate directly with each other using APIs and messages. <br>
+Each service is responsible for its own data consistency. <br>
+Similar to event sourcing, eventual consistency is achieved. <br>
+This approach is lightweight and promotes loose coupling but requires proper error handling and compensation strategies. <br>
 
-Identify Transaction Boundaries: Not all interactions require strong ACID transactions. Analyze your use cases to identify where eventual consistency is sufficient.
-Focus on Data Integrity: Design your data model to minimize inconsistencies between services.
-Compensating Transactions: Implement mechanisms to undo partial changes in case of failures.
-Messaging and Queues: Leverage asynchronous messaging to decouple services and improve fault tolerance.
-Monitoring and Observability: Monitor transactions across services to identify and address inconsistencies.
-Choosing the best approach depends on your specific needs and the level of consistency required for your transactions.  Consider factors like complexity, scalability, and fault tolerance when making your decision.  
+
+** Best Practices: **
+
+**Identify Transaction Boundaries:** Not all interactions require strong ACID transactions. Analyze your use cases to identify where eventual consistency is sufficient.
+Focus on Data Integrity: Design your data model to minimize inconsistencies between services.<br>
+**Compensating Transactions:** Implement mechanisms to undo partial changes in case of failures.<br>
+**Messaging and Queues:** Leverage asynchronous messaging to decouple services and improve fault tolerance.<br>
+**Monitoring and Observability:** Monitor transactions across services to identify and address inconsistencies.
+Choosing the best approach depends on your specific needs and the level of consistency required for your transactions.  Consider factors like complexity, scalability, and fault tolerance when making your decision. <br> 
 
 - compensating transaction vs event driven architecture (What is the drawback when we use only componsentate?)
 - Distributed transcation across the microservice, how to implement?
