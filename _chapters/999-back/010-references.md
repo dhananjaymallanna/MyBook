@@ -29,7 +29,9 @@ Schaffer, E. (2023). _The complete guide to System Design in 2022_. \[online\] E
 ```
     This file is located at: {{ page.path }}
 ```
+
 ## My tool for citation generation
+
 https://www.mybib.com/#/projects/kdXvmK/citations
 password: Bibliography
 username: signmeup@hldrive.com
