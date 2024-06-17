@@ -1,10 +1,8 @@
 ---
-title: Privacy statement
+title: Privacy Policy
 permalink: /privacy
 layout: page
 ---
-
-# Privacy Policy
 
 Last updated: June 17, 2024
 
