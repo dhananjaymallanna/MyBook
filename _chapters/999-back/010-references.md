@@ -5,15 +5,6 @@ disable_toc: true
 #class: references
 ---
 
-### Example
-See the [Scribbr citation generator](https://www.scribbr.com/citation/generator/) to generate citations in the desired style.
-(These examples use APA style.)
-
-## My tool for citation generation
-https://www.mybib.com/#/projects/kdXvmK/citations
-password: Bibliography
-username: signmeup@hldrive.com
-
 ## References
 
 262588213843476 (n.d.). _System Design Cheatsheet_. \[online\] Gist. Available at: https://gist.github.com/vasanthk/485d1c25737e8e72759f.
@@ -30,8 +21,6 @@ Geeksforgeeks (2020). _System Design of Uber App - Uber System Architecture_. \[
 
 GeeksforGeeks. (2021). _System Design Tutorial_. \[online\] Available at: https://www.geeksforgeeks.org/system-design-tutorial/.
 
-GeeksforGeeks. (2023). _System Design of Uber App | Uber System Architecture_. \[online\] Available at: https://www.geeksforgeeks.org/system-design-of-uber-app-uber-system-architecture \[Accessed 28 Dec. 2023\].
-
 Martin, D. (2023). _The System Design Primer_. \[online\] GitHub. Available at: https://github.com/donnemartin/system-design-primer.
 
 Schaffer, E. (2023). _The complete guide to System Design in 2022_. \[online\] Educative: Interactive Courses for Software Developers. Available at: https://www.educative.io/blog/complete-guide-to-system-design.
@@ -40,5 +29,7 @@ Schaffer, E. (2023). _The complete guide to System Design in 2022_. \[online\] E
 ```
     This file is located at: {{ page.path }}
 ```
-
----
+## My tool for citation generation
+https://www.mybib.com/#/projects/kdXvmK/citations
+password: Bibliography
+username: signmeup@hldrive.com
