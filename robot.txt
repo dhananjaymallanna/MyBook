@@ -2,4 +2,8 @@
 layout: none
 ---
 User-agent: *
+Allow: /
 Sitemap: https://www.uncoding.in/sitemap.xml
+Sitemap: http://www.uncoding.in/sitemap.xml
+Sitemap: https://uncoding.in/sitemap.xml
+Sitemap: http://uncoding.in/sitemap.xml
