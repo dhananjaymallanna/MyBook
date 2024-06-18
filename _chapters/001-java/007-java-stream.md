@@ -42,5 +42,4 @@ An object that may hold resources (such as file or socket handles) until it is c
 
 --------------------------------------
 
-
 ## to be continued reading from <https://4comprehension.com/page/6/?s=java+stream>

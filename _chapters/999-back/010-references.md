@@ -24,11 +24,6 @@ GeeksforGeeks. (2021). _System Design Tutorial_. \[online\] Available at: https:
 Martin, D. (2023). _The System Design Primer_. \[online\] GitHub. Available at: https://github.com/donnemartin/system-design-primer.
 
 Schaffer, E. (2023). _The complete guide to System Design in 2022_. \[online\] Educative: Interactive Courses for Software Developers. Available at: https://www.educative.io/blog/complete-guide-to-system-design.
-‌
-
-```
-    This file is located at: {{ page.path }}
-```
 
 ## My tool for citation generation
 
