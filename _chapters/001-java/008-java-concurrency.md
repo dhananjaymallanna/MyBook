@@ -16,4 +16,22 @@ abstract: Java Concurrency
 
 KeyWords:
 Race Condition: Multiple threads are trying to acquire the resources.
+
 Data Race: Typically *check and update* kind of cases where, the date that got modified is up for access immidiatly for update and read.
+
+
+## Main components
+
+- Executor
+- ExecutorService
+- ScheduledExecutorService
+- Future
+- CountDownLatch
+- CyclicBarrier
+- Semaphore
+- ThreadFactory
+- BlockingQueue
+- DelayQueue
+- Locks
+- Phaser
+
