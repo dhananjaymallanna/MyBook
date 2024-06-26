@@ -13,11 +13,191 @@ Moving elements within array and searching are core problems. This is the founda
 
 1. Move Negative elements to front
 
-    [Move Negative elements to front](https://iq.opengenus.org/move-negative-elements-to-front/) is a simple problem that tests your knowledge of how to move elements across an array. These involve partition algorithms like [Lomuto](https://iq.opengenus.org/lomuto-partition-scheme/) and [Hoare](https://iq.opengenus.org/hoare-partition/) Partition Scheme and has direct application in algorithms like QuickSort.
+    Move Negative elements to front is a simple problem that tests your knowledge of how to move elements across an array. Partition Scheme and has direct application in algorithms like QuickSort.
+
+  ```java
+
+import java.util.Arrays;
+
+public class MoveToFront {
+    /*
+    Example:
+        Input:
+        2 -9 10 12 5 -2 10 -4
+        Note:
+        The order of negative elements are same.
+        All negative elements have been moved to the front.
+    */
+
+    public static void main(String[] args) {
+        int[] input = {2, -9, 10, 12, 5, -2, 10, -4};
+        System.out.println(Arrays.toString(input));
+
+        // we have to move all negatives to front so all positives must go to end
+        //if order does not matter
+        for (int i = 0,j=input.length-1; i < j ; ) {
+            if (input[i]<0){
+                i++;
+            } else{
+                System.out.println( "swapping "+ input[i]+" with "+input[j]);
+                int temp = input[i];
+                input[i] = input[j];
+                input[j] = temp;
+                j--;
+                System.out.println(Arrays.toString(input) );
+            }
+        }
+
+        System.out.print(Arrays.toString(input) );
+        System.out.println();
+        System.out.println();
+        System.out.println();
+
+        /*
+        [2, -9, 10, 12, 5, -2, 10, -4]
+        swapping 2 with -4
+        [-4, -9, 10, 12, 5, -2, 10, 2]
+        swapping 10 with 10
+        [-4, -9, 10, 12, 5, -2, 10, 2]
+        swapping 10 with -2
+        [-4, -9, -2, 12, 5, 10, 10, 2]
+        swapping 12 with 5
+        [-4, -9, -2, 5, 12, 10, 10, 2]
+        FINALLY
+        [-4, -9, -2, 5, 12, 10, 10, 2]
+        */
+
+        // FOR PRESERVING RELATIVE ORDER OF NEGITIVES
+        input = new int[]{2, -9, 10, 12, 5, -2, 10, -4};
+        int j = 0;
+        for (int i = 0; i < input.length; i++) {
+            if (input[i] < 0) {
+                System.out.println( "swapping "+ input[i]+" with "+input[j]);
+                int temp = input[i];
+                input[i] = input[j];
+                input[j] = temp;
+                j++;
+                System.out.println(Arrays.toString(input) );
+            }
+        }
+        System.out.print(Arrays.toString(input) );
+    }
+
+    /*
+    swapping -9 with 2
+    [-9, 2, 10, 12, 5, -2, 10, -4]
+    swapping -2 with 2
+    [-9, -2, 10, 12, 5, 2, 10, -4]
+    swapping -4 with 10
+    [-9, -2, -4, 12, 5, 2, 10, 10]
+    [-9, -2, -4, 12, 5, 2, 10, 10]
+    * */
+}
+
+  ```
 
 1. 2 Sum Problem
 
-    [2 Sum problem](https://iq.opengenus.org/two-sum/) is a standard problem where you need to find two elements that add up to a given number. The advanced form is to find 2 numbers whose [sum to closest to the target](https://iq.opengenus.org/2-sum-closest/).
+    2 Sum problem is a standard problem where you need to find two elements that add up to a given number.
+
+    ```text
+    Input: arr[] = {0, -1, 2, -3, 1}, x= -2
+    Output: [-3,1]
+    Explanation: If we calculate the sum of the output,1 + (-3) = -2
+
+    Input: arr[] = {1, -2, 1, 0, 5}, x = 0
+    Output: No
+    ```
+
+    **Approaches**
+
+    | **Approach** | **Time Complexity** | **Space Complexity** |
+    | naive(Brute Force) | O(n^2)| O(1) |
+    | Improved Approach using Binary Search | O(N logN) | O(1) |
+    | Optimal Approach using Hash Map | O(N) | O(N) |
+
+    **Brute Force**
+
+    ```java
+    void two_sum(int[] list, int sum)
+    {
+        int length = list.length;
+        int count = 0;
+
+        for(int i = 0; i<length; i++)
+            for(int j = i+1; j<length; j++)
+                if(list[i] + list[j] == sum)
+                    System.out.println(list[i] +" "+ list[j]);
+    }
+    ```
+
+    **Hash Map based approach**
+
+    ```java
+
+    public class TwoSum {
+
+        public static int[] findTwoSum(int[] arr, int x) {
+            HashMap<Integer, Integer> seen = new HashMap<>();
+            for (int i = 0; i < arr.length; i++) {
+            int complement = x - arr[i];
+            if (seen.containsKey(complement)) {
+                return new int[]{complement, arr[i]};
+            }
+            seen.put(arr[i], i);
+            }
+            return null;
+        }
+
+        public static void main(String[] args) {
+            int[] arr = {0, -1, 2, -3, 1};
+            int x = -2;
+
+            int[] result = findTwoSum(arr, x);
+
+            if (result != null) {
+            System.out.println("Two elements that add up to " + x + " are: " + result[0] + " and " + result[1]);
+            } else {
+            System.out.println("No two elements found that add up to " + x);
+            }
+        }
+    }
+
+    ```
+
+1. 2 Sum Closest
+
+    Find 2 elements with sum closest to target
+
+    ```java
+    public class TwoSumClosest {
+        public static int[] findClosestSum(int[] arr, int target) {
+            int closestSum = Integer.MAX_VALUE;
+            int[] closestPair = null;
+            for (int i = 0; i < arr.length - 1; i++) {
+                for (int j = i + 1; j < arr.length; j++) {
+                    int currentSum = arr[i] + arr[j];
+                    int diff = Math.abs(currentSum - target);
+                    if (diff < closestSum) {
+                        closestSum = diff;
+                        closestPair = new int[]{arr[i], arr[j]};
+                    }
+                }
+            }
+            return closestPair;
+        }
+
+        public static void main(String[] args) {
+            int[] arr = {0, -1, 2, -3, 1};
+            int target = -2;
+            int[] result = findClosestSum(arr, target);
+            if (result != null) {
+                System.out.println("Two elements with closest sum to " + target + " are: " + result[0] + " and " + result[1]);
+            }
+        }
+    }
+
+    ```
 
 1. A 3 Sum Problem
 
