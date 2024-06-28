@@ -3,7 +3,52 @@ slug: Problems to must solve
 title: Problems to solve
 abstract: Complexities of DSA
 ---
+Basics
+--------
 
+**Q. Program to get K smallest numbers from a given stream of numbers**
+
+*Approach:* if you want K smallest numbers, then go for max heap, whenever the size of heap increases then remove the element from top.
+2 things can happen:
+
+- incoming is greater than root: post heapify, this very element comes back to the top, and get removed due to size impact.
+- incoming is smaller than root: post heapify, this element goes somewhere and max among all values comes to the top, and get removed due to size impact. there by preserving the smaller numbers intact.
+
+```java
+import java.util.PriorityQueue;
+
+public class PriorityQueueUsage {
+    /*
+     * Program to get K smallest numbers from a given stream of numbers
+     */
+
+    public static void main(String[] args) {
+        int[] ints = {10,0,30,4,5,6,8,9};
+        int k = 4;
+        for (Integer integer : ints) {
+            System.out.print(integer+"  ");
+        }
+        System.out.println();
+
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>(2,(a,b)-> b-a);
+        for (Integer integer : ints) {
+            System.out.println(integer+" inserted ");
+            maxHeap.offer(integer);
+            System.out.println(maxHeap.toString());
+           if (maxHeap.size()>k) {
+                System.out.println(maxHeap.remove()+" removed ");
+           } 
+           System.out.println(maxHeap.toString());
+           System.out.println();
+        }
+        while (!maxHeap.isEmpty()) {
+            System.out.print(maxHeap.poll()+"  ");
+        }
+        System.out.println();
+    }
+}
+
+```
 
 
 Array problems
