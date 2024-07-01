@@ -692,4 +692,8 @@ Advanced problems
 
 1. Longest Increasing Subsequence
 
-    The problem of Longest Increasing Subsequence is a standard problem that is solved using [Binary Search and Dynamic Programming](https://iq.opengenus.org/longest-increasing-subsequence/). The challenge is to use [Fenwick Tree to solve LIS problem](https://iq.opengenus.org/longest-increasing-subsequence-fenwick-tree/). 2 follow-up questions are to find [Longest Common Increasing Subsequence](https://iq.opengenus.org/longest-common-increasing-subsequence/) and [Longest Increasing Consecutive Subsequence](https://iq.opengenus.org/longest-increasing-consecutive-subsequence/).
+    The problem of Longest Increasing Subsequence is a standard problem that is solved using [Binary Search and Dynamic Programming](https://iq.opengenus.org/longest-increasing-subsequence/). The challenge is to use [Fenwick Tree to solve LIS problem](https://iq.opengenus.org/longest-increasing-subsequence-fenwick-tree/).
+    
+    find [Longest Common Increasing Subsequence](https://iq.opengenus.org/longest-common-increasing-subsequence/) and 
+     
+    [Longest Increasing Consecutive Subsequence](https://iq.opengenus.org/longest-increasing-consecutive-subsequence/).
