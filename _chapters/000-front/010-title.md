@@ -4,7 +4,7 @@ title: Prelude
 abstract: 
 ---
 
-![image-title-here](assets/gitbook/images/prelude.webp){:class="img-responsive"}
+![image-title-here](assets/gitbook/images/prelude.png){:class="img-responsive"}
 
 ---
 **I am not bound by good deeds, nor bad deeds, nor happiness or sadness, <br>
