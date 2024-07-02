@@ -62,3 +62,11 @@ public class PriorityQueueUsage {
 
 ```
 
+### Q. Find the maximum element in the given range. 
+### Q. Find the sum of elements in the given range of an array.
+
+#### Special DS
+
+ Segmented tree.
+
+ 
