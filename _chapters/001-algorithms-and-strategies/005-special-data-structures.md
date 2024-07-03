@@ -126,9 +126,9 @@ So this becomes mathematically as
 ```Text
 With x nodes at leaf level
 
-Min length of segment tree array  = x+x/2+x/4+.....+1
-
-And  x/2+x/4+.....+1 shall addup to x-1 hence the length of segment tree is 2x.
+The total number of nodes involved in the segment tree is 4*n.
+The total number of levels is log n and starting from one node at the first level, the number of nodes gets doubled at every level. 
+So, total number of nodes = 1+2+4+8+....+2^(log n) = 2^(logn + 1) -1 < 4n.
 ```
 
 ##### To build the tree
@@ -187,6 +187,7 @@ go and update the value at the index and update the remaining values on the back
 Exactly same logic as the case of creation (Building) of the segmented tree.
 
 ```java
+
 private void updateUtil(int treeIndex, int left, int right, int index, int val) {
     if (left == right) { // Leaf node
         tree[treeIndex] = val;
@@ -199,11 +200,12 @@ private void updateUtil(int treeIndex, int left, int right, int index, int val) 
         updateUtil(2 * treeIndex + 1, left, mid, index, val);
     else
         updateUtil(2 * treeIndex + 2, mid + 1, right, index, val);
-
-    tree[treeIndex] = tree[2 * treeIndex + 1] + tree[2 * treeIndex + 2];
+    
+    tree[treeIndex] = Math.min(tree[2 * treeIndex + 1], tree[2 * treeIndex + 2]);
 }
 
 public void update(int index, int val) {
     updateUtil(0, 0, size - 1, index, val);
 }
+
 ```
