@@ -4,6 +4,11 @@ slug: Splitwise
 abstract: Splitwise
 ---
 
+![image-title-here](assets/gitbook/images/splitwise/User_structure.png){:class="img-responsive"}
+
+![image-title-here](assets/gitbook/images/splitwise/Settlement_structure.png){:class="img-responsive"}
+
+
 ```java
 package org.example;
 
@@ -71,11 +76,6 @@ public class TransactionManager {
     }
 }
 ```
-
-![image-title-here](assets/gitbook/images/splitwise/assets/User_structure.png){:class="img-responsive"}
-
-![image-title-here](assets/gitbook/images/splitwise/assets/Settlement_structure.png){:class="img-responsive"}
-
 
 ```java
 package org.example.settle;
