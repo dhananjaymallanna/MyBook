@@ -80,12 +80,13 @@ sidebar_nav_top:
 # Links shown below the TOC in the sidebar
 # All "url" variables should have a leading slash.
 sidebar_nav_bottom:
+- label: Timer
+  url: /stopwatch.html
 - label: Draft outline
   url: /outline.html
 - label: Fork at GitHub
   url: https://github.com/dhananjaymallanna/MyBook/fork
-- label: Timer
-  url: /stopwatch.html
+
 # Navigation shown at the bottom of the page
 # All "url" variables should have a leading slash.
 bottom_nav:
