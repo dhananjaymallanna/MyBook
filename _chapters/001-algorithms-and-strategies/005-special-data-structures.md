@@ -10,7 +10,7 @@ abstract: Special Data structures
 
 #### Special DS
 
- Heaps
+Heaps
 
 ### opertations supperted
 
@@ -30,34 +30,34 @@ abstract: Special Data structures
 import java.util.PriorityQueue;
 
 public class PriorityQueueUsage {
-    /*
-     * Program to get K smallest numbers from a given stream of numbers
-     */
+   /*
+    * Program to get K smallest numbers from a given stream of numbers
+    */
 
-    public static void main(String[] args) {
-        int[] ints = {10,0,30,4,5,6,8,9};
-        int k = 4;
-        for (Integer integer : ints) {
-            System.out.print(integer+"  ");
-        }
-        System.out.println();
+   public static void main(String[] args) {
+       int[] ints = {10,0,30,4,5,6,8,9};
+       int k = 4;
+       for (Integer integer : ints) {
+           System.out.print(integer+"  ");
+       }
+       System.out.println();
 
-        PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>(2,(a,b)-> b-a);
-        for (Integer integer : ints) {
-            System.out.println(integer+" inserted ");
-            maxHeap.offer(integer);
-            System.out.println(maxHeap.toString());
-           if (maxHeap.size()>k) {
-                System.out.println(maxHeap.remove()+" removed ");
-           } 
+       PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>(2,(a,b)-> b-a);
+       for (Integer integer : ints) {
+           System.out.println(integer+" inserted ");
+           maxHeap.offer(integer);
            System.out.println(maxHeap.toString());
-           System.out.println();
-        }
-        while (!maxHeap.isEmpty()) {
-            System.out.print(maxHeap.poll()+"  ");
-        }
-        System.out.println();
-    }
+          if (maxHeap.size()>k) {
+               System.out.println(maxHeap.remove()+" removed ");
+          } 
+          System.out.println(maxHeap.toString());
+          System.out.println();
+       }
+       while (!maxHeap.isEmpty()) {
+           System.out.print(maxHeap.poll()+"  ");
+       }
+       System.out.println();
+   }
 }
 
 ```
@@ -68,7 +68,7 @@ public class PriorityQueueUsage {
 
 #### Special DS
 
-    Segmented tree.
+   Segmented tree.
 
 Segment Trees can be used to solve Range Min/Max & Sum Queries and Range Update Queries in O (log n) time.
 
@@ -92,14 +92,14 @@ In a Segment Tree, the array is stored at the leaves of the tree, while the inte
 
 ```java
 class SegmentTree {
-       int[] tree;
-       int size;
-  
-       SegmentTree(int[] array) {
-           size = array.length;
-           tree = new int[2 * size];
-           buildTree(array, 0, 0, size - 1);
-       }
+      int[] tree;
+      int size;
+ 
+      SegmentTree(int[] array) {
+          size = array.length;
+          tree = new int[2 * size];
+          buildTree(array, 0, 0, size - 1);
+      }
 }
 ```
 
@@ -109,14 +109,14 @@ Note the size of the segment tree is 2 times the array length.Take a look at the
 %%{init: {'theme':'forest',"messageAlign": "center","flowchart": { 'useMaxWidth':false,
 "htmlLabels": true
 }}}%% 
-      graph TD
-        0
-        0 -->1
-        0 -->2
-        1 -->3
-        1 -->4
-        2 -->5
-        2 -->6
+     graph TD
+       0
+       0 -->1
+       0 -->2
+       1 -->3
+       1 -->4
+       2 -->5
+       2 -->6
 ```
 
 If there are x nodes at leaf then x/2 on the level higher and x/4 above that it goes on until you have a single root node on top.
@@ -137,17 +137,17 @@ Each element in the Segment tree  will be , where  is the node’s index, and th
 
 ```java
 private void buildTree(int[] array, int treeIndex, int left, int right) {
-    if (left == right) {
-        //base case, that is, filling in the leaf nodes.
-        tree[treeIndex] = array[left];
-        return;
-    }
-    int mid = left + (right - left) / 2;
-    buildTree(array, 2 * treeIndex + 1, left, mid);
-    buildTree(array, 2 * treeIndex + 2, mid + 1, right);
-    //NOTE: this will store the info you want it do, in this case i am taking min
-    // it can be sum or max or anything that you want this segment tree to do.
-    tree[treeIndex] = Math.min(tree[2 * treeIndex + 1], tree[2 * treeIndex + 2]);
+   if (left == right) {
+       //base case, that is, filling in the leaf nodes.
+       tree[treeIndex] = array[left];
+       return;
+   }
+   int mid = left + (right - left) / 2;
+   buildTree(array, 2 * treeIndex + 1, left, mid);
+   buildTree(array, 2 * treeIndex + 2, mid + 1, right);
+   //NOTE: this will store the info you want it do, in this case i am taking min
+   // it can be sum or max or anything that you want this segment tree to do.
+   tree[treeIndex] = Math.min(tree[2 * treeIndex + 1], tree[2 * treeIndex + 2]);
 }
 ```
 
@@ -157,31 +157,31 @@ Initial call to do this:
 buildTree(array, 0, 0, size - 1);
 ```
 
-To query
+#### To query
 
 The range queries can be served in O(long(n)).
 
 ```java
 
 private int query(int treeIndex, int left, int right, int queryLeft, int queryRight) {
-    if (queryLeft <= left && right <= queryRight)
-        return tree[treeIndex];
-    int mid = left + (right - left) / 2;
-    int minValue = Integer.MAX_VALUE;
-    if (queryLeft <= mid)
-        minValue = Math.min(minValue, query(2 * treeIndex + 1, left, mid, queryLeft, queryRight));
-    if (queryRight > mid)
-        minValue = Math.min(minValue, query(2 * treeIndex + 2, mid + 1, right, queryLeft, queryRight));
-    return minValue;
+   if (queryLeft <= left && right <= queryRight)
+       return tree[treeIndex];
+   int mid = left + (right - left) / 2;
+   int minValue = Integer.MAX_VALUE;
+   if (queryLeft <= mid)
+       minValue = Math.min(minValue, query(2 * treeIndex + 1, left, mid, queryLeft, queryRight));
+   if (queryRight > mid)
+       minValue = Math.min(minValue, query(2 * treeIndex + 2, mid + 1, right, queryLeft, queryRight));
+   return minValue;
 }
 
 int query(int left, int right) {
-    return query(0, 0, size - 1, left, right);
+   return query(0, 0, size - 1, left, right);
 }
 
 ```
 
-To update the date at given index in an index tree.
+#### To update the date at given index in an index tree.
 
 go and update the value at the index and update the remaining values on the backtracking path.
 Exactly same logic as the case of creation (Building) of the segmented tree.
@@ -189,23 +189,23 @@ Exactly same logic as the case of creation (Building) of the segmented tree.
 ```java
 
 private void updateUtil(int treeIndex, int left, int right, int index, int val) {
-    if (left == right) { // Leaf node
-        tree[treeIndex] = val;
-        return;
-    }
+   if (left == right) { // Leaf node
+       tree[treeIndex] = val;
+       return;
+   }
 
-    int mid = left + (right - left) / 2;
+   int mid = left + (right - left) / 2;
 
-    if (index <= mid)
-        updateUtil(2 * treeIndex + 1, left, mid, index, val);
-    else
-        updateUtil(2 * treeIndex + 2, mid + 1, right, index, val);
-    
-    tree[treeIndex] = Math.min(tree[2 * treeIndex + 1], tree[2 * treeIndex + 2]);
+   if (index <= mid)
+       updateUtil(2 * treeIndex + 1, left, mid, index, val);
+   else
+       updateUtil(2 * treeIndex + 2, mid + 1, right, index, val);
+   
+   tree[treeIndex] = Math.min(tree[2 * treeIndex + 1], tree[2 * treeIndex + 2]);
 }
 
 public void update(int index, int val) {
-    updateUtil(0, 0, size - 1, index, val);
+   updateUtil(0, 0, size - 1, index, val);
 }
 
 ```
@@ -236,120 +236,124 @@ int freq[] = {2, 1, 1, 3, 2, 3, 4, 5, 6, 7, 8};
 
 ### For construction of Tree
 
- for the index being 1 we shall add this number to indeces
- i= 1 -i= -1 i&-i= 1
- i= 10 -i= -10 i&-i= 10
- i= 100 -i= -100 i&-i= 100
- i= 1000 -i= -1000 i&-i= 1000
+step by step isolate the last set bits(LSB) and add the value to those indices.
 
- for the index being 2 we shall add this number to indeces
- i= 10 -i= -10 i&-i= 10
- i= 100 -i= -100 i&-i= 100
- i= 1000 -i= -1000 i&-i= 1000
+example:
 
- for the index being 3 we shall add this number to indeces
- i= 11 -i= -11 i&-i= 1
- i= 100 -i= -100 i&-i= 100
- i= 1000 -i= -1000 i&-i= 1000
+```txt
+say we want to update the index 13
+then 
+binary for 13 = 1101
+first iteration: LSB = 1, so add 1 to 13 and add the value at 14 index as well
+second iteration: 14(1110): LSB=2, so add 2 to 14 and add the value at 16 index as well
+third iteration: 16(10000): LSB=16, so add 16 to 16 and add the value at 32 index as well
 
-for the index being 4 we shall add this number to indeces
- i= 100 -i= -100 i&-i= 100
- i= 1000 -i= -1000 i&-i= 1000
+this goes on until the LSB<N (the size of given array)
+```
 
- for the index being 5 we shall add this number to indeces
- i= 101 -i= -101 i&-i= 1
- i= 110 -i= -110 i&-i= 10
- i= 1000 -i= -1000 i&-i= 1000
+for the index being 1 we shall add this number to indeces
+<br>i= 1 -i= -1 i&-i= 1
+<br>i= 10 -i= -10 i&-i= 10
+<br>i= 100 -i= -100 i&-i= 100
+<br>i= 1000 -i= -1000 i&-i= 1000
+<br>
+<br>for the index being 2 we shall add this number to indeces
+<br>i= 10 -i= -10 i&-i= 10
+<br>i= 100 -i= -100 i&-i= 100
+<br>i= 1000 -i= -1000 i&-i= 1000
+<br>
+<br>for the index being 3 we shall add this number to indeces
+<br>i= 11 -i= -11 i&-i= 1
+<br>i= 100 -i= -100 i&-i= 100
+<br>i= 1000 -i= -1000 i&-i= 1000
+<br>
+<br>for the index being 4 we shall add this number to indeces
+<br>i= 100 -i= -100 i&-i= 100
+<br>i= 1000 -i= -1000 i&-i= 1000
+<br>
+<br>for the index being 5 we shall add this number to indeces
+<br>i= 101 -i= -101 i&-i= 1
+<br>i= 110 -i= -110 i&-i= 10
+<br>i= 1000 -i= -1000 i&-i= 1000
+<br>
+<br>for the index being 6 we shall add this number to indeces
+<br>i= 110 -i= -110 i&-i= 10
+<br>i= 1000 -i= -1000 i&-i= 1000
+<br>
+<br>for the index being 7 we shall add this number to indeces
+<br>i= 111 -i= -111 i&-i= 1
+<br>i= 1000 -i= -1000 i&-i= 1000
+<br>
+<br>for the index being 8 we shall add this number to indeces
+<br>i= 1000 -i= -1000 i&-i= 1000
+<br>
+<br>for the index being 9 we shall add this number to indeces
+<br>i= 1001 -i= -1001 i&-i= 1
+<br>i= 1010 -i= -1010 i&-i= 10
+<br>
+<br>for the index being 10 we shall add this number to indeces
+<br>i= 1010 -i= -1010 i&-i= 10
+<br>
+<br>for the index being 11 we shall add this number to indeces
+<br>i= 1011 -i= -1011 i&-i= 1
+<br>i= 100 -i= -100 i&-i= 100
+<br>i= 1000 -i= -1000 i&-i= 1000
 
- for the index being 6 we shall add this number to indeces
- i= 110 -i= -110 i&-i= 10
- i= 1000 -i= -1000 i&-i= 1000
+```java
+   private void constructBITree(int[] arr, int n) {
+       for(int i=1; i<=n; i++) {
+            BITree[i] = 0; 
+       }
+       for(int i = 0; i < n; i++) {
+           updateBIT(n, i, arr[i]);
+       }
+   }
 
- for the index being 7 we shall add this number to indeces
- i= 111 -i= -111 i&-i= 1
- i= 1000 -i= -1000 i&-i= 1000
-
- for the index being 8 we shall add this number to indeces
- i= 1000 -i= -1000 i&-i= 1000
-
- for the index being 9 we shall add this number to indeces
- i= 1001 -i= -1001 i&-i= 1
- i= 1010 -i= -1010 i&-i= 10
-
- for the index being 10 we shall add this number to indeces
- i= 1010 -i= -1010 i&-i= 10
-
- for the index being 11 we shall add this number to indeces
- i= 1011 -i= -1011 i&-i= 1
- i= 100 -i= -100 i&-i= 100
- i= 1000 -i= -1000 i&-i= 1000
+   public static void updateBIT(int n, int index, int val) { 
+       index = index + 1; 
+       while(index <= n) 
+       { 
+           BITree[index] += val; 
+           index += index & (-index); 
+       } 
+   } 
+```
 
 Finally
- The BI Tree becomes: [0, 2, 3, 1, 7, 2, 5, 4, 21, 6, 13, 8]
+The BI Tree becomes: [0, 2, 3, 1, 7, 2, 5, 4, 21, 6, 13, 8]
 
 ### To Query
 
 get the value at that position and keep toggling the LSB and add value at that position until the number becomes 0.
 
 ```java
+   int getSum(int index) 
+   { 
+       int sum = 0;
+       index = index + 1; 
+       while(index>0) 
+       { 
+           sum += BITree[index]; 
+           index -= index & (-index); 
+       } 
+       return sum; 
+   } 
+```
 
+To test the code you can use the below sample
+
+```java
 import java.util.Arrays;
 
 public class Bitree {
-
-    final static int MAX = 1000;      
-  
-    static int BITree[] = new int[MAX]; 
-    public static void main(String[] args) {
-        int arr[] = {2, 1, 1, 3, 2, 3, 4, 5, 6, 7, 8}; 
-        int n = arr.length; 
-        Bitree tree = new Bitree(); 
-        tree.constructBITree(arr, n); 
-        System.out.println(Arrays.toString(BITree));
-        arr[3] = arr[3] + 6; 
-        updateBIT(n, 3, 6);  
-        //System.out.println("Sum of elements in arr[0..5]"+ 
-         //           " after update is " + tree.getSum(5)); 
-    }
-
-    private void constructBITree(int[] arr, int n) {
-        
-        for(int i=1; i<=n; i++) 
-            BITree[i] = 0; 
-            
-        for(int i = 0; i < n; i++) {
-            System.out.print("\n\n for the index being "+ (i+1) + " we shall add this number to indeces ");
-            updateBIT(n, i, arr[i]);
-        }
-            
-    }
-
-    public static void updateBIT(int n, int index, int val) { 
-        index = index + 1; 
-        while(index <= n) 
-        { 
-            BITree[index] += val; 
-            System.out.println();
-            
-            System.out.print(" i= "+Integer.toString(index, 2)
-                +" -i= "+Integer.toString(~index+1, 2)
-                +" i&-i= "+Integer.toString(index&-index, 2) );
-            index += index & (-index); 
-        } 
-    } 
-
-    int getSum(int index) 
-    { 
-        int sum = 0;
-        index = index + 1; 
-        while(index>0) 
-        { 
-            sum += BITree[index]; 
-            index -= index & (-index); 
-        } 
-        return sum; 
-    } 
+   final static int MAX = 1000;      
+   static int BITree[] = new int[MAX]; 
+   public static void main(String[] args) {
+       int arr[] = {2, 1, 1, 3, 2, 3, 4, 5, 6, 7, 8}; 
+       Bitree tree = new Bitree(); 
+       tree.constructBITree(arr, arr.length); 
+       arr[3] = arr[3] + 6; 
+       updateBIT(arr.length, 3, 6);  
+   }
 }
-
-
 ```
