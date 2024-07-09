@@ -212,29 +212,20 @@ public void update(int index, int val) {
 
 ## Binary Indexed Tree or Fenwick Tree
 
-Binary Indexed Tree also called Fenwick Tree provides a way to represent an array of numbers in an array, allowing prefix sums to be calculated efficiently.
-
-For example, an array is [2, 3, -1, 0, 6] the length 3 prefix [2, 3, -1] with sum 2 + 3 + -1 = 4).
-
-A Fenwick tree, also called a binary indexed tree (BIT), is a data structure that can efficiently update elements and calculate range sums on a list of numbers.
+A Fenwick tree, also called a binary indexed tree (BIT), is a data structure that provides a way to represent an array of numbers in an array allowing a way to efficiently update elements and calculate range sums on a list of numbers.
 
 It is often used for storing frequencies and manipulating cumulative frequency tables.
 
-Consider the following problem:
-There are n boxes that undergo the following queries:
+Given an array 𝑎[], and two types of operations are to be performed on it.
 
-- add marble to box i
-- sum marbles from box k to box l
+- Change the value stored at an index i. (This is called a point update operation)
+- Find the sum of a prefix of length k. (This is called a range sum query)
+
+int a[] = {2, 1, 1, 3, 2, 3, 4, 5, 6, 7, 8};
 
 The naive solution has time complexity of O(1) for query 1 and O(n) for query
 
-A cumulative frequency can be represented as a sum of sets of sub frequencies.
-
-Given an array 𝑎[], and two types of operations are to be performed on it.Change the value stored at an index i. (This is called a point update operation)Find the sum of a prefix of length k. (This is called a range sum query)
-
-int freq[] = {2, 1, 1, 3, 2, 3, 4, 5, 6, 7, 8};
-
-### For construction of Tree
+### For construction of BITree
 
 step by step isolate the last set bits(LSB) and add the value to those indices.
 

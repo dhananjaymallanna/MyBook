@@ -1,0 +1,164 @@
+<html lang= "en">
+<head>
+    <meta charset= "UTF-8">
+    <meta http-equiv= "X-UA-Compatible" 
+          content= "IE=edge">
+    <meta name= "viewport" 
+          content= "width=device-width, initial-scale=1.0">
+    <title>StopWatch</title>
+    <style>
+        body {
+            background-color: whitesmoke;
+            font-family: Times New Roman;
+        }
+        .container {
+            background-color: whitesmoke;
+            height: 600px;
+            width: 800px;
+            text-align: center;
+        }
+        p {
+            color: purple;
+            padding: 20px;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .digits {
+            font-size: 70px;
+            color: rgb(7, 7, 7);
+        }
+        .text {
+            font-size: 20px;
+            color: rgb(200, 0, 255);
+            font-weight: bold;
+        }
+        #buttons {
+            margin-top: 35px;
+        }
+        .btn1, .btn2, .btn3 {
+            width: 90px;
+            height: 50px;
+            padding: 8px 5px 8px 2px;
+            margin: 10px 25px 20px 10px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 20px;
+            transition: 0.7s;
+            color: rgb(204, 243, 238);
+            font-weight: 550;
+            border: 0;
+            font-family: Times new Roman;
+        }
+        .btn1:hover, .btn2:hover, .btn3:hover{
+            color: indigo;
+        }
+        #start {
+            background-color: indigo;
+        }
+        #stop {
+            background-color: mediumpurple;
+        }
+        #reset {
+            background-color: plum;
+        }
+        #start:hover, #stop:hover, #reset:hover  {
+            background-color: rgb(192, 242, 167);
+        }
+    </style>
+</head>
+<body>
+    <div class= "container">
+        <p> Stopwatch </p>
+        <div id= "time">
+            <span class= "digits" id= "hour">
+              00</span>
+            <span class= "text" > Hr </span>
+            <span class= "digits" id= "minute">
+              00</span>
+            <span class= "text"> Min </span>
+            <span class= "digits" id= "second">
+              00</span>
+            <span class= "text"> Sec </span>
+            <span class= "digits" id= "count">
+              00</span>
+        </div>
+        <div id= "buttons">
+            <button class= "btn1" id= "start">
+              Start </button>
+            <button class= "btn2" id= "stop">
+              Stop </button>
+            <button class= "btn3" id= "reset">
+              Reset </button>
+        </div>
+    </div>
+    <script>
+        let startButton = document.getElementById('start');
+        let stopButton = document.getElementById('stop');
+        let resetButton = document.getElementById('reset');
+          
+        let hour = 00;
+        let minute = 00;
+        let second = 00;
+        let count = 00;
+          
+        startButton.addEventListener('click', function () {
+            timer = true;
+            stopWatch();
+        });
+        stopButton.addEventListener('click', function () {
+            timer = false;
+        }); 
+        resetButton.addEventListener('click', function () {
+            timer = false;
+            hour = 0;
+            minute = 0;
+            second = 0;
+            count = 0;
+            document.getElementById('hour').innerHTML = "00";
+            document.getElementById('minute').innerHTML = "00";
+            document.getElementById('second').innerHTML = "00";
+            document.getElementById('count').innerHTML = "00";
+        });
+        function stopWatch() {
+            if (timer) {
+                count++;
+                if (count == 100) {
+                    second++;
+                    count = 0;
+                }
+                if (second == 60) {
+                    minute++;
+                    second = 0;
+                }
+                if (minute == 60) {
+                    hour++;
+                    minute = 0;
+                    second = 0;
+                }
+                let hourString = hour;
+                let minuteString = minute;
+                let secondString = second;
+                let countString = count;
+                if (hour < 10) {
+                    hourString = "0" + hourString;
+                }
+                if (minute < 10) {
+                    minuteString = "0" + minuteString;
+                }
+                if (second < 10) {
+                    secondString = "0" + secondString;
+                }
+          
+                if (count < 10) {
+                    countString = "0" + countString;
+                }
+                document.getElementById('hour').innerHTML = hourString;
+                document.getElementById('minute').innerHTML = minuteString;
+                document.getElementById('second').innerHTML = secondString;
+                document.getElementById('count').innerHTML = countString;
+                setTimeout(stopWatch, 10);
+            }
+        }
+    </script>
+</body>
+</html>
