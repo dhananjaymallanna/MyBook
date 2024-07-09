@@ -209,3 +209,77 @@ public void update(int index, int val) {
 }
 
 ```
+
+## Binary Indexed Tree or Fenwick Tree
+
+Binary Indexed Tree also called Fenwick Tree provides a way to represent an array of numbers in an array, allowing prefix sums to be calculated efficiently.
+
+For example, an array is [2, 3, -1, 0, 6] the length 3 prefix [2, 3, -1] with sum 2 + 3 + -1 = 4).
+
+A Fenwick tree, also called a binary indexed tree (BIT), is a data structure that can efficiently update elements and calculate range sums on a list of numbers.
+
+It is often used for storing frequencies and manipulating cumulative frequency tables.
+
+Consider the following problem:
+There are n boxes that undergo the following queries:add marble to box isum marbles from box k to box l
+
+The naive solution has time complexity of O(1) for query 1 and O(n) for query 2
+
+A cumulative frequency can be represented as a sum of sets of sub frequencies.
+
+
+
+Given an array 𝑎[], and two types of operations are to be performed on it.Change the value stored at an index i. (This is called a point update operation)Find the sum of a prefix of length k. (This is called a range sum query)
+
+
+
+int freq[] = {2, 1, 1, 3, 2, 3, 4, 5, 6, 7, 8};
+
+
+ for the index being 1 we shall add this number to indeces
+ i= 1 -i= -1 i&-i= 1
+ i= 10 -i= -10 i&-i= 10
+ i= 100 -i= -100 i&-i= 100
+ i= 1000 -i= -1000 i&-i= 1000
+
+ for the index being 2 we shall add this number to indeces
+ i= 10 -i= -10 i&-i= 10
+ i= 100 -i= -100 i&-i= 100
+ i= 1000 -i= -1000 i&-i= 1000
+
+ for the index being 3 we shall add this number to indeces
+ i= 11 -i= -11 i&-i= 1
+ i= 100 -i= -100 i&-i= 100
+ i= 1000 -i= -1000 i&-i= 1000
+
+for the index being 4 we shall add this number to indeces
+ i= 100 -i= -100 i&-i= 100
+ i= 1000 -i= -1000 i&-i= 1000
+
+ for the index being 5 we shall add this number to indeces
+ i= 101 -i= -101 i&-i= 1
+ i= 110 -i= -110 i&-i= 10
+ i= 1000 -i= -1000 i&-i= 1000
+
+ for the index being 6 we shall add this number to indeces
+ i= 110 -i= -110 i&-i= 10
+ i= 1000 -i= -1000 i&-i= 1000
+
+ for the index being 7 we shall add this number to indeces
+ i= 111 -i= -111 i&-i= 1
+ i= 1000 -i= -1000 i&-i= 1000
+
+ for the index being 8 we shall add this number to indeces
+ i= 1000 -i= -1000 i&-i= 1000
+
+ for the index being 9 we shall add this number to indeces
+ i= 1001 -i= -1001 i&-i= 1
+ i= 1010 -i= -1010 i&-i= 10
+
+ for the index being 10 we shall add this number to indeces
+ i= 1010 -i= -1010 i&-i= 10
+
+ for the index being 11 we shall add this number to indeces
+ i= 1011 -i= -1011 i&-i= 1
+ i= 100 -i= -100 i&-i= 100
+ i= 1000 -i= -1000 i&-i= 1000
