@@ -221,20 +221,20 @@ A Fenwick tree, also called a binary indexed tree (BIT), is a data structure tha
 It is often used for storing frequencies and manipulating cumulative frequency tables.
 
 Consider the following problem:
-There are n boxes that undergo the following queries:add marble to box isum marbles from box k to box l
+There are n boxes that undergo the following queries:
 
-The naive solution has time complexity of O(1) for query 1 and O(n) for query 2
+- add marble to box i
+- sum marbles from box k to box l
+
+The naive solution has time complexity of O(1) for query 1 and O(n) for query
 
 A cumulative frequency can be represented as a sum of sets of sub frequencies.
 
-
-
 Given an array 𝑎[], and two types of operations are to be performed on it.Change the value stored at an index i. (This is called a point update operation)Find the sum of a prefix of length k. (This is called a range sum query)
-
-
 
 int freq[] = {2, 1, 1, 3, 2, 3, 4, 5, 6, 7, 8};
 
+### For construction of Tree
 
  for the index being 1 we shall add this number to indeces
  i= 1 -i= -1 i&-i= 1
@@ -283,3 +283,73 @@ for the index being 4 we shall add this number to indeces
  i= 1011 -i= -1011 i&-i= 1
  i= 100 -i= -100 i&-i= 100
  i= 1000 -i= -1000 i&-i= 1000
+
+Finally
+ The BI Tree becomes: [0, 2, 3, 1, 7, 2, 5, 4, 21, 6, 13, 8]
+
+### To Query
+
+get the value at that position and keep toggling the LSB and add value at that position until the number becomes 0.
+
+```java
+
+import java.util.Arrays;
+
+public class Bitree {
+
+    final static int MAX = 1000;      
+  
+    static int BITree[] = new int[MAX]; 
+    public static void main(String[] args) {
+        int arr[] = {2, 1, 1, 3, 2, 3, 4, 5, 6, 7, 8}; 
+        int n = arr.length; 
+        Bitree tree = new Bitree(); 
+        tree.constructBITree(arr, n); 
+        System.out.println(Arrays.toString(BITree));
+        arr[3] = arr[3] + 6; 
+        updateBIT(n, 3, 6);  
+        //System.out.println("Sum of elements in arr[0..5]"+ 
+         //           " after update is " + tree.getSum(5)); 
+    }
+
+    private void constructBITree(int[] arr, int n) {
+        
+        for(int i=1; i<=n; i++) 
+            BITree[i] = 0; 
+            
+        for(int i = 0; i < n; i++) {
+            System.out.print("\n\n for the index being "+ (i+1) + " we shall add this number to indeces ");
+            updateBIT(n, i, arr[i]);
+        }
+            
+    }
+
+    public static void updateBIT(int n, int index, int val) { 
+        index = index + 1; 
+        while(index <= n) 
+        { 
+            BITree[index] += val; 
+            System.out.println();
+            
+            System.out.print(" i= "+Integer.toString(index, 2)
+                +" -i= "+Integer.toString(~index+1, 2)
+                +" i&-i= "+Integer.toString(index&-index, 2) );
+            index += index & (-index); 
+        } 
+    } 
+
+    int getSum(int index) 
+    { 
+        int sum = 0;
+        index = index + 1; 
+        while(index>0) 
+        { 
+            sum += BITree[index]; 
+            index -= index & (-index); 
+        } 
+        return sum; 
+    } 
+}
+
+
+```
