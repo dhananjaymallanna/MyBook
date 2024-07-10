@@ -1,304 +1,296 @@
-<html lang= "en">
-<head>
-    <meta charset= "UTF-8">
-    <meta http-equiv= "X-UA-Compatible" 
-          content= "IE=edge">
-    <meta name= "viewport" 
-          content= "width=device-width, initial-scale=1.0">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>StopWatch</title>
     <style>
-        body {
-            background-color: whitesmoke;
-            font-family: Times New Roman;
-        }
-        .container {
-            background-color: whitesmoke;
-            height: 250px;
-            width: 800px;
-            text-align: center;
-        }
-        p {
-            color: purple;
-            padding: 20px;
-            font-size: 30px;
-            font-weight: bold;
-        }
-        .digits {
-            font-size: 70px;
-            color: rgb(7, 7, 7);
-        }
-        .text {
-            font-size: 20px;
-            color: rgb(200, 0, 255);
-            font-weight: bold;
-        }
-        #buttons {
-            margin-top: 35px;
-        }
-        .btn1, .btn2, .btn3 {
-            width: 90px;
-            height: 50px;
-            padding: 8px 5px 8px 2px;
-            margin: 10px 25px 20px 10px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 20px;
-            transition: 0.7s;
-            color: rgb(204, 243, 238);
-            font-weight: 550;
-            border: 0;
-            font-family: Times new Roman;
-            background-color: rgb(6, 6, 6);
-        }
-        .btn1:hover, .btn2:hover, .btn3:hover{
-            color: indigo;
-        }
-        #start {
-            background-color: indigo;
-        }
-        #stop {
-            background-color: mediumpurple;
-        }
-        #reset {
-            background-color: plum;
-        }
-        #start:hover, #stop:hover, #reset:hover  {
-            background-color: rgb(192, 242, 167);
-        }
+      body {
+        background-color: whitesmoke;
+        font-family: Times New Roman;
+      }
+      .container {
+        background-color: whitesmoke;
+        height: auto;
+        width: auto;
+        text-align: center;
+      }
+      p {
+        color: purple;
+        padding: 20px;
+        font-size: 30px;
+        font-weight: bold;
+      }
+      .digits {
+        font-size: 70px;
+        color: rgb(7, 7, 7);
+      }
+      .text {
+        font-size: 20px;
+        color: rgb(200, 0, 255);
+        font-weight: bold;
+      }
+      #buttons {
+        margin-top: 35px;
+      }
+      .btn1,
+      .btn2,
+      .btn3 {
+        width: 90px;
+        height: 50px;
+        padding: 8px 5px 8px 2px;
+        margin: 10px 25px 20px 10px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-size: 20px;
+        transition: 0.7s;
+        color: rgb(204, 243, 238);
+        font-weight: 550;
+        border: 0;
+        font-family: Times new Roman;
+        background-color: rgb(6, 6, 6);
+      }
+      .btn1:hover,
+      .btn2:hover,
+      .btn3:hover {
+        color: indigo;
+      }
+      #start {
+        background-color: indigo;
+      }
+      #stop {
+        background-color: mediumpurple;
+      }
+      #reset {
+        background-color: plum;
+      }
+
+      #startCDT {
+        background-color: rgb(88, 97, 183);
+      }
+      #minus1 {
+        background-color: indigo;
+      }
+      #plus5 {
+        background-color: mediumpurple;
+      }
+      #resetCDT {
+        background-color: plum;
+      }
+
+      #startCDT:hover,
+      #minus1:hover,
+      #plus5:hover,
+      #resetCDT:hover,
+      #start:hover,
+      #stop:hover,
+      #reset:hover {
+        background-color: rgb(192, 242, 167);
+      }
     </style>
-</head>
-<body>
-    <p>
-        Stop Watch
-    </p>
-    <div class= "container">
-        <div id= "time">
-            <span class= "digits" id= "hour">
-              00</span>
-            <span class= "text" > Hr </span>
-            <span class= "digits" id= "minute">
-              00</span>
-            <span class= "text"> Min </span>
-            <span class= "digits" id= "second">
-              00</span>
-            <span class= "text"> Sec </span>
-            <span class= "digits" id= "count">
-              00</span>
-        </div>
-        <div id= "buttons">
-            <button class= "btn1" id= "start">
-              Start </button>
-            <button class= "btn2" id= "stop">
-              Stop </button>
-            <button class= "btn3" id= "reset">
-              Reset </button>
-        </div>
+  </head>
+  <body>
+    <p>Stop Watch</p>
+    <audio id="myAudio">
+        <source src="{{site.baseurl}}/assets/gitbook/audio/morphed-metal-discharged-cinematic-trailer-sound-effects-124763.mp3" type="audio/mpeg">
+    </audio>
+    <div class="container">
+      <div id="time">
+        <span class="digits" id="hour"> 00</span>
+        <span class="text"> Hr </span>
+        <span class="digits" id="minute"> 00</span>
+        <span class="text"> Min </span>
+        <span class="digits" id="second"> 00</span>
+        <span class="text"> Sec </span>
+        <span class="digits" id="count"> 00</span>
+      </div>
+      <div id="buttons">
+        <button class="btn1" id="start">Start</button>
+        <button class="btn2" id="stop">Stop</button>
+        <button class="btn3" id="reset">Reset</button>
+      </div>
     </div>
     <script>
-        let startButton = document.getElementById('start');
-        let stopButton = document.getElementById('stop');
-        let resetButton = document.getElementById('reset');
-          
-        let hour = 00;
-        let minute = 00;
-        let second = 00;
-        let count = 00;
-          
-        startButton.addEventListener('click', function () {
-            timer = true;
-            stopWatch();
-        });
-        stopButton.addEventListener('click', function () {
-            timer = false;
-        }); 
-        resetButton.addEventListener('click', function () {
-            timer = false;
-            hour = 0;
+      let startButton = document.getElementById("start");
+      let stopButton = document.getElementById("stop");
+      let resetButton = document.getElementById("reset");
+
+      let hour = 00;
+      let minute = 00;
+      let second = 00;
+      let count = 00;
+
+      startButton.addEventListener("click", function () {
+        timer = true;
+        stopWatch();
+      });
+      stopButton.addEventListener("click", function () {
+        timer = false;
+      });
+      resetButton.addEventListener("click", function () {
+        timer = false;
+        hour = 0;
+        minute = 0;
+        second = 0;
+        count = 0;
+        document.getElementById("hour").innerHTML = "00";
+        document.getElementById("minute").innerHTML = "00";
+        document.getElementById("second").innerHTML = "00";
+        document.getElementById("count").innerHTML = "00";
+      });
+      function stopWatch() {
+        if (timer) {
+          count++;
+          if (count == 100) {
+            second++;
+            count = 0;
+          }
+          if (second == 60) {
+            minute++;
+            second = 0;
+          }
+          if (minute == 60) {
+            hour++;
             minute = 0;
             second = 0;
-            count = 0;
-            document.getElementById('hour').innerHTML = "00";
-            document.getElementById('minute').innerHTML = "00";
-            document.getElementById('second').innerHTML = "00";
-            document.getElementById('count').innerHTML = "00";
-        });
-        function stopWatch() {
-            if (timer) {
-                count++;
-                if (count == 100) {
-                    second++;
-                    count = 0;
-                }
-                if (second == 60) {
-                    minute++;
-                    second = 0;
-                }
-                if (minute == 60) {
-                    hour++;
-                    minute = 0;
-                    second = 0;
-                }
-                let hourString = hour;
-                let minuteString = minute;
-                let secondString = second;
-                let countString = count;
-                if (hour < 10) {
-                    hourString = "0" + hourString;
-                }
-                if (minute < 10) {
-                    minuteString = "0" + minuteString;
-                }
-                if (second < 10) {
-                    secondString = "0" + secondString;
-                }
-          
-                if (count < 10) {
-                    countString = "0" + countString;
-                }
-                document.getElementById('hour').innerHTML = hourString;
-                document.getElementById('minute').innerHTML = minuteString;
-                document.getElementById('second').innerHTML = secondString;
-                document.getElementById('count').innerHTML = countString;
-                setTimeout(stopWatch, 10);
-            }
+          }
+          let hourString = hour;
+          let minuteString = minute;
+          let secondString = second;
+          let countString = count;
+          if (hour < 10) {
+            hourString = "0" + hourString;
+          }
+          if (minute < 10) {
+            minuteString = "0" + minuteString;
+          }
+          if (second < 10) {
+            secondString = "0" + secondString;
+          }
+
+          if (count < 10) {
+            countString = "0" + countString;
+          }
+          document.getElementById("hour").innerHTML = hourString;
+          document.getElementById("minute").innerHTML = minuteString;
+          document.getElementById("second").innerHTML = secondString;
+          document.getElementById("count").innerHTML = countString;
+          setTimeout(stopWatch, 10);
         }
+      }
     </script>
 
+    <p>Count Down Timer</p>
 
-<p>
-    Count Down Timer
-</p>
-
-<div class= "container">
-    <div id= "timecdt">
-        <span class= "digits" id= "hourcdt">
-          00</span>
-        <span class= "text" > Hr </span>
-        <span class= "digits" id= "minutecdt">
-          00</span>
-        <span class= "text"> Min </span>
-        <span class= "digits" id= "secondcdt">
-          00</span>
-        <span class= "text"> Sec </span>
+    <div class="container">
+      <div id="timecdt">
+        <span class="digits" id="hourcdt"> 00</span>
+        <span class="text"> Hr </span>
+        <span class="digits" id="minutecdt"> 00</span>
+        <span class="text"> Min </span>
+        <span class="digits" id="secondcdt"> 00</span>
+        <span class="text"> Sec </span>
+      </div>
+      <div id="buttons">
+        <button class="btn1" id="startCDT">START</button>
+        <button class="btn2" id="plus5">+5 Min</button>
+        <button class="btn2" id="minus1">-1 Min</button>
+        <button class="btn3" id="resetCDT">RESET</button>
+      </div>
     </div>
-    <div id= "buttons">
-        <button class= "btn1" id= "startCDT">
-            START </button>
-        <button class= "btn2" id= "plus5">
-          +5 Min </button>
-        <button class= "btn2" id= "plus30">
-            -5 Min </button>
-        <button class= "btn2" id= "plus60">
-            +1 Hour </button>
-        <button class= "btn3" id= "stopCDT">
-                STOP </button>
-        <button class= "btn3" id= "resetCDT">
-                RESET </button>
-    </div>
-</div>
 
-<script>
-		var countDownDate = new Date().getTime();
-        var distance = 0;
-        var stopped = false;
-        var minutesValue = 0;
-        let plus5btn = document.getElementById('plus5');
-        let plus30btn = document.getElementById('plus30');
-        let plus60btn = document.getElementById('plus60');
-        let startbtn = document.getElementById('startCDT');
-        let stopbtn = document.getElementById('stopCDT');
-        let resetbtn = document.getElementById('resetCDT');
+    <script>
+      var countDownDate = new Date().getTime();
+      var distance = 0;
+      var stopped = true;
+      //var minutesValue = 0;
+      let plus5btn = document.getElementById("plus5");
+      let minus1btn = document.getElementById("minus1");
+      let startbtn = document.getElementById("startCDT");
+      let resetbtn = document.getElementById("resetCDT");
 
-        plus5btn.addEventListener('click', function () {
-            minutesValue = minutesValue+5;
-            distance = minutesValue * 60000;
-            document.getElementById('minutecdt').innerHTML = minutesValue;
-        });
+      plus5btn.addEventListener("click", function () {
+        distance = distance + 5 * 60000;
+        document.getElementById("minutecdt").innerHTML = Math.floor(distance/60000);
+      });
 
-        plus30btn.addEventListener('click', function () {
-            minutesValue = minutesValue-5;
-            if(minutesValue<0) minutesValue = 0;
-            distance = minutesValue * 60000;
-            document.getElementById('minutecdt').innerHTML = minutesValue;
-        });
+      minus1btn.addEventListener("click", function () {
+        distance = distance - 60000;
+        if(distance < 0) 
+            resetTimer();
+        document.getElementById("minutecdt").innerHTML = Math.floor(distance/60000);
+      });
 
-        plus60btn.addEventListener('click', function () {
-            minutesValue = minutesValue+60;
-            distance = minutesValue * 60000;
-            document.getElementById('minutecdt').innerHTML = minutesValue;
-        });
+      resetbtn.addEventListener("click", function () {
+        distance = -500;
+        resetTimer();
+      });
 
-        resetbtn.addEventListener('click', function () {
-            distance = 1900;
-            minutesValue = 0;
-            stopped=false;
-            document.getElementById('minutecdt').innerHTML = "00";
-            document.getElementById('secondcdt').innerHTML = "00";
-        });
-        
-        startbtn.addEventListener('click', function () {
-        	if(stopped)
-            	stopped=false;
-            countDown();
-        });
-        
-        stopbtn.addEventListener('click', function () {
-            stopped = true;
-        });
-        // Set the date we're counting down to
-		
+      startbtn.addEventListener("click", function () {
+        if(distance<1000){
+            distance = 20 * 60000;
+        }
+        if (!stopped) {
+          stopped = true;
+          document.getElementById("startCDT").innerHTML = "START";
+        } else {
+          stopped = false;
+          countDown();
+          document.getElementById("startCDT").innerHTML = "STOP";
+        }
+      });
 
+      function countDown() {       
+        // Find the distance between now and the count down date
+        distance = distance - 1000;
 
-// Update the count down every 1 second
+        updateValues();
 
-function countDown() {
-	
-  // Get today's date and time
-  var now = new Date().getTime();
-    
-  // Find the distance between now and the count down date
-  distance = distance - 1000;
-    
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-  // Output the result in an element with id="demo"
-    let hourStringCDT = hours;
-    let minuteStringCDT = minutes;
-    let secondStringCDT = seconds;
-    if (hours < 10) {
-        hourStringCDT = "0" + hourStringCDT;
-    }
-    if (minutes < 10) {
-        minuteStringCDT = "0" + minuteStringCDT;
-    }
-    if (seconds < 10) {
-        secondStringCDT = "0" + secondStringCDT;
-    }
+        if (distance > 1000 && !stopped) {
+          setTimeout(countDown, 1000);
+        }else if (distance <= 1000 && distance > 1) {
+          document.getElementById("myAudio").play();
+          resetTimer();
+        }else if (distance < 0){
+          resetTimer();
+        }
+      }
 
-    document.getElementById('hourcdt').innerHTML = hourStringCDT;
-    document.getElementById('minutecdt').innerHTML = minuteStringCDT;
-    document.getElementById('secondcdt').innerHTML = secondStringCDT; 
-    
-  // If the count down is over, write some text 
-  if (distance > 1000 && !stopped) {
-    setTimeout(countDown, 1000);
-  }
+      function resetTimer(){
+        distance = 0;
+        stopped = true;
+        document.getElementById("hourcdt").innerHTML = "00";
+        document.getElementById("minutecdt").innerHTML = "00";
+        document.getElementById("secondcdt").innerHTML = "00";
+        document.getElementById("startCDT").innerHTML = "START";
+      }
 
-  if (distance < 1000){
-    document.getElementById('hourcdt').innerHTML = "00";
-    document.getElementById('minutecdt').innerHTML = "00";
-    document.getElementById('secondcdt').innerHTML = "00";
-  }
+      function updateValues(){
 
-  
-}
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-</script>
+        let hourStringCDT = hours;
+        let minuteStringCDT = minutes;
+        let secondStringCDT = seconds;
+        if (hours < 10) {
+          hourStringCDT = "0" + hourStringCDT;
+        }
+        if (minutes < 10) {
+          minuteStringCDT = "0" + minuteStringCDT;
+        }
+        if (seconds < 10) {
+          secondStringCDT = "0" + secondStringCDT;
+        }
 
-
-</body>
+        document.getElementById("hourcdt").innerHTML = hourStringCDT;
+        document.getElementById("minutecdt").innerHTML = minuteStringCDT;
+        document.getElementById("secondcdt").innerHTML = secondStringCDT;
+      }
+    </script>
+  </body>
 </html>
