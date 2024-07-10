@@ -75,7 +75,10 @@
         background-color: mediumpurple;
       }
       #resetCDT {
-        background-color: plum;
+        background-color: #1d3557;
+      }
+      #count{
+        font-size: 30px;
       }
 
       #startCDT:hover,
@@ -240,21 +243,22 @@
         }
       });
 
-      function countDown() {       
+      setInterval(function(){
+      //function countDown() {       
         // Find the distance between now and the count down date
         distance = distance - 1000;
 
         updateValues();
 
         if (distance > 1000 && !stopped) {
-          setTimeout(countDown, 1000);
+          //setTimeout(countDown, 1000);
         }else if (distance <= 1000 && distance > 1) {
           document.getElementById("myAudio").play();
           resetTimer();
         }else if (distance < 0){
           resetTimer();
         }
-      }
+      },1000);
 
       function resetTimer(){
         distance = 0;
