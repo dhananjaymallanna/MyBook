@@ -13,7 +13,7 @@
         }
         .container {
             background-color: whitesmoke;
-            height: 600px;
+            height: 250px;
             width: 800px;
             text-align: center;
         }
@@ -48,6 +48,7 @@
             font-weight: 550;
             border: 0;
             font-family: Times new Roman;
+            background-color: rgb(6, 6, 6);
         }
         .btn1:hover, .btn2:hover, .btn3:hover{
             color: indigo;
@@ -67,8 +68,10 @@
     </style>
 </head>
 <body>
+    <p>
+        Stop Watch
+    </p>
     <div class= "container">
-        <p> Stopwatch </p>
         <div id= "time">
             <span class= "digits" id= "hour">
               00</span>
@@ -160,5 +163,142 @@
             }
         }
     </script>
+
+
+<p>
+    Count Down Timer
+</p>
+
+<div class= "container">
+    <div id= "timecdt">
+        <span class= "digits" id= "hourcdt">
+          00</span>
+        <span class= "text" > Hr </span>
+        <span class= "digits" id= "minutecdt">
+          00</span>
+        <span class= "text"> Min </span>
+        <span class= "digits" id= "secondcdt">
+          00</span>
+        <span class= "text"> Sec </span>
+    </div>
+    <div id= "buttons">
+        <button class= "btn1" id= "startCDT">
+            START </button>
+        <button class= "btn2" id= "plus5">
+          +5 Min </button>
+        <button class= "btn2" id= "plus30">
+            -5 Min </button>
+        <button class= "btn2" id= "plus60">
+            +1 Hour </button>
+        <button class= "btn3" id= "stopCDT">
+                STOP </button>
+        <button class= "btn3" id= "resetCDT">
+                RESET </button>
+    </div>
+</div>
+
+<script>
+		var countDownDate = new Date().getTime();
+        var distance = 0;
+        var stopped = false;
+        var minutesValue = 0;
+        let plus5btn = document.getElementById('plus5');
+        let plus30btn = document.getElementById('plus30');
+        let plus60btn = document.getElementById('plus60');
+        let startbtn = document.getElementById('startCDT');
+        let stopbtn = document.getElementById('stopCDT');
+        let resetbtn = document.getElementById('resetCDT');
+
+        plus5btn.addEventListener('click', function () {
+            minutesValue = minutesValue+5;
+            distance = minutesValue * 60000;
+            document.getElementById('minutecdt').innerHTML = minutesValue;
+        });
+
+        plus30btn.addEventListener('click', function () {
+            minutesValue = minutesValue-5;
+            if(minutesValue<0) minutesValue = 0;
+            distance = minutesValue * 60000;
+            document.getElementById('minutecdt').innerHTML = minutesValue;
+        });
+
+        plus60btn.addEventListener('click', function () {
+            minutesValue = minutesValue+60;
+            distance = minutesValue * 60000;
+            document.getElementById('minutecdt').innerHTML = minutesValue;
+        });
+
+        resetbtn.addEventListener('click', function () {
+            distance = 1900;
+            minutesValue = 0;
+            stopped=false;
+            document.getElementById('minutecdt').innerHTML = "00";
+            document.getElementById('secondcdt').innerHTML = "00";
+        });
+        
+        startbtn.addEventListener('click', function () {
+        	if(stopped)
+            	stopped=false;
+            countDown();
+        });
+        
+        stopbtn.addEventListener('click', function () {
+            stopped = true;
+        });
+        // Set the date we're counting down to
+		
+
+
+// Update the count down every 1 second
+
+function countDown() {
+	
+  // Get today's date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  distance = distance - 1000;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="demo"
+    let hourStringCDT = hours;
+    let minuteStringCDT = minutes;
+    let secondStringCDT = seconds;
+    if (hours < 10) {
+        hourStringCDT = "0" + hourStringCDT;
+    }
+    if (minutes < 10) {
+        minuteStringCDT = "0" + minuteStringCDT;
+    }
+    if (seconds < 10) {
+        secondStringCDT = "0" + secondStringCDT;
+    }
+
+    document.getElementById('hourcdt').innerHTML = hourStringCDT;
+    document.getElementById('minutecdt').innerHTML = minuteStringCDT;
+    document.getElementById('secondcdt').innerHTML = secondStringCDT; 
+    
+  // If the count down is over, write some text 
+  if (distance > 1000 && !stopped) {
+    setTimeout(countDown, 1000);
+  }
+
+  if (distance < 1000){
+    document.getElementById('hourcdt').innerHTML = "00";
+    document.getElementById('minutecdt').innerHTML = "00";
+    document.getElementById('secondcdt').innerHTML = "00";
+  }
+
+  
+}
+
+</script>
+
+
 </body>
 </html>

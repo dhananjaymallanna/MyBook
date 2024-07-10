@@ -1,5 +1,5 @@
 ---
-title: Stop Watch
+title: Timers
 permalink: /stopwatch
 layout: page
 ---
