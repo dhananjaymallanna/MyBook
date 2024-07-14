@@ -35,3 +35,6 @@ Data Race: Typically *check and update* kind of cases where, the date that got m
 - Locks
 - Phaser
 
+## Life Cycle of Thread
+
+![image-title-here](assets/gitbook/images/thread.webp){:class="img-responsive"}
