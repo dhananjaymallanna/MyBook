@@ -109,3 +109,5 @@ The collections framework consists of:
   - [**Arrays**](https://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html) - Contains static methods to sort, search, compare, hash, copy, resize, convert to String, and fill arrays of primitives and objects.
 
 ![image-title-here](assets/gitbook/images/java_collections.png){:class="img-responsive"}
+
+![image-title-here](assets/gitbook/images/collection.png){:class="img-responsive"}
