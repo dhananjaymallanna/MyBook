@@ -303,6 +303,12 @@ abstract: Revision Topics
 -   [15 Puzzle Game: Existence Of The Solution](https://www.google.com/url?q=https://cp-algorithms.com/others/15-puzzle.html&sa=D&source=editors&ust=1722235971158002&usg=AOvVaw2vhm2PeEn_4Jxnv1ScrVyT)
 -   [The Stern-Brocot Tree and Farey Sequences](https://www.google.com/url?q=https://cp-algorithms.com/others/stern_brocot_tree_farey_sequences.html&sa=D&source=editors&ust=1722235971158349&usg=AOvVaw3ToxrXbiScy_qjpaOSW3Xf)
 
+----
+
+## APPROACH 2
+
+----
+
 1.  Binary Search :  
     [Tutorial, Problems 6.3k](https://www.google.com/url?q=https://discuss.codechef.com/external-redirect/?url%3Dhttps://www.topcoder.com/community/data-science/data-science-tutorials/binary-search/&sa=D&source=editors&ust=1722235971158835&usg=AOvVaw3xSYH1acYNfB_Ybbp09oBx), [Tutorial, Implementation 1.6k](https://www.google.com/url?q=https://discuss.codechef.com/external-redirect/?url%3Dhttp://geeksquiz.com/binary-search/&sa=D&source=editors&ust=1722235971159050&usg=AOvVaw1ZYKorWo27ayA_OMhIWBQp), [Problem 3.6k](https://www.google.com/url?q=http://www.spoj.com/problems/AGGRCOW&sa=D&source=editors&ust=1722235971159236&usg=AOvVaw24HnBrZ4VE2PVnd3tipVRB)
 2.  Quicksort :  
