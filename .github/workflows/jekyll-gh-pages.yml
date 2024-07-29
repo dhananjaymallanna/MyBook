@@ -36,7 +36,7 @@ jobs:
              ruby-version: '3.0'
       - name: update html
         run: |
-            bundle update html-pipeline 
+            bundle update
       - name: install all needed
         run: |
             bundle install
