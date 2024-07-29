@@ -34,6 +34,9 @@ jobs:
         uses: ruby/setup-ruby@v1
         with: 
              ruby-version: '3.0'
+      - name: update html
+        run: |
+            bundle update html pipeline 
       - name: install all needed
         run: |
             bundle install
