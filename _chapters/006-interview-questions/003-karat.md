@@ -7,7 +7,7 @@ abstract: Karat Questions
 # KARAT ROUND
 
 ## Questions
-=========
+---------
 
 **Google document sharing application has a round robin scheme of serving by the load balancer. Do you foresee any issue? If so how do you overcome it?**
 
@@ -35,7 +35,7 @@ abstract: Karat Questions
 
 By considering these factors and implementing the suggested solutions, you can enhance the efficiency and reliability of a load-balanced Google document sharing application. If you want to explore any of these solutions further, let me know!
 
-================
+----------------
 
 **Table User with userInfo and another table User_Relationship with columns as User1 ( Indexed ) and User2 ( Indexed ) and relationship ( with values as Friend ). The User_Relationship could be bi-directional so i.e., if A is friend of B then USER_Relationship table can have it as A, B, Friend as a row or B,A, Friend.** 
   
@@ -49,7 +49,7 @@ Consistent Storage: Store each relationship consistently, either always as (User
 
 SQL Query: Use a SQL query that accounts for the bi-directionality of the relationships. Here's an example:
 
-SELECT COUNT(*) FROM User_Relationship WHERE (User1 = :givenUserId OR User2 = :givenUserId) AND relationship = 'Friend';
+SELECT COUNT(*) FROM User_Relationship WHERE (User1 - :givenUserId OR User2 - :givenUserId) AND relationship - 'Friend';
 This query checks both columns to account for the possibility of the user being either User1 or User2.
 
 Caching: Implement caching for frequently requested users. Cache the friend count and update it whenever there is a change in the user's relationships, reducing database load.
@@ -60,7 +60,7 @@ Partitioning: For very large datasets, consider partitioning the User_Relationsh
 
 By combining these techniques, you can create a scalable and efficient solution for counting friends, even as the number of users and relationships grows. If you have more specific requirements or need further assistance, feel free to ask!
 
-===================
+-------------------
 **There are notifications sent out for documents upon they are signed by the users. The documents are in millions and we have the document ids in the table. However there are failed notifications and due to system issue they are not even captured on the logs.**
 **Only the sent notifications are logged**
  
@@ -89,7 +89,7 @@ Enhance system observability by implementing distributed tracing to capture the 
 - Collect all the logs from all the systems that have sent out the notificationsMerge the logs into a file called "sentNotifs.log" (B), sort them by idI
 - terate over the 2 log files, and keep adding to the failed notifications, whenever A[i].id < B[j].id and increment i. If equal, increment both i, j
 
-============
+------------
 
 **There is a graph of node capabilities across various nodes. How will have to identify the throughput of the entire system through the nodes.**
 
@@ -108,7 +108,7 @@ Capacity Utilization: Calculate the utilization of each node and edge to ensure 
 Optimize: Consider restructuring the graph by redistributing loads, increasing node capacities, or adding parallel paths to improve throughput.
 Simulate: Run simulations with various input loads to observe how the system behaves and validate theoretical throughput calculations.
 
-=========
+---------
 
 **In what cases do you choose strong consistency vs eventual consistency and there are 3 scenarios**
 **a. In case of banking application where there are deposits and payments**
@@ -131,7 +131,7 @@ c. Data Analytics for Number of Viewers:
 Choose Eventual Consistency.
 Rationale: Analytics often aggregate data over time, and slight delays in consistency are acceptable. Eventual consistency allows the system to handle large volumes of data efficiently without impacting the timeliness of insights derived from the analytics.
 
-==========
+----------
 
 **Our application provides interesting analysis around stats during sporting events. This app uses third party API to fetch real time and historical data/stats. Recently, this third party API has gone fragile. How would you upgrade your system to deal with this issue?**
 
@@ -145,7 +145,7 @@ Rate Limiting and Throttling: Use rate limiting to manage the frequency of API c
 **Load Balancing and Redundancy:** If possible, use multiple third-party API providers to distribute load and provide redundancy in case one API fails.
 **Data Validation and Integrity Checks:** Implement checks to ensure the data received from the API is accurate and consistent, mitigating the impact of erroneous data.
 
-=======
+-------
 
 **Shown a graph with Cpu and ram utilisation and derive whats wrong with it**
 
@@ -166,7 +166,7 @@ To diagnose issues using a graph that shows CPU and RAM utilization, consider th
 
 By analyzing these patterns and correlations, you can identify potential issues and areas for optimization. If you have specific data or need further assistance, feel free to ask!
 
-===========
+-----------
 
 **Scnearios when threads get exhausted in a process?**
 
@@ -183,7 +183,7 @@ Threads can become exhausted in a process under several scenarios, leading to pe
 
 To mitigate these issues, consider implementing best practices such as setting thread pool limits, using non-blocking I/O operations, avoiding deadlocks through proper resource management, and monitoring thread usage and performance.
 
-=======
+-------
 
 **What would you to improve your system to process 1000 requested per second where it process 1 request for second now.**
 
@@ -200,7 +200,7 @@ Optimize Network and I/O Operations: Reduce latency by optimizing network config
 Monitoring and Auto-Scaling: Implement monitoring tools to track system performance and set up auto-scaling to dynamically adjust resources based on demand.
 By combining these strategies, you can effectively scale your system to handle the increased load while maintaining performance and reliability.
 
-==========
+----------
 
 **There are 100000 vending machines all around the world which need to update a database about maintaince activities like restocking or any technical failure. The update happens at midnight for all the machines. A batch system runs after the update and creates work orders for the maintaince task. Do you see a problem in this design?**
 
@@ -213,7 +213,7 @@ Priority-based Updates: Assign priority levels to machines based on factors like
 Rolling Updates: Use a rolling update strategy by dividing machines into smaller groups and updating each group sequentially over time.
 Event-driven Updates: Trigger updates based on specific events or conditions rather than fixed schedules.
 
-=======
+-------
 
 **There is a photo sharing application where users can upload a photo and share it using a link. There are 26 servers to store these photos. The server where a photo is stored is decided by the starting character of the user's name. For example: if the user's name is 'Sundar' the photo will go to the 19th server.1A, 2B, 3C, 4D, 5E, 6F, 7G, 8H, 9I, 10J, 11K, 12L, 13M, 14N, 15O, 16P, 17Q, 18R, 19S, 20T, 21U, 22V, 23W, 24X, 25Y, 26Z**
 
@@ -226,7 +226,7 @@ Consider using a consistent hashing technique, which distributes photos more eve
 **What parameters will you consider to calculate the cost of the database?**
 To calculate the cost of a database, consider parameters like storage capacity, data transfer rates, read/write operations, the number of database instances, backup and recovery needs, and any additional features like high availability or security
 
-==========
+----------
 
 **Any concerns with Consistent Hashing for multiple servers serving music uploading/streaming service**
 Consistent hashing is generally effective for distributing load across multiple servers. However, potential concerns include handling node failures or additions, which can cause data to be temporarily inaccessible or require rebalancing. Additionally, ensuring a uniform distribution of data can be challenging if the hash function isn't well-chosen.
