@@ -166,4 +166,6 @@ Solution
 
 -----------
 
-https://assets.leetcode.com/users/images/0dede80b-9d1e-4b60-83b5-4c4c4e0d311c_1609486472.671342.png
+![Perfect Number](https://assets.leetcode.com/users/images/0dede80b-9d1e-4b60-83b5-4c4c4e0d311c_1609486472.671342.png)
+
+
