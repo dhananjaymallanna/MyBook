@@ -116,11 +116,19 @@ Lets take a closer look at those in Concurrency Handling column and try to re-cl
 
 ![image-title-here](assets/gitbook/images/executor.webp){:class="img-responsive"}
 
+### CountDownLatch
+
+![image-title-here](assets/gitbook/images/java-concurrency/countdownlatch.svg){:class="img-responsive"}
+
+### Exchanger
+
+![image-title-here](assets/gitbook/images/java-concurrency/exchanger.svg){:class="img-responsive"}
+
+
 ### Remaining tools
 
-- CountDownLatch
+
 - CyclicBarrier
-- Exchanger
 - Executors
 - Phaser
 - Semaphore
