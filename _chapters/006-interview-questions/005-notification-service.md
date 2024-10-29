@@ -1,8 +1,10 @@
 ---
-title: Notification Service
-slug: Notification Service
-abstract: Notification Service
+title: High Level Design
+slug: High Level Design
+abstract: High Level Design 
 ---
+
+# Notification Service
 
 ## Functional Requirements:
 - Ability to Send Notifications: The first thing the system should be able to do is send notifications.
@@ -15,3 +17,7 @@ abstract: Notification Service
 - Many Clients: Moreover, it should be built in a way that it’s easy enough to add more clients.
 
 ![image-title-here](assets/gitbook/images/hld/notication.excalidraw.png){:class="img-responsive"}
+
+# Job Scheduler
+
+![image-title-here](assets/gitbook/images/hld/job.excalidraw.png){:class="img-responsive"}
