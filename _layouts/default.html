@@ -23,95 +23,74 @@
 
   </head>
   <body>
-    <div class="book">
-      {{ chapter-nav }}
-
-      <div class="book-body">
-        <div class="book-header" role="navigation">
-          {% if site.github_edit.enabled %}
-            <a
-              href="{{ site.github_edit.base_url }}{{ page.path }}"
-              target="_blank"
-              title="Edit on GitHub"
-              class="github-edit-link">
-              <i class="fa fa-github"></i>
-            </a>
-          {% endif %}
-          <h1>
-            <a href="{{site.baseurl}}/index.html">{{ site.title | escape }}</a>
-          </h1>
+    <div class="site-shell">
+      <header class="site-header">
+        <div class="site-header-inner">
+          <a class="brand" href="{{site.baseurl}}/index.html" aria-label="Uncoding home">
+            <span class="brand-mark" aria-hidden="true">U</span>
+            <span class="brand-name">Uncoding</span>
+          </a>
+          <nav class="primary-nav" aria-label="Main navigation">
+            {% for item in site.sidebar_nav_top %}
+              {% assign item_url = item.url %}
+              {% assign starts_with = item_url | slice: 0, 4 %}
+              {% if starts_with != "http" %}{% assign item_url = item_url | prepend: site.baseurl %}{% endif %}
+              <a href="{{item_url}}" {% if page.url == item.url %}aria-current="page"{% endif %}>{{item.label}}</a>
+            {% endfor %}
+          </nav>
+          <form class="site-search" id="book-search-input-inside" role="search" action="{{site.baseurl}}/search.html">
+            <label class="visually-hidden" for="site-search-input">Search Uncoding</label>
+            <input id="site-search-input" name="q" type="search" placeholder="Search topics" autocomplete="off">
+            <span class="search-shortcut" aria-hidden="true">/</span>
+          </form>
+          <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-navigation">
+            <span class="visually-hidden">Toggle navigation</span>
+            <span aria-hidden="true">Menu</span>
+          </button>
         </div>
-        <!-- .book-header -->
+        <nav class="mobile-nav" id="mobile-navigation" aria-label="Mobile navigation" hidden>
+          {% for item in site.sidebar_nav_top %}
+            {% assign item_url = item.url %}
+            {% assign starts_with = item_url | slice: 0, 4 %}
+            {% if starts_with != "http" %}{% assign item_url = item_url | prepend: site.baseurl %}{% endif %}
+            <a href="{{item_url}}">{{item.label}}</a>
+          {% endfor %}
+        </nav>
+      </header>
 
-        <div class="body-inner">
-          <div
-            class="page-wrapper"
-            tabindex="-1"
-            role="main">
-            <div class="page-inner {% if page.class %}{{ page.class }}{% endif %}">
-
-              {% include above-content.html %}
-
-              {{ content }}
-
-            </div>
-            <!-- .page-inner -->
+      <div class="page-frame {% if page.collection == 'chapters' %}has-chapter-rail{% endif %}">
+        {% if page.collection == "chapters" %}
+          <aside class="chapter-rail" id="chapter-navigation" aria-label="Chapter navigation">
+            {{ chapter-nav }}
+          </aside>
+        {% endif %}
+        <main class="site-main" id="main-content" tabindex="-1">
+          <div class="page-content {% if page.class %}{{ page.class }}{% endif %}">
+            {% include above-content.html %}
+            {{ content }}
           </div>
-          <!-- .page-wrapper -->
-        </div>
-        <!-- .body-inner -->
-        <div class="page-footer">
-          {% if site.bottom_nav %}
-            <div class="bottom-nav">
-              {% for item in site.bottom_nav %}
-                {% unless forloop.first %}
-                  -
-                {% endunless %}
-                {% assign item_url = item.url %}
-                {% assign starts_with = item_url | slice: 0, 4 %}
-                {% if starts_with != "http" %}
-                  {% assign item_url = item_url | prepend: site.baseurl %}{% endif %}
-                <a href="{{ item_url }}">
-                  {{ item.label }}
-                </a>
-              {% endfor %}
-            </div>
-          {% endif %}
-
-          {% if site.copyright %}
-            <div class="copyright">
-              {% assign latest_year = "now" | date: "%Y" %}
-              {% capture copyright_start_year %}
-                {{ site.copyright.start_year }}{% endcapture %}
-              {% if site.copyright.url %}
-                <a href="{{ site.baseurl }}{{ site.copyright.url }}">
-              {% endif %}
-              &copy;
-              {% if copyright_start_year and copyright_start_year != latest_year %}
-                {{ copyright_start_year }}-{% endif %}
-              {{ latest_year }}
-              {{ site.author }}
-              {% if site.copyright.url %}
-                </a>
-              {% endif %}
-            </div>
-          {% endif %}
-
-        </div>
-        <!-- .chapter-footer -->
-
+        </main>
       </div>
-      <!-- .book-body -->
+
+      <div class="search-overlay" id="book-search-results" data-search-index="{{site.baseurl}}/assets/search_plus_index.json" aria-live="polite">
+        {% include search.html %}
+      </div>
+
+      <footer class="site-footer">
+        <a class="footer-brand" href="{{site.baseurl}}/index.html">Uncoding</a>
+        <p>Practical notes for stronger engineering fundamentals.</p>
+        <nav aria-label="Footer navigation">
+          {% for item in site.bottom_nav %}
+            {% assign item_url = item.url %}
+            {% assign starts_with = item_url | slice: 0, 4 %}
+            {% if starts_with != "http" %}{% assign item_url = item_url | prepend: site.baseurl %}{% endif %}
+            <a href="{{item_url}}">{{item.label}}</a>
+          {% endfor %}
+        </nav>
+        <small>&copy; {{ "now" | date: "%Y" }} {{ site.author | default: "Uncoding" }}</small>
+      </footer>
     </div>
-    <!-- .book -->
 
     {%- include footer.html -%}
-
-    <script>
-      // var gitbook = gitbook || [];
-      gitbook.push(function() {
-        gitbook.page.hasChanged({%- include gitbook-metadata.json.tpl -%});
-      });
-    </script>
   </body>
 </html>
