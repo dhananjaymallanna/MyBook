@@ -2,54 +2,54 @@
 layout: page
 title: Courses
 permalink: /courses.html
+class: courses-page
 ---
 
-# Courses and growth tracks
+<div class="learning-page course-content">
+  <p class="eyebrow">Self-guided learning tracks</p>
+  <p class="learning-intro">Follow a focused route through the open library, or use a track to find the right material for your next study session.</p>
 
-Uncoding is designed around practical learning paths, not random tutorials. These are the core tracks available to help you move faster.
+  <section class="course-tracks" aria-label="Learning tracks">
+    <article class="course-track">
+      <span class="course-track-number">01</span>
+      <div><h2>Java & backend</h2><p>Build confidence with Java fundamentals and the concepts behind maintainable backend services.</p><p class="track-topics">Collections · Streams · Concurrency · Patterns</p></div>
+      <a href="/coding.html">Start Java <span aria-hidden="true">&rarr;</span></a>
+    </article>
 
-## Java interview track
+    <article class="course-track">
+      <span class="course-track-number">02</span>
+      <div><h2>System design</h2><p>Learn to shape a solution from requirements, data choices, architecture, and trade-offs.</p><p class="track-topics">Architecture · Databases · Patterns · Performance</p></div>
+      <a href="/system-design-theory.html">Start designing <span aria-hidden="true">&rarr;</span></a>
+    </article>
 
-A guided route covering:
+    <article class="course-track">
+      <span class="course-track-number">03</span>
+      <div><h2>DSA & problem solving</h2><p>Strengthen core concepts, work through problems, and turn mistakes into revision prompts.</p><p class="track-topics">Complexity · Data structures · Problems · Revision</p></div>
+      <a href="/algos-and-strategies.html">Start practicing <span aria-hidden="true">&rarr;</span></a>
+    </article>
 
-- Java fundamentals
-- collections and data structures
-- streams and functional programming
-- concurrency and multithreading
-- design patterns and practical problem solving
+    <article class="course-track">
+      <span class="course-track-number">04</span>
+      <div><h2>Interview preparation</h2><p>Bring technical study together with structured question sets and system design practice.</p><p class="track-topics">Question sets · Design prompts · Review · Practice</p></div>
+      <a href="/interview-questions.html">Explore interview prep <span aria-hidden="true">&rarr;</span></a>
+    </article>
 
-## System design track
+  </section>
 
-A structured path covering:
+  <section class="mentoring-links" aria-labelledby="mentoring-heading">
+    <div>
+      <p class="eyebrow">Personal guidance</p>
+      <h2 id="mentoring-heading">Work through your next step with a mentor.</h2>
+      <p>Book interview preparation, a mock interview, a resume review, or a free discovery call.</p>
+    </div>
+    <nav aria-label="Topmate mentoring services">
+      <a href="https://topmate.io/dnnjy/2371462" target="_blank" rel="noopener noreferrer">Free discovery call <span aria-hidden="true">↗</span></a>
+      <a href="https://topmate.io/dnnjy/2371457" target="_blank" rel="noopener noreferrer">Interview prep <span aria-hidden="true">↗</span></a>
+      <a href="https://topmate.io/dnnjy/2371458" target="_blank" rel="noopener noreferrer">Mock interview <span aria-hidden="true">↗</span></a>
+      <a href="https://topmate.io/dnnjy/2371459" target="_blank" rel="noopener noreferrer">Resume review <span aria-hidden="true">↗</span></a>
+      <a class="all-mentoring-services" href="https://topmate.io/dnnjy" target="_blank" rel="noopener noreferrer">All mentoring services <span aria-hidden="true">↗</span></a>
+    </nav>
+  </section>
 
-- scalability patterns
-- tradeoff analysis
-- database and cache choices
-- API design and service boundaries
-- resilience and failure handling
-
-## DSA and problem solving
-
-A path built around patterns and repeatable thinking:
-
-- arrays and strings
-- trees and graphs
-- recursion and backtracking
-- dynamic programming
-- greedy and heap-based approaches
-
-## Career prep accelerator
-
-For engineers who want a stronger interview process and more deliberate preparation.
-
-This includes:
-
-- revision plans
-- problem lists
-- architecture prompts
-- practice loops
-- direct interview support
-
----
-
-[Back to home](https://uncoding.in/index.html)
+  <p class="learning-next">Need a step-by-step sequence? <a href="/roadmaps.html">Use the roadmaps <span aria-hidden="true">&rarr;</span></a></p>
+</div>
