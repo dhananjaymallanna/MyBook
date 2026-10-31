@@ -1,0 +1,34 @@
+---
+title: "Design a Json Parser from scratch"
+slug: practice-030-design-a-json-parser-from-scratch
+abstract: "Data systems and storage interview practice prompt."
+---
+
+## Additional prompt details
+
+  - It is coming from untrusted source (meaning validation of json is required)
+  - the key will always be string the value can be string or another key value pair.
+  - Sample input {'abc':{'d':'ef','r':'er'}} -- map.get("abc").get("d") should return "ef".
+  - No other type i.e. integer or boolean or array in the json
+  - Validation and parsing must in done simultaneously
+  - In case of invalid json string throw exception
+
+## Functional requirements (FR)
+
+- Create, update, retrieve, and remove the records or objects described in the prompt.
+- Support the required query, index, eviction, replication, or recovery operations.
+- Define behavior for concurrent reads and writes, invalid inputs, and expired or unavailable data.
+- Expose operational state such as capacity, health, replication progress, or eviction decisions.
+
+## Non-functional requirements (NFR)
+
+- Specify consistency, durability, and recovery guarantees for each operation.
+- Set latency, throughput, memory, and storage targets for expected and peak workloads.
+- Handle hot keys, skew, resource exhaustion, and node failure without corrupting data.
+- Define backup, migration, compatibility, and observability requirements.
+
+## Principal-level discussion
+
+- Define the scale, success measures, and operational ownership before committing to an architecture.
+- Compare at least two viable approaches and explain the trade-offs, migration path, and failure behavior.
+- Identify the riskiest assumptions and how you would validate them with data or a staged rollout.
