@@ -4,6 +4,15 @@ slug: design patterns
 abstract: must know if you want to write flexible and compact code.
 ---
 
+## Functional requirements (FR)
+
+- _Add functional requirements here._
+
+## Non-functional requirements (NFR)
+
+- _Add non‑functional requirements here._
+
+
 ## Singleton Pattern
 
 The Singleton pattern ensures a class has only one instance and provides a global point of access to that instance. Here's a Mermaid script for a class diagram illustrating the Singleton pattern:

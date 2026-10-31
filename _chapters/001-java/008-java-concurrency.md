@@ -4,6 +4,15 @@ slug: Java Concurrency
 abstract: Java Concurrency
 ---
 
+## Functional requirements (FR)
+
+- _Add functional requirements here._
+
+## Non-functional requirements (NFR)
+
+- _Add non‑functional requirements here._
+
+
 ## Golden Rules
 
 1. Make it right

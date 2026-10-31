@@ -3,6 +3,15 @@ slug: Complexities
 title: Complexities
 abstract: Complexities of DSA
 ---
+
+## Functional requirements (FR)
+
+- _Add functional requirements here._
+
+## Non-functional requirements (NFR)
+
+- _Add non‑functional requirements here._
+
 ## Array Sorting Algorithms
 
 | Algorithm | Time Complexity | Space Complexity |

@@ -4,6 +4,15 @@ title: Special Data structures
 abstract: Special Data structures
 ---
 
+## Functional requirements (FR)
+
+- _Add functional requirements here._
+
+## Non-functional requirements (NFR)
+
+- _Add non‑functional requirements here._
+
+
 
 
 ### Q. Program to get K smallest numbers from a given stream of numbers

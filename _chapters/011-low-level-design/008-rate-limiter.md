@@ -4,6 +4,15 @@ slug: rate limiter
 abstract: A rate limiter, at a high-level, limits the number of events an entity (user, device, IP, etc.) canperform in a particular time window.
 ---
 
+## Functional requirements (FR)
+
+- _Add functional requirements here._
+
+## Non-functional requirements (NFR)
+
+- _Add non‑functional requirements here._
+
+
 A rate limiter, at a high-level, limits the number of events an entity
 (user, device, IP, etc.) can perform in a particular time window.
 In general, a rate limiter caps how many requests a sender can issue in a

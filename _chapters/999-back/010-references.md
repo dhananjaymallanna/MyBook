@@ -5,6 +5,15 @@ disable_toc: true
 #class: references
 ---
 
+## Functional requirements (FR)
+
+- _Add functional requirements here._
+
+## Non-functional requirements (NFR)
+
+- _Add non‑functional requirements here._
+
+
 ## References
 
 262588213843476 (n.d.). _System Design Cheatsheet_. \[online\] Gist. Available at: https://gist.github.com/vasanthk/485d1c25737e8e72759f.

@@ -3,6 +3,15 @@ title: Cloud Computing
 slug: Cloud Computing
 abstract: 
 ---
+
+## Functional requirements (FR)
+
+- _Add functional requirements here._
+
+## Non-functional requirements (NFR)
+
+- _Add non‑functional requirements here._
+
 ## What's Cloud Computing?
 
 Cloud computing is the practice of using network of remote servers hosted on the

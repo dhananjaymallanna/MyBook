@@ -4,6 +4,15 @@ slug: Counting Impressions
 abstract: Counting Impressions
 ---
 
+## Functional requirements (FR)
+
+- _Add functional requirements here._
+
+## Non-functional requirements (NFR)
+
+- _Add non‑functional requirements here._
+
+
 Design a hit counter which counts the number of hits received in the past 5 minutes (i.e., the past 300 seconds).
 
 Your system should accept a timestamp parameter (in seconds granularity), and you may assume that calls are being made to the system in chronological order (i.e., timestamp is monotonically increasing). Several hits may arrive roughly at the same time.

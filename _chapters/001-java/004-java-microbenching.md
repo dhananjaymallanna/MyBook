@@ -4,6 +4,15 @@ slug: Java Microbenching
 abstract: Java Microbenching
 ---
 
+## Functional requirements (FR)
+
+- _Add functional requirements here._
+
+## Non-functional requirements (NFR)
+
+- _Add non‑functional requirements here._
+
+
 Microbenchmarks deal with the smallest of all benchmarks, and they represent a very simple and easy-to-define metric that tracks and measures the performance of a small and specific piece of code. In contrast of benchmarking, which is the process of running a computer program to evaluate how well the runtime environment performs.
 
 Microbenchmarks are best used for tracking the following:

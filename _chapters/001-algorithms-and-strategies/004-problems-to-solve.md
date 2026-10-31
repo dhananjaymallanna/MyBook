@@ -4,6 +4,15 @@ title: Problems to solve
 abstract: Complexities of DSA
 ---
 
+## Functional requirements (FR)
+
+- _Add functional requirements here._
+
+## Non-functional requirements (NFR)
+
+- _Add non‑functional requirements here._
+
+
 
 
 

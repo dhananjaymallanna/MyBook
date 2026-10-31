@@ -4,6 +4,15 @@ slug: Splitwise
 abstract: Splitwise
 ---
 
+## Functional requirements (FR)
+
+- _Add functional requirements here._
+
+## Non-functional requirements (NFR)
+
+- _Add non‑functional requirements here._
+
+
 ![image-title-here](assets/gitbook/images/splitwise/User_structure.png){:class="img-responsive"}
 
 ![image-title-here](assets/gitbook/images/splitwise/Settlement_structure.png){:class="img-responsive"}
