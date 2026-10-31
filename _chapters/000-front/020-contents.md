@@ -13,9 +13,10 @@ class: library-page
   </p>
   <div class="library-filter-bar">
     <span class="filter-label">Quick Jump:</span>
-    <a href="#algorithms-and-strategies" class="filter-chip">DSA &amp; Patterns</a>
-    <a href="#java" class="filter-chip">Java &amp; Backend</a>
+    <a href="#system-design-practice" class="filter-chip">Design Drills (L6+)</a>
     <a href="#system-design" class="filter-chip">System Design</a>
+    <a href="#java" class="filter-chip">Java &amp; Backend</a>
+    <a href="#algorithms-and-strategies" class="filter-chip">DSA &amp; Patterns</a>
     <a href="#low-level-design" class="filter-chip">Low-Level Design</a>
     <a href="#spring" class="filter-chip">Spring Framework</a>
     <a href="#dbms" class="filter-chip">Databases</a>

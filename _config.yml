@@ -86,6 +86,8 @@ bottom_nav:
   url: /index.html
 - label: Paths
   url: /roadmaps.html
+- label: Design drills
+  url: /system-design-practice.html
 - label: Tracks
   url: /courses.html
 - label: Library

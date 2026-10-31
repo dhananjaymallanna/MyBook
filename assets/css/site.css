@@ -2593,3 +2593,153 @@ input {
     gap: 12px;
   }
 }
+
+/* System Design Drills Hub Styles */
+.page-frame:has(.system-design-practice-page) .site-main {
+  width: 100%;
+  max-width: 1140px;
+}
+
+.drill-hero {
+  background: linear-gradient(135deg, #ffffff 0%, #f4f8f5 100%);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: clamp(28px, 4vw, 44px);
+  margin-bottom: 40px;
+  box-shadow: 0 10px 30px rgba(23, 39, 43, 0.03);
+}
+
+.drill-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font: 700 10px/1.2 "DM Mono", monospace;
+  color: var(--coral);
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+
+.drill-hero-title {
+  font-size: clamp(32px, 4.5vw, 46px);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--ink);
+  margin: 0 0 14px;
+  letter-spacing: -0.02em;
+}
+
+.drill-hero-intro {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--muted);
+  max-width: 740px;
+  margin: 0 0 24px;
+}
+
+.drill-meta-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.drill-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.drill-stat-num {
+  font: 800 20px/1 "Manrope", sans-serif;
+  color: var(--green);
+}
+
+.drill-stat-label {
+  font: 600 11px/1.2 "DM Mono", monospace;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.drill-section {
+  margin-bottom: 48px;
+}
+
+.drill-section-header {
+  margin-bottom: 20px;
+}
+
+.drill-section-header h2 {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--ink);
+  margin: 4px 0 6px;
+}
+
+.drill-section-header p {
+  color: var(--muted);
+  margin: 0;
+  font-size: 14px;
+}
+
+.drill-methodology {
+  margin-top: 50px;
+}
+
+.methodology-card {
+  background: linear-gradient(135deg, #17272b 0%, #153935 100%);
+  border-radius: 18px;
+  padding: clamp(28px, 4vw, 40px);
+  color: #ffffff;
+  box-shadow: 0 18px 44px rgba(23, 39, 43, 0.12);
+}
+
+.methodology-card .eyebrow {
+  color: var(--yellow);
+}
+
+.methodology-card h2 {
+  color: #ffffff;
+  font-size: clamp(24px, 3.5vw, 32px);
+  margin: 6px 0 20px;
+}
+
+.methodology-steps {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #d1dfdb;
+  margin-bottom: 28px;
+}
+
+.methodology-steps strong {
+  color: #ffffff;
+}
+
+.methodology-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.methodology-actions .studio-action-primary {
+  background: var(--coral);
+  color: #ffffff;
+}
+
+.methodology-actions .studio-action-primary:hover {
+  background: #db5a3d;
+}
+
+.methodology-actions .studio-action-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.methodology-actions .studio-action-secondary:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
