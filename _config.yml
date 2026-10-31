@@ -56,48 +56,40 @@ baseurl:       # place folder name if the site is served in a subfolder
 # Navigation menus
 #
 
-# Breadcrumbs for book contents.
-# The book and contents pages need to be made manually.
-# All "url" variables should have a leading slash.
-
 favicon_path: assets/gitbook/images/blob.png
 
-bookcrumbs:
-  book_url: /book.html
-  contents_url: /contents.html
-  book_icon: assets/gitbook/images/blob.png
-
-# Links shown above the TOC in the sidebar
-# All "url" variables should have a leading slash.
+# Primary navigation menus
 sidebar_nav_top:
-- label: Home
+- label: Start
   url: /index.html
-- label: Roadmaps
+- label: Paths
   url: /roadmaps.html
-- label: Courses
+- label: Design drills
+  url: /system-design-practice.html
+- label: Tracks
   url: /courses.html
+- label: Library
+  url: /contents.html
 - label: Pricing
   url: /pricing.html
 - label: About
   url: /about/
-- label: Search
-  url: /search.html
 
-# Links shown below the TOC in the sidebar
-# All "url" variables should have a leading slash.
 sidebar_nav_bottom:
 - label: GitHub
   url: https://github.com/dhananjaymallanna/MyBook
 - label: Fork at GitHub
   url: https://github.com/dhananjaymallanna/MyBook/fork
 
-# Navigation shown at the bottom of the page
-# All "url" variables should have a leading slash.
 bottom_nav:
-- label: Home
+- label: Start
   url: /index.html
-- label: Roadmaps
+- label: Paths
   url: /roadmaps.html
+- label: Tracks
+  url: /courses.html
+- label: Library
+  url: /contents.html
 - label: Pricing
   url: /pricing.html
 - label: About

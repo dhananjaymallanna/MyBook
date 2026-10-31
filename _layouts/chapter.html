@@ -4,189 +4,105 @@ layout: default
 
 {% include build-chapter-nav.html %}
 
-{% if page_chapter_is_draft %}
-  <div class="draft-notice">
-    Draft chapter
-  </div>
-{% endif %}
-
-<button class="chapter-rail-toggle" type="button" aria-expanded="false" aria-controls="chapter-navigation" hidden>
-  <span aria-hidden="true">☷</span> Chapters
-</button>
-
-  <nav aria-label="Breadcrumb" class="breadcrumbs">
-    <ol>
-      {% if site.bookcrumbs.book_url %}
-        {% capture book_url %}{{site.baseurl}}{{site.bookcrumbs.book_url}}{% endcapture %}
-          <li>
-            {% unless book_url == page.url %}  
-              <a href="{{ book_url }}">
-            {% endunless %}
-              Library
-            {% unless book_url == page.url %}
-              </a>
-            {% endunless %}
-          </li>
+<article class="guide-article">
+  <header class="guide-header">
+    <div class="guide-header-meta">
+      {% if page_part_label %}
+        {% if page_part_index_chapter %}
+          <a class="guide-track-pill" href="{{site.baseurl}}{{ page_part_index_chapter.url }}">
+            <span class="pill-dot" aria-hidden="true"></span> {{ page_part_label | upcase }}
+          </a>
+        {% else %}
+          <span class="guide-track-pill">
+            <span class="pill-dot" aria-hidden="true"></span> {{ page_part_label | upcase }}
+          </span>
+        {% endif %}
       {% endif %}
 
-      {% if site.bookcrumbs.contents_url %}
-        {% capture contents_url %}{{site.baseurl}}{{site.bookcrumbs.contents_url}}{% endcapture %}
-        <li {% if contents_url == page.url %}class="no-arrow"{% endif %}>
-          {% if contents_url != page.url %}
-            <a href="{{ contents_url }}">
-          {% endif %}
-            Contents
-          {% if contents_url != page.url %}
-            </a>
-          {% endif %}
-        </li>
-      {% endif %}
+      <span class="guide-read-meta">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        {{ content | strip_html | number_of_words | divided_by: 180 | plus: 1 }} min read
+      </span>
 
-      {% if page_chapter_is_part_index and page_part_num%}
-        <li class="breadcrumb-part no-arrow">
-          Part {{ page_part_num }}:
-        </li>
-      {% endif %}
-
-      {% if page_chapter and page_chapter_is_part_index != true %}
-        {% unless page_part_unnumbered and page_chapter_num == nil %}
-
-          {% if page_part_folder %}
-            {% unless page_part_unnumbered %}
-              <li class="breadcrumb-part">
-                {% if page_part_index_chapter %}
-                  <a href="{{ site.baseurl }}{{ page_part_index_chapter.url }}">
-                {% endif %}
-                Part {{ page_part_num }}: {{ page_part_label }}
-                {% if page_part_index_chapter %}
-                  </a>
-                {% endif %}
-              </li>
-            {% endunless %}
-          {% endif %}
-
-          {% if page_chapter_num %}
-            <li class="no-arrow">
-              Chapter {{ page_chapter_num }}.
-            </li>
-          {% endif %}
-
-        {% endunless %}
-      {% endif %}
-    </ol>
-  </nav>
-{% if page_chapter_is_part_index %}
-
-  {% if page_part_num or page_part_label %}
-      <h1 class="page-title chapter-title heading-part">
-        {{ page_part_label | escape }}
-      </h1>
-  {% endif %}
-{% else %}
-  {% if page.title %}
-    <h1
-      id="{{ page.slug }}"
-      data-level="1.1"
-      class="page-title chapter-title">{{ page.title | escape }}</h1>
-  {% endif %}
-{% endif %}
-
-<section class="article-content markdown-section">
-
-  {% if page.abstract %}
-    <div class="chapter-abstract">
-      {{ page.abstract }}
+      <a class="guide-library-pill" href="{{site.baseurl}}/contents.html">
+        Library &rarr;
+      </a>
     </div>
-  {% endif %}
+
+    {% if page.title %}
+      <h1 class="guide-main-title" id="{{ page.slug }}">{{ page.title | escape }}</h1>
+    {% endif %}
+
+    {% if page.abstract and page.abstract != "" %}
+      <p class="guide-main-abstract">{{ page.abstract }}</p>
+    {% endif %}
+  </header>
 
   {% if site.in_chapter_toc.enabled and page.disable_toc != true and page_chapter_is_part_index != true %}
     {% capture in_chapter_toc %}
-      {% include toc.html html=content h_min=site.sidebar_toc.h_min h_max=site.sidebar_toc.h_max %}{% endcapture %}
+      {% include toc.html html=content h_min=site.sidebar_toc.h_min h_max=site.sidebar_toc.h_max %}
+    {% endcapture %}
     {% capture in_chapter_toc %}{{ in_chapter_toc | strip }}{% endcapture %}
 
     {% if in_chapter_toc and in_chapter_toc != "" %}
-      <div class="page-toc">
-        <div class="page-toc-heading">
-          In this chapter:
-          {{ in_chapter_toc }}
-        </div>
-      </div>
+      <nav class="guide-toc-box" aria-label="On this page">
+        <span class="toc-box-heading">On this page</span>
+        {{ in_chapter_toc }}
+      </nav>
     {% endif %}
   {% endif %}
 
-  {{ content }}
+  <section class="article-content markdown-section">
+    {{ content }}
+  </section>
 
-  {% comment %}{% include chapter-iterate-vars.html inspect="page" %}{% endcomment %}
-</section>
+  {% include below-content.html %}
 
-{% include below-content.html %}
+  {% if page_prev_chapter or page_next_chapter %}
+    <footer class="guide-footer-nav" aria-label="Explore more topics">
+      {% if page_next_chapter %}
+        {% if page_next_chapter_is_part_index %}
+          {% assign next_title = page_next_part_label %}
+        {% else %}
+          {% assign next_title = page_next_chapter.title %}
+        {% endif %}
 
-{% if page_prev_chapter or page_next_chapter %}
-  <nav class="chapter-pager" aria-label="Chapter navigation">
-
-    {% if page_next_chapter %}
-      {% if page_next_chapter_is_part_index %}
-        {% assign next_title = page_next_part_label %}
-      {% else %}
-        {% assign next_title = page_next_chapter.title %}
-      {% endif %}
-      <a
-        href="{{site.baseurl}}{{ page_next_chapter.url }}"
-        class="chapter-next {% unless page_prev_chapter %}pager-unique{% endunless %}"
-        aria-label="Next page: {{ next_title | escape }}"
-        data-level="1.1"
-        data-path="{{site.baseurl}}{{ page_next_chapter.url }}">
-        <div class="pager-labels">
-          <div class="part">
-            Next chapter
-            {% if page_next_chapter_is_part_index %}
-              Part {{ page_next_part_num }}.
-            {% else %}
-              {% if page_next_part_label %}
-                {{ page_next_part_label }}
-                {% if page_next_chapter_num %} &#8250;{% endif %}
-              {% endif %}
-              {% if page_next_chapter_num %}Chapter {{ page_next_chapter_num }}.{% endif %}
-            {% endif %}
-          </div>
-          <div class="chapter-label">
-            {{ next_title | escape }}
-          </div>
+        <div class="guide-recommendation-box">
+          <div class="recommendation-kicker">UP NEXT IN {{ page_part_label | default: "TRACK" | upcase }}</div>
+          <h3 class="recommendation-title">{{ next_title | escape }}</h3>
+          {% if page_next_chapter.abstract and page_next_chapter.abstract != "" %}
+            <p class="recommendation-desc">{{ page_next_chapter.abstract }}</p>
+          {% endif %}
+          <a class="recommendation-btn" href="{{site.baseurl}}{{ page_next_chapter.url }}">
+            Read next guide <span aria-hidden="true">&rarr;</span>
+          </a>
         </div>
-      </a>
-    {% endif %}
-
-    {% if page_prev_chapter %}
-      {% if page_prev_chapter_is_part_index %}
-        {% assign prev_title = page_prev_part_label %}
-      {% else %}
-        {% assign prev_title = page_prev_chapter.title %}
       {% endif %}
-      <a
-        href="{{site.baseurl}}{{ page_prev_chapter.url }}"
-        class="chapter-prev {% unless page_next_chapter %}pager-unique{% endunless %}"
-        aria-label="Previous page: {{ prev_title | escape }}"
-        data-level="1.1"
-        data-path="{{site.baseurl}}{{ page_prev_chapter.url }}">
-        <div class="pager-labels">
-          <div class="part">
-            Previous chapter
-            {% if page_prev_chapter_is_part_index %}
-              Part {{ page_prev_part_num }}.
-            {% else %}
-              {% if page_prev_part_label %}
-                {{ page_prev_part_label }}
-                {% if page_prev_chapter_num %}&#8250;{% endif %}
-              {% endif %}
-              {% if page_prev_chapter_num %}Chapter {{ page_prev_chapter_num }}.{% endif %}
-            {% endif %}
-          </div>
-          <div class="chapter-label">
-            {{ prev_title | escape }}
-          </div>
-        </div>
-      </a>
-    {% endif %}
 
-  </nav>
-{% endif %}
+      <div class="guide-subnav-strip">
+        {% if page_prev_chapter %}
+          {% if page_prev_chapter_is_part_index %}
+            {% assign prev_title = page_prev_part_label %}
+          {% else %}
+            {% assign prev_title = page_prev_chapter.title %}
+          {% endif %}
+          <a class="subnav-prev-link" href="{{site.baseurl}}{{ page_prev_chapter.url }}">
+            <span aria-hidden="true">&larr;</span> {{ prev_title | escape }}
+          </a>
+        {% else %}
+          <span></span>
+        {% endif %}
+
+        {% if page_part_index_chapter %}
+          <a class="subnav-hub-link" href="{{site.baseurl}}{{ page_part_index_chapter.url }}">
+            All {{ page_part_label }} guides <span aria-hidden="true">&rarr;</span>
+          </a>
+        {% else %}
+          <a class="subnav-hub-link" href="{{site.baseurl}}/contents.html">
+            Knowledge Library <span aria-hidden="true">&rarr;</span>
+          </a>
+        {% endif %}
+      </div>
+    </footer>
+  {% endif %}
+</article>

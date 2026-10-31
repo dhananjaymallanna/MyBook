@@ -51,7 +51,7 @@ Both Product and ConcreteProduct are the products created by the factory method.
 
 ## Abstract Factory Pattern
 
-The Abstract Factory pattern provides an interface for creating families of related or dependent objects without specifying their concrete classes. 
+The Abstract Factory pattern provides an interface for creating families of related or dependent objects without specifying their concrete classes.
 
 ```mermaid!
 %%{init: {'theme':'forest',"messageAlign": "center","flowchart": { 'useMaxWidth':false,
@@ -65,7 +65,7 @@ classDiagram
     }
     ConcreteFactory1 <|-- AbstractFactory
     ConcreteFactory2 <|-- AbstractFactory
-    class AbstractProductA 
+    class AbstractProductA
     ConcreteProductA1 <|-- AbstractProductA
     ConcreteProductA2 <|-- AbstractProductA
     class AbstractProductB
@@ -129,5 +129,3 @@ The Prototype interface declares a method for cloning the object.
 ConcretePrototype1 and ConcretePrototype2 are concrete classes that implement the Prototype interface, providing their own cloning behavior.
 
 These class diagrams visually represent the structure and relationships of each creational design pattern, providing a clear understanding of their implementations.
-
-[<img src="https://img.youtube.com/vi/m8Qc0pvMAhw/hqdefault.jpg" width="485" height="150"/>](https://www.youtube.com/embed/m8Qc0pvMAhw)

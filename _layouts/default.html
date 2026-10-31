@@ -58,14 +58,24 @@
         </nav>
       </header>
 
-      <div class="page-frame {% if page.collection == 'chapters' %}has-chapter-rail{% endif %}">
-        {% if page.collection == "chapters" %}
-          <aside class="chapter-rail" id="chapter-navigation" aria-label="Chapter navigation">
-            {{ chapter-nav }}
-          </aside>
-        {% endif %}
+      <div class="page-frame{% if page.class == 'studio-home-page' %} page-frame-studio{% endif %}">
         <main class="site-main" id="main-content" tabindex="-1">
           <div class="page-content {% if page.class %}{{ page.class }}{% endif %}">
+            {% if page.collection == "chapters" and page.layout != "part" and page.slug != "contents" %}
+              <nav class="guide-breadcrumbs" aria-label="Breadcrumb">
+                <a href="{{site.baseurl}}/">Start</a>
+                <span class="crumb-sep" aria-hidden="true">/</span>
+                {% if page_part_label %}
+                  {% if page_part_index_chapter %}
+                    <a href="{{site.baseurl}}{{page_part_index_chapter.url}}">{{ page_part_label }}</a>
+                  {% else %}
+                    <span>{{ page_part_label }}</span>
+                  {% endif %}
+                  <span class="crumb-sep" aria-hidden="true">/</span>
+                {% endif %}
+                <span class="crumb-current" aria-current="page">{{ page.title | default: "Guide" }}</span>
+              </nav>
+            {% endif %}
             {% include above-content.html %}
             {{ content }}
           </div>
@@ -78,7 +88,7 @@
 
       <footer class="site-footer">
         <a class="footer-brand" href="{{site.baseurl}}/index.html">Uncoding</a>
-        <p>Practical notes for stronger engineering fundamentals.</p>
+        <p>Engineering practice for real-world decisions.</p>
         <nav aria-label="Footer navigation">
           {% for item in site.bottom_nav %}
             {% assign item_url = item.url %}

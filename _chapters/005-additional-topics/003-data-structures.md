@@ -1,13 +1,10 @@
 ---
-title: DS Collection
+title: OAuth2 flow diagrams
 slug: DS Collection
-abstract: DS Collection
+abstract: OAuth2 authorization and token exchange flows.
 ---
 
-[<img src="https://img.youtube.com/vi/EEb6JP3NXBI/hqdefault.jpg" width="185" height="150"/>](https://www.youtube.com/embed/EEb6JP3NXBI)
-
-OAuth2 
-
+OAuth2
 
 ```mermaid!
 graph TD;
@@ -15,8 +12,7 @@ graph TD;
     A-->C;
     B-->D;
     C-->D;
-```  
-
+```
 
 ```mermaid!
 graph LR;
@@ -26,5 +22,3 @@ A[Client Application]-->|1. Initiate Authorization Flow| B[OAuth2 Provider];
      A -->|4. Token Exchange $ Authorization Code $| B;
     B -->|5. Access Token $ Authorized Requests $| A;
 ```
-
-

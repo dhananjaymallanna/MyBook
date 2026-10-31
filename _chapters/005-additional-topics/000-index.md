@@ -1,5 +1,4 @@
 ---
 layout: part
-slug: Interesting vedios collection
+slug: Additional Topics
 ---
-

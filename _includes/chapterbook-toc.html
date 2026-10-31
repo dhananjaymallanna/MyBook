@@ -1,73 +1,137 @@
-<ul class="toc-chapters-full {% if include.part %}part{% endif %} {% if include.show_drafts %}show-drafts{% endif %}">
+{% include chapter-iterate-init.html %}
+{% assign track_guide_index = 0 %}
+{% assign in_grid = false %}
 
-  {% include chapter-iterate-init.html %}
+{% if include.part %}
+<div class="track-guides-grid">
+{% for i in (0..site.chapters.size) %}
+{% if i_chapter.id == page.id %}
+{% include chapter-iterate-next.html %}
+{% continue %}
+{% endif %}
 
-  {% for i in (0..site.chapters.size) %}
+{% if include.part != i_part_folder %}
+{% include chapter-iterate-next.html %}
+{% continue %}
+{% endif %}
 
-    {% if i_chapter.id == page.id %}
-      {% include chapter-iterate-next.html %}
-      {% continue %}
-    {% endif %}
+{% unless i_chapter_is_visible %}
+{% unless include.show_drafts and i_chapter_is_draft %}
+{% include chapter-iterate-next.html %}
+{% continue %}
+{% endunless %}
+{% endunless %}
 
-    {% if include.part and include.part != i_part_folder %}
-      {% include chapter-iterate-next.html %}
-      {% continue %}
-    {% endif %}
+{% unless i_chapter_is_part_index %}
+{% assign track_guide_index = track_guide_index | plus: 1 %}
+<article class="guide-card">
+<div class="guide-card-top">
+<span class="guide-card-number">{% if track_guide_index < 10 %}0{% endif %}{{ track_guide_index }}</span>
+<span class="guide-card-badge">Guide</span>
+</div>
+<h3 class="guide-card-title">
+<a href="{{site.baseurl}}{{ i_chapter.url }}">{{ i_chapter.title | escape }}</a>
+</h3>
+<p class="guide-card-desc">
+{% if i_chapter.abstract and i_chapter.abstract != "" %}
+{{ i_chapter.abstract | escape }}
+{% else %}
+In-depth engineering notes, core patterns, and practical trade-offs.
+{% endif %}
+</p>
+<div class="guide-card-action">
+<a class="guide-card-link" href="{{site.baseurl}}{{ i_chapter.url }}">
+Read guide <span aria-hidden="true">&rarr;</span>
+</a>
+</div>
+</article>
+{% endunless %}
 
-    {% assign _is_new_part = false %}
-      {% if i_part_folder != i_prev_part_folder %}
-      {% assign _is_new_part = true %}
-    {% endif %}
+{% include chapter-iterate-next.html %}
+{% endfor %}
+</div>
 
-    {% if _is_new_part and _in_nested_part %}
-      </ul></li>
-      {% assign _in_nested_part = true %}
-    {% endif %}
+{% else %}
 
-    {% unless i_chapter_is_visible %}
-      {% unless include.show_drafts and i_chapter_is_draft %}
-        {% include chapter-iterate-next.html %}
-        {% continue %}
-      {% endunless %}
-    {% endunless %}
+{% for i in (0..site.chapters.size) %}
+{% if i_chapter.id == page.id %}
+{% include chapter-iterate-next.html %}
+{% continue %}
+{% endif %}
 
-    {% if _is_new_part and i_part_label %}
-      <li class="part">
-        <div class="part-label">
-          {% if i_chapter_is_part_index %}
-            <a href="{{site.baseurl}}{{i_chapter.url}}">
-          {% endif %}
-          Part {{ i_part_num }}: {{ i_part_label }}
-          {% if i_chapter_is_part_index %}
-            </a>
-          {% endif %}
-        </div>
-        <ul>
-      {% assign _in_nested_part = true %}
-    {% endif %}
+{% assign _is_new_part = false %}
+{% if i_part_folder != i_prev_part_folder %}
+{% assign _is_new_part = true %}
+{% endif %}
 
-    {% unless i_chapter_is_part_index %}
-      <li class="chapter {% if include.show_drafts %}{% if i_chapter_is_draft %}draft{% else %}not-draft{% endif %}{% endif %}">
-        <a href="{{site.baseurl}}{{ i_chapter.url }}">
-          <div class="chapter-label">
-            {% unless i_part_unnumbered %}
-              <span class="chapter-num">Chapter {{ i_chapter_num }}.</span>
-            {% endunless %}
-            {{ i_chapter.title | escape }}
-          </div>
-          {% if i_chapter.abstract %}
-          <div class="abstract">
-            {{ i_chapter.abstract }}
-          </div>
-          {% endif %}
-        </a>
-      </li>
-   {% endunless %}
+{% if _is_new_part and in_grid %}
+</div>
+</section>
+{% assign in_grid = false %}
+{% assign track_guide_index = 0 %}
+{% endif %}
 
-    {% include chapter-iterate-next.html %}
-  {% endfor %}
+{% unless i_chapter_is_visible %}
+{% unless include.show_drafts and i_chapter_is_draft %}
+{% include chapter-iterate-next.html %}
+{% continue %}
+{% endunless %}
+{% endunless %}
 
-  {% if _in_nested_part %}
-    </ul>
-    {% assign _in_nested_part = true %}
-  {% endif %}
+{% unless i_part_label %}
+{% include chapter-iterate-next.html %}
+{% continue %}
+{% endunless %}
+
+{% if _is_new_part and i_part_label %}
+{% assign track_anchor = i_part_folder | split: "-" | shift | join: "-" | downcase %}
+<section class="library-track-section" id="{{ track_anchor }}">
+<div class="library-track-header">
+<div class="library-track-title-wrap">
+<span class="library-track-kicker">TECHNICAL TRACK</span>
+<h2 class="library-track-title">{{ i_part_label }}</h2>
+</div>
+{% if i_part_index_chapter %}
+<a class="library-track-hub-link" href="{{site.baseurl}}{{ i_part_index_chapter.url }}">
+Track overview <span aria-hidden="true">&rarr;</span>
+</a>
+{% endif %}
+</div>
+<div class="track-guides-grid">
+{% assign in_grid = true %}
+{% endif %}
+
+{% unless i_chapter_is_part_index %}
+{% assign track_guide_index = track_guide_index | plus: 1 %}
+<article class="guide-card">
+<div class="guide-card-top">
+<span class="guide-card-number">{% if track_guide_index < 10 %}0{% endif %}{{ track_guide_index }}</span>
+<span class="guide-card-badge">{{ i_part_label }}</span>
+</div>
+<h3 class="guide-card-title">
+<a href="{{site.baseurl}}{{ i_chapter.url }}">{{ i_chapter.title | escape }}</a>
+</h3>
+<p class="guide-card-desc">
+{% if i_chapter.abstract and i_chapter.abstract != "" %}
+{{ i_chapter.abstract | escape }}
+{% else %}
+In-depth engineering notes, core patterns, and practical trade-offs.
+{% endif %}
+</p>
+<div class="guide-card-action">
+<a class="guide-card-link" href="{{site.baseurl}}{{ i_chapter.url }}">
+Read guide <span aria-hidden="true">&rarr;</span>
+</a>
+</div>
+</article>
+{% endunless %}
+
+{% include chapter-iterate-next.html %}
+{% endfor %}
+
+{% if in_grid %}
+</div>
+</section>
+{% endif %}
+
+{% endif %}

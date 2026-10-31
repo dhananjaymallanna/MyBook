@@ -9,19 +9,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchQuery = searchOverlay?.querySelector(".search-query");
   const searchTitle = searchOverlay?.querySelector(".has-results .search-results-title");
   const noResultsTitle = searchOverlay?.querySelector(".no-results .search-results-title");
-  const chapterRail = document.querySelector(".chapter-rail");
-  const chapterToggle = document.querySelector(".chapter-rail-toggle");
   let searchIndex;
 
   mobileToggle?.addEventListener("click", () => {
     const isExpanded = mobileToggle.getAttribute("aria-expanded") === "true";
     mobileToggle.setAttribute("aria-expanded", String(!isExpanded));
     mobileNavigation.hidden = isExpanded;
-  });
-
-  chapterToggle?.addEventListener("click", () => {
-    const isOpen = document.body.classList.toggle("chapter-rail-open");
-    chapterToggle.setAttribute("aria-expanded", String(isOpen));
   });
 
   mobileNavigation?.querySelectorAll("a").forEach((link) => {
@@ -109,8 +102,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (event.key === "Escape") {
-      document.body.classList.remove("chapter-rail-open");
-      chapterToggle?.setAttribute("aria-expanded", "false");
       if (mobileNavigation) mobileNavigation.hidden = true;
       mobileToggle?.setAttribute("aria-expanded", "false");
       searchInput?.blur();
@@ -118,7 +109,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  if (chapterRail && chapterToggle) {
-    chapterToggle.hidden = false;
-  }
 });

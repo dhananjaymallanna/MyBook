@@ -1,16 +1,55 @@
 ---
-layout: chapter
+layout: default
 ---
 
-<div class="part-index">
-  <section class="normal markdown-section">
-    {{ content }}
+{% include build-chapter-nav.html %}
+{% include chapter-vars.html id=page.id %}
+
+<div class="track-hub">
+  <header class="track-hero">
+    <div class="track-hero-eyebrow">
+      <span class="status-dot" aria-hidden="true"></span> TECHNICAL TRACK &bull; ENGINEERING DEPTH
+    </div>
+    <h1 class="track-hero-title">{{ page_part_label | default: page.title }}</h1>
+    <p class="track-hero-intro">
+      {% if page.abstract and page.abstract != "" %}
+        {{ page.abstract }}
+      {% else %}
+        A structured collection of guides, architectural principles, and deep dives for mastering {{ page_part_label | default: page.title }}.
+      {% endif %}
+    </p>
+    <div class="track-hero-actions">
+      <a class="track-action-primary" href="#track-guides">Explore guides &darr;</a>
+      <a class="track-action-secondary" href="{{site.baseurl}}/roadmaps.html">Learning paths &rarr;</a>
+      <a class="track-action-secondary" href="{{site.baseurl}}/contents.html">All topics &rarr;</a>
+    </div>
+  </header>
+
+  {% if content and content != "" and content != "\n" %}
+    <section class="track-content markdown-section">
+      {{ content }}
+    </section>
+  {% endif %}
+
+  <section class="track-guides-section" id="track-guides">
+    <div class="track-section-heading">
+      <span class="eyebrow">Curated Guides</span>
+      <h2>Core Topics &amp; Reference Material</h2>
+    </div>
+
+    {% if part_folder %}
+      {% include chapterbook-toc.html part=part_folder %}
+    {% endif %}
   </section>
 
-  {% include chapter-vars.html id=page.id %}
-
-  {% if part_folder %}
-    {% include chapterbook-toc.html part=part_folder %}
-  {% endif %}
+  <section class="track-next-steps">
+    <div class="track-next-card">
+      <div>
+        <span class="eyebrow">Need a full learning sequence?</span>
+        <h3>Follow a step-by-step roadmap</h3>
+        <p>Our roadmaps map out prerequisites, order of study, and practical interview questions.</p>
+      </div>
+      <a class="track-action-primary" href="{{site.baseurl}}/roadmaps.html">View roadmaps &rarr;</a>
+    </div>
+  </section>
 </div>
-
